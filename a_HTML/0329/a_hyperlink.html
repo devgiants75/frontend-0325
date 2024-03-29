@@ -29,8 +29,8 @@
   <!--  
     절대 경로 (해당 사이트의 웹 주소 전체를 가져옴)
   -->
-  <h2>Absolute URLs</h2>
-  <p><a href="https://www.w3.org">W3C</a></p>
+  <h2 id="heading2">Absolute URLs</h2>
+  <p id="w3c"><a href="https://www.w3.org">W3C</a></p>
   <p><a href="https://www.google.com">Google</a></p>
 
   <!--  
@@ -67,6 +67,20 @@
   
   <!--  
     현재 문서나 이메일로의 링크
+    
+    1. 현재 문서 내에서의 이동
+    : 현재 문서 내에서 id속성으로 지정된 요소로의 이동
+    href="#id속성명"
+
+    2. 이메일로의 링크
+    : 이메일 주소로의 연결
+    href="mailto:연결할이메일주소작성"
   -->
+
+  <a href="#heading2">Heading2 태그로의 이동</a>
+  <br /> 
+  <a href="#w3c">W3C 페이지 링크로 이동</a>
+  <br />
+  <a href="mailto:devgiants75@naver.com">devgiants75로 이메일 보내기</a>
 </body>
 </html>
