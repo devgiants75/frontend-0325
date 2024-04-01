@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a_hyperlink.html</title>
+</head>
+<body>
+  <!--  
+    절대경로 VS 상대경로
+
+    a태그 - href 속성: 연결할 문서의 수신처 작성
+
+    1. 절대경로
+      : 인터넷 상에서의 완전한 경로를 포함
+      : 전체 URL을 명시
+      장점) (웹 문서의)위치에 상관없이 항상 동일한 리소스(값)을 가짐
+            '외부 사이트'로의 링크를 생성할 때 필수적
+
+      단점) 웹 사이트가 이동하거나 구조가 바뀔 경우 업데이트가 필수
+
+    2. 상대경로
+      : 현재 문서 위치를 기준으로 리소스(값)의 위치를 지정
+      : 웹 사이트 내부에서 다른 문서나 리소스로의 링크를 생성할 때 주로 사용
+      : 현재 문서의 URL을 기준으로 계산
+        , 디렉토리(폴더) 구조 내에서 상대적인 위치를 통해 지정
+  -->
+
+  <!--  
+    절대 경로 (해당 사이트의 웹 주소 전체를 가져옴)
+  -->
+  <h2 id="heading2">Absolute URLs</h2>
+  <p id="w3c"><a href="https://www.w3.org">W3C</a></p>
+  <p><a href="https://www.google.com">Google</a></p>
+
+  <!--  
+    상대 경로
+
+    디렉토리(폴더)
+    - 같은(현재) 디렉토리에 있는 파일
+      : ./파일명을 사용해 표현
+      : 현재 디렉토리의 경우 생략이 가능
+
+    - 상위 디렉토리에 있는 파일
+      : ../파일명을 사용해 표현
+      : 현재 디렉토리의 부모 디렉토리, 한 단계 상위 디렉토리를 표현
+
+    - 하위 디렉토리에 있는 파일
+      : ./subdirectory/파일명
+  -->
+  <p><a href="../상위.jpg">상위 디렉토리 이미지링크</a></p>
+
+  <p><a href="./현재.jpg">
+    현재 디렉토리 이미지링크
+  </a></p>
+  <!-- 줄 복사: alt + shift + 방향키 -->
+  <p><a href="현재.jpg">
+    현재 디렉토리 이미지링크
+  </a></p>
+
+  <p><a href="subdirectory/하위.jpg">하위 디렉토리 이미지링크</a></p>
+
+  <p><a href="../../index.html">Root 페이지</a></p>
+
+  <!-- 자동 완성: ctrl + space -->
+  <p><a href="../0328/a_text.html">0328 폴더의 a_text.html 파일</a></p>
+  
+  <!--  
+    현재 문서나 이메일로의 링크
+    
+    1. 현재 문서 내에서의 이동
+    : 현재 문서 내에서 id속성으로 지정된 요소로의 이동
+    href="#id속성명"
+
+    2. 이메일로의 링크
+    : 이메일 주소로의 연결
+    href="mailto:연결할이메일주소작성"
+  -->
+
+  <a href="#heading2">Heading2 태그로의 이동</a>
+  <br /> 
+  <a href="#w3c">W3C 페이지 링크로 이동</a>
+  <br />
+  <a href="mailto:devgiants75@naver.com">devgiants75로 이메일 보내기</a>
+</body>
+</html>
