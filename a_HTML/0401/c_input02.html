@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>c_input02.html</title>
+</head>
+<body>
+  <!--  
+    submit & reset 속성값
+
+    input 태그의 다양한 속성값들과
+    전송/리셋 버튼 사용 예제
+  -->
+  <h1>롯데 자이언츠 유니폼 주문하기</h1>
+  <div id="container" style="width: 500px;">
+    <form action="">
+      <fieldset>
+        <legend>배송 정보</legend>
+        <ul>
+          <li>
+            <label for="name">이름</label>
+            <input type="text" id="name" />
+          </li>
+          <li>
+            <label for="address">주소</label>
+            <input type="text" id="address" />
+          </li>
+          <li>
+            <label for="email">이메일</label>
+            <input type="email" id="email" />
+          </li>
+          <li>
+            <label for="phone">전화번호</label>
+            <input type="tel" id="phone" />
+          </li>
+          <li>
+            <!-- 
+              type - date속성값 (날짜 선택란)  
+            -->
+            <label for="day">배송 지정</label>
+            <input type="date" id="day" />
+          </li>
+          <li>
+            <label for="memo">배송 요청</label>
+            <input type="text" id="memo" />
+          </li>
+        </ul>
+      </fieldset>
+      <div>
+        <!-- 버튼의 value 속성은 버튼명을 지정 -->
+        <!-- '제출' 버튼 -->
+        <input type="submit" value="주문하기"/>
+        <!-- '초기화' 버튼 -->
+        <input type="reset" value="취소하기"/>
+      </div>
+    </form>
+  </div>
+
+  <!--  
+    number & range 속성값
+  -->
+  <input type="number" min="0" max="5" />
+  <input type="number" step="3"/>
+
+  <!-- range 범위의 기본값 0 ~ 100 -->
+  <input type="range" value="10"/>
+  <input type="range" />
+
+  <!--  
+    button 속성값
+    : 기능이 없는 단순 버튼
+    : button 태그와 같은 기능
+  -->
+  <input type="button" value="버튼에 표시할 내용" />
+
+  <!-- 
+    file 속성값
+  -->
+  <input type="file" />
+  <!-- 
+    hidden 속성값
+
+  -->
+  <input type="hidden" name="이름" value="서버로 넘길 값" />
+</body>
+</html>
