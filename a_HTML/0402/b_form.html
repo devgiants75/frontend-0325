@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b_form.html</title>
+</head>
+<body>
+  <!--  
+    ! 1. textarea 태그
+      : 여러 줄을 입력하는 텍스트 영역 태그
+
+    ? textarea의 주요 속성
+    - name: 폼 제출 시 데이터를 구별하기 위한 이름
+    - placeholder: 사용자에게 입력 예시나 설명을 보여주기 위한 텍스트
+    - cols: 텍스트의 가로 너비를 문자 단위로 지정
+    - rows: 텍스트의 세로 길이를 줄 단위로 지정
+      >> 지정한 숫자보다 줄 개수가 늘어나면 스크롤 막대 생성
+
+    ? textarea의 특징
+    - 우측 하단의 슬래시를 드래그할 경우
+      textarea의 기본 크기를 사용자가 임의로 지정 가능
+  -->
+  <h2>textarea</h2>
+  <!-- 
+    가로로 30자
+    세로로 10줄
+  -->
+  <textarea name="textarea" placeholder="텍스트 작성란입니다." cols="30" rows="10"></textarea>
+
+  <h2>select & option</h2>
+
+  <!-- 
+    multiple 속성 - bool 속성
+    : 위 속성 지정 시 ctrl 클릭 후
+    : 선택하고자하는 여러 개의 option을 선택
+  -->
+  <select name="fruits" id="" size="2" multiple>
+    <option value="1">Apple</option>
+    <option value="2">Banana</option>
+    <option value="3">Cherry</option>
+    <option value="4" selected>Mango</option>
+    <option value="5">Orange</option>
+  </select>
+
+  <h2>datalist & option</h2>
+  <!-- 
+    input 태그의 (예시) 내용을 작성
+    - option의 값 중에서 input 내의 텍스트를 지정
+  -->
+  <input type="text" list="fruit" />
+  <datalist id="fruit">
+    <option value="Apple">선택옵션1</option>
+    <option value="Banana">선택옵션2</option>
+    <option value="Cherry">선택옵션3</option>
+  </datalist>
+
+  <h2>button 태그</h2>
+  <!--  
+    input태그와 button태그의 차이점
+    : 화면에 표시되는 버튼의 이름을 설정하는 방법에 차이
+    - input의 버튼(단일 태그)
+      : value 속성으로 변경
+    - button의 버튼(내용이 있는 태그)
+      : 요소의 내용값 변경
+  -->
+  <input type="submit" value="제출하기" />
+  <input type="reset" value="초기화하기" />
+
+  <button type="submit">제출!</button>
+  <button type="reset">초기화!</button>
+
+  <!-- 
+    기능이 없는 버튼 형태 그 자체
+    : 버튼을 클릭해서 자바스크립트(기능)를 실행할 때 사용
+  -->
+  <button type="button">버튼</button>
+</body>
+</html>
