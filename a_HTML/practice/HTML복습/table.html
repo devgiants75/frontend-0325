@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>테이블 연습</title>
+</head>
+<body>
+    <h1>HTML 테이블 기초</h1>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>이순신</td>
+            <td>45</td>
+        </tr>
+    </table>
+    <h2>더 복잡한 셀 병합을 가진 테이블</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th rowspan="2">이름</th>
+                <th colspan="2">연락처</th>
+                <th rowspan="2">주소</th>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <th>전화번호</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>hong@example.com</td>
+                <td>010-1234-5678</td>
+                <td>서울특별시</td>
+            </tr>
+            <tr>
+                <td>이순신</td>
+                <td>lee@example.com</td>
+                <td>010-9876-5432</td>
+                <td>부산광역시</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
