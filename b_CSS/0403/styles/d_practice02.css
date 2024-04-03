@@ -1,0 +1,19 @@
+/* 
+  부모 요소
+  - 배경색과 배경이미지 지정
+*/
+body {
+  background-color: lightblue;
+}
+
+.parent {
+  background-image: url(../../../images/dog.png);
+  padding: 20px;
+}
+
+.child {
+  /* .child 내부의 여백 */
+  padding: 20px;
+  /* .child 테두리 */
+  border: 1px solid black;
+}

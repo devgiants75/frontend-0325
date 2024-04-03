@@ -1,0 +1,56 @@
+/*? 외부 스타일 시트  */
+h1 {
+  color: green;
+}
+
+/* 
+id 스타일 - #(샾) 기호를 사용하여 선택자 표시  
+*/
+#kbo {
+  color: blueviolet;
+}
+
+/*  
+class 스타일 - .(마침표) 기호를 사용하여 선택자 표시
+*/
+.baseball {
+  color: black;
+}
+
+/*  
+  타입 스타일 - 태그명, 요소명으로 선택자 표시
+
+  !important - 어떤 스타일 우선순위보다 앞서서 지정
+*/
+h2 {
+  color: green !important;
+}
+
+p {
+  /* 
+  중요도와 우선순위가 같을 경우
+  : 소스 코드 작성 순서에 따라
+  : 뒤에 작성된 스타일이 적용
+  */
+  background-color: red;
+}
+
+p {
+  background-color: blue;
+}
+
+p {
+  background-color: green;
+}
+
+body {
+  /* 글자 크기: 30px; */
+  font-size: 30px;
+  /*  
+  HTML 문서의 기본 배경색: 투명
+  - 사용자가 명시하기 전에는 
+    기본 브라우저의 색인 흰색
+    + 요소들의 투명 배경색
+  */
+  background-color: yellowgreen;
+}
