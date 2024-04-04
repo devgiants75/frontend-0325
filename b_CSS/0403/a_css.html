@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a_css.html</title>
+  <!-- 
+    ! CSS 스타일 문서 연결 
+    - link 태그: 웹 문서와 연결시켜주는 태그
+
+    - rel 속성(relationship): 연관 관계를 명시(기본값: stylesheet - 스타일 시트)
+    - href 속성: 연결할 파일의 주소
+
+    ! CSS 파일 확장명: .css 
+      - HTML 문서와 달리 파일의 기본 구조 X
+      - 스타일 형식을 파일 내에 나열하여 작성
+
+    ! 수업 파일 구조
+    수업 날짜
+    styles(폴더)
+      - .css (CSS 스타일 시트 파일)
+    .html (HTML 문서 파일)
+  -->
+  <!-- 
+    <link rel="stylesheet" href="styles/a_css.css"> 
+  -->
+  <link rel="stylesheet" href="./styles/a_css.css">
+
+  <!-- 내부 스타일 시트 -->
+  <style>
+    /* 스타일 정의 - 스타일 시트 */
+    h3 {
+      color: tomato;
+      background-color: black;
+    }
+
+    span {
+      color: tomato;
+      background-color: black;
+    }
+
+    li {
+      color: lightskyblue;
+    }
+  </style>
+</head>
+<body>
+  <!--  
+    ! HTML VS CSS
+    - HTML: 콘텐츠의 구조, 의미를 정의 (마크업 언어)
+    - CSS: 스타일, 레이아웃을 지정 (스타일 시트 언어)
+
+    ! CSS 스타일 형식 (기본 형태)
+    
+    선택자 { 
+      (중괄호 내에서 스타일 지정)
+      속성1: 속성값1;
+      속성2: 속성값2;
+      ...
+      속성10: 속성값10;
+    }
+
+    - 선택자: 스타일을 지정하고 싶은 구조(요소) 지정
+    - 스타일 규칙: 중괄호 내에 작성되는 스타일 정보 입력 방식
+                  속성과 값이 하나의 쌍으로 이루어짐 
+                  세미콜론(;)으로 구분하여 스타일 규칙을 여러 개 지정 가능
+    
+    ! CSS 파일의 주석
+
+    - HTML 주석
+      : 꺽쇠 괄호 안에 느낌표와 하이픈(-) 4개로 구성
+    
+    - CSS 주석
+      : (슬래시 2개)// 사이에 (별표 2개) **로 구성
+      /* CSS 주석은 이렇게 표시합니다. */
+
+    ! CSS 소스 경량화
+    - CSS 파일의 소스코드를 압축시켜주는 프로그램
+      : 줄바꿈, 띄어쓰기를 생략
+    - 검색하여 나오는 다양한 CSS 소스 경량화 툴 사용 가능
+      (무료 제공 기능)
+
+    ! CSS Style Sheets
+
+    ? 브라우저 기본 스타일
+      - 요소 작성 시 해당 요소가 가진 '기본 스타일'
+      - 해당 기본 스타일은 웹 브라우저 마다 상이
+    
+    ? 사용자 스타일
+      - 사이트 제작자(개발자)가 지정하는 스타일
+      - 인라인 스타일 / 내부 스타일 시트 / 외부 스타일 시트
+  -->
+
+  <h1>CSS(Cascading Style Sheets)</h1>
+  css(캐스케이딩 스타일 시트)
+
+  <hr />
+  <!-- 브라우저 기본 스타일 -->
+  <h2>제목 태그입니다.</h2>
+  <p>단락 태그입니다.</p>
+
+  <!-- 인라인 스타일 -->
+  <h2 style="color: lightcoral;">2024 프로야구 우승팀</h2>
+  <p style="color: lightgreen;">롯데 자이언츠</p>
+
+  <!-- 내부 스타일 시트 -->
+  <h3>2024 프로야구 포스트 시즌 진출팀</h3>
+  <span>KBO</span>
+  <ul>
+    <li>롯데</li>
+    <li>한화</li>
+    <li>LG</li>
+    <li>KIA</li>
+  </ul>
+
+  <!-- 외부 스타일 시트 -->
+  <table>
+    <tr>
+      <td>1행 1열</td>
+      <td>1행 2열</td>
+    </tr>
+    <tr>
+      <td>2행 1열</td>
+      <td>2행 2열</td>
+    </tr>
+  </table>
+</body>
+</html>

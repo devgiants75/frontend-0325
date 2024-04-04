@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>c_practice01.html</title>
+  <style>
+    div {
+      /* 내부 스타일 시트 - 타입 스타일 */
+      background-color: blue;
+    }
+
+    /* 
+    내부 스타일 시트 - id 스타일 
+    : 인라인 스타일이 아닐 경우
+      즉, 내부와 외부 스타일 시트는
+        위치와 상관없이 선택자에 따라 스타일 지정
+    */
+    #uniqueElement {
+      color: green;
+    }
+
+    /* 내부 스타일 시트 - class 스타일 */
+    /* 
+      !important는 제작자 스타일 중 최우선 순위를 가짐 
+    */
+    .specialText {
+      color: purple !important;
+    }
+
+    /* 내부 스타일 시트 - id 스타일 */
+    #uniqueText {
+      color: aquamarine;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/c_practice01.css">
+</head>
+<body>
+  <!-- 인라인 스타일 -->
+  <div style="background-color: red;">
+    1번 문제
+  </div>
+
+  <p 
+    id="uniqueElement" 
+    class="textColor"
+  >
+    2번 문제
+  </p>
+
+  <h1 class="specialText" id="uniqueText">3번 문제</h1>
+</body>
+</html>

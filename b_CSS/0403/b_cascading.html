@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b_cascading.html</title>
+  <!-- 외부 스타일 시트 연결 -->
+  <link rel="stylesheet" href="styles/b_cascading.css">
+  <!--? 내부 스타일 시트 -->
+  <style>
+    h1 {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!--  
+    ! 캐스케이딩 예시
+    인라인 스타일
+    , 내부 스타일 시트
+    , 외부 스타일 시트
+
+    ! 1. 스타일 우선순위
+    : 요소에 적용된 여러 스타일 규칙 중에서 어떤 규칙이 적용될지를 결정하는 기준
+
+    : 중요도 / 적용 범위 / 소스 코드의 작성 순서
+  -->
+  <!--? 인라인 스타일 -->
+  <h1 style="color: red;">스타일이 충돌되는 요소</h1>
+
+  <h2 style="color: tomato;">20240403 프로야구</h2>
+  <p>기아 VS KT</p>
+  <!-- 
+    인라인 스타일 > id > class
+  -->
+  <h2 id="kbo" class="basball" style="color: brown;">20240404 프로야구</h2>
+  <p>롯데 VS 한화</p>
+</body>
+</html>
