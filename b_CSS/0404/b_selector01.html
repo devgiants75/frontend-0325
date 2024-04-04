@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b_selector02.html</title>
+  <link rel="stylesheet" href="styles/b_selector01.css">
+</head>
+<body>
+  <!--  
+    ! 1. 전체(범용) 선택자
+      : 스타일을 문서의 모든 요소에 적용할 때 사용
+      : 지정 방법 - *(별표)
+
+      : 모든 브라우저 스타일을 제거하는 '스타일 시트 재설정'에서 주로 사용
+      - HTML 요소에서 기본적으로 제공하는 스타일을 초기화할 때 사용
+  -->
+  <div id="universal">전체 선택자</div>
+  <p>문단입니다.</p>
+  <section>섹션 내용</section>
+
+  <!--  
+    ! 타입(요소, 태그) 선택자
+    : 각각의 태그에 일관성있는 스타일 적용 가능
+    : 지정 방법 - 태그명
+  -->
+  <hr />
+  <h2>타입 선택자</h2>
+  <p>문단입니다. 문단의 스타일을 일관되게 적용</p>
+  <ul>
+    <li>첫 번째 아이템</li>
+    <li>두 번째 아이템</li>
+    <li>세 번째 아이템</li>
+  </ul>
+  <p>위의 문단과 스타일이 동일합니다.</p>
+
+  <!--  
+    ! 클래스 선택자
+    : 하나의 웹 문서에 여러 개 지정 가능 - 해당 클래스를 가진 모든 요소에 같은 스타일을 적용
+    : 하나의 요소에 여러 개의 class 지정이 가능 - 각각의 class 명은 띄어쓰기로 구분
+
+    : 지정 방법 - .클래스명
+  -->
+  <hr />
+  <button class="btn">기본 버튼</button>
+  <button class="btn primary">주요 버튼</button>
+  <button class="btn secondary">보조 버튼</button>
+
+  <!-- 
+    ! 아이디 선택자
+    : 지정 방법 - #아이디명
+
+    ? 스타일 우선 순위
+    : 아이디 > 클래스 > 타입
+  -->
+  <hr />
+  <section id="featured-article">
+    <h1>특별 기사</h1>
+    <p>해당 섹션은 특별 기사를 위한 스타일을 적용</p>
+  </section>
+
+  <!--
+    ! 그룹 선택자
+    : 지정 방법 - 여러 선택자를 쉼표(,)로 구분하여 나열
+    : 나열된 모든 선택자에 대해 동일한 스타일 규칙이 적용
+  -->
+  <hr />
+  <header id="header">웹 사이트 헤더</header>
+  <footer id="footer">웹 사이트 푸터</footer>
+</body>
+</html>

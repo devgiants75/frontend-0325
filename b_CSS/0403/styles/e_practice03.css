@@ -1,0 +1,31 @@
+p {
+  color: blue;
+}
+
+#important {
+  color: red;
+}
+
+.notice {
+  font-weight: bold;
+}
+
+/* 
+외부 스타일 시트 보다 인라인 스타일 시트가 우선 적용
+*/
+li {
+  color: green;
+}
+
+h2 {
+  font-style: italic;
+}
+
+/* 
+class 속성의 경우 HTML의 여러 요소에 중복적으로 사용 가능 
+- 여러 class 속성 중 원하고자 하는 태그의 class에만 스타일 지정하려면
+'태그명.class명' 선택자 지정
+*/
+p.notice {
+  color: purple;
+}
