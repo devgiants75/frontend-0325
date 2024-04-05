@@ -1,0 +1,18 @@
+#section1:target {
+  background-color: black;
+}
+
+#section2:target {
+  background-color: blue;
+}
+
+/* :enabled, :disabled */
+input:enabled {
+  /* 사용자가 입력 가능 */
+  background-color: lightgreen;
+}
+
+input:disabled {
+  /* 사용자가 입력 불가능 */
+  background-color: lightgray;
+}

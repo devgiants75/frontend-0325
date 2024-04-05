@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a_selector.html</title>
+  <link rel="stylesheet" href="styles/a_selector01.css">
+</head>
+<body>
+  <!--  
+    ! CSS 가상 클래스 & 가상 요소
+
+    ! 가상 클래스
+      : 특정 상태의 HTML 요소에 스타일을 적용하기 위해 사용
+      : 요소의 상태, 사용자의 동작, 문서 구조에 따라 구분
+
+    ? 사용자의 동작에 반응하는 가상 클래스 선택자
+
+    1. :link
+      - 방문하지 않은 '링크'에 스타일을 적용
+
+    2. :visited
+      - 방문한 링크에 스타일을 적용
+
+    3. :active
+      - 웹 요소를 활성화했을 때 스타일을 적용
+      - 사용자가 요소를 '클릭하고 있는 동안' 스타일을 적용
+
+    4. :hover
+      - 웹 요소에 마우스 커서를 올려놓았을 때 스타일을 적용
+      - 요소 위로 마우스를 올렸을 때
+
+    5. :focus
+      - 웹 요소가 포커스를 받을 때(초점이 맞추어졌을 때) 스타일 적용
+      - 예) 키보드로 선택했을 때
+
+    ? (사용자 동작에 반응하는)가상 클래스 선택자의 순서
+      :link > :visited > :hover > :active
+      - LVHA규칙 (LoVe HAte 규칙)
+      - 방문한 링크와 방문하지 않은 링크의 기본 상태를 먼저 정의
+        (다른 가상 클래스 선택자보다 우선 시 작성)
+        : 선언된 규칙이 이전 규칙을 덮어쓰기 가능
+
+      - :hover 나 :active와 같은 동적인 상태를 표현하는 가상 클래스는
+        정적인 :link나 :visited보다 후순위에 작성해야 한다.
+  -->
+  <div class="container">
+    <nav class="navi">
+      <ul>
+        <!-- 
+          href 속성값으로 # 지정 시
+          : 해당 페이지가 새로고침
+          - a 페이지 그 자체로 돌아감
+        -->
+        <li><a href="#">이용 안내</a></li>
+        <li><a href="#">객실 소개</a></li>
+        <li><a href="#">예약 방법 및 요금</a></li>
+        <li><a href="#">예약하기</a></li>
+      </ul>
+    </nav>
+  </div>
+</body>
+</html>
