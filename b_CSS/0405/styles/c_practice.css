@@ -1,0 +1,23 @@
+a:link {
+  /* 방문하지 X */
+  color: blue;
+  text-decoration: none; /* 밑줄 없앰 */
+}
+
+a:visited {
+  /* 
+    방문한 링크의 기본 스타일링
+    : 보라색 글자색 + 밑줄
+  */
+  color: green;
+}
+
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: black;
+}
