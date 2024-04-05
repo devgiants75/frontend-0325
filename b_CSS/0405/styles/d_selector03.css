@@ -1,0 +1,20 @@
+/* p요소의 부모 요소의 자식 중에 첫 번째 p요소 */
+p:first-child {
+  color: blue;
+}
+
+p:last-child {
+  color: red;
+}
+
+p:nth-child(2) {
+  color: green;
+}
+
+.container p:nth-of-type(3) {
+  background-color: green;
+}
+
+p:not(.special) {
+  background-color: yellow;
+}
