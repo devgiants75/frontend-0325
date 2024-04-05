@@ -1,0 +1,100 @@
+#a {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+#b {
+  /* 웹 브라우저 기본 글자 크기 */
+  font-size: 16px;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+#b:hover {
+  /* 글꼴 스타일에 대한 초기화 */
+  font-style: normal;
+}
+
+#c {
+  font-size: 20px;
+  font-style: oblique;
+  font-weight: bolder;
+}
+
+#d {
+  font-size: xx-small;
+  font-weight: 400;
+}
+
+#e {
+  /* 16px 크기와 동일 */
+  font-size: medium;
+  font-weight: 100;
+}
+
+#f {
+  font-size: xx-large;
+  font-weight: 900;
+}
+
+/* 글꼴 적용 예시 */
+#family1 {
+  /* 
+    사용자의 컴퓨터에 설치되어있는 글꼴은
+    추가 링크 작업 없이도 사용 가능
+   */
+  font-family: 돋움, 굴림, "맑은 고딕";
+}
+
+/*  
+  웹에 배포되어 있는 글꼴 사용
+
+  @font-face
+  : 웹 페이지에 사용할 글꼴을 정의할 때 사용
+  : 시스템에 설치된 글꼴이 아닌, 외부 글꼴 리소스를 사용
+*/
+
+@font-face {
+  font-family: ''; /* 글꼴 이름 정의 */
+  src: url(); /* 글꼴 파일의 경로와 포맷을 지정*/
+  /* 해당 글꼴의 두께, 스타일 등을 정의 */
+}
+
+/* 외부 CSS 파일 또는 내부 style 태그 내에 사용 */
+@font-face {
+  font-family: 'Ownglyph_Dailyokja-Rg';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/Ownglyph_Dailyokja-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#family2 {
+  font-family: 'Ownglyph_Dailyokja-Rg';
+}
+
+@font-face {
+  font-family: 'TTHakgyoansimSamulhamR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimSamulhamR.woff2') format('woff2');
+  /* 
+  배포 사이트에서 두께와 스타일을 모두 명시하여 배포하는 경우 지정이 가능 
+  */
+  font-weight: lighter;
+  font-style: italic;
+}
+
+#family3 {
+  font-family: 'TTHakgyoansimSamulhamR';
+}
+
+@font-face {
+  font-family: 'SKYBORI.otf';
+  /* format 형식은 글꼴의 확장자 명시 */
+  src: url('../../../fonts/SKYBORI.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#family4 {
+  font-family: 'SKYBORI', 돋움;
+}
