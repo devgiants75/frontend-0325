@@ -1,0 +1,83 @@
+/* b_selector01.css */
+
+/* 
+! '전체' 선택자를 사용한 페이지 전체 기본 여백 제거
+*/
+* {
+  margin: 0;
+  padding: 0;
+  /* 웹 문서의 모든 텍스트를 빨간색으로 설정 */
+  color: red;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+#universal {
+  border: 1px solid black;
+}
+
+/* 타입 선택자를 사용한 예제 */
+
+h2 {
+  color: blue;
+}
+
+p {
+  color: green;
+  font-size: 10px;
+}
+
+ul {
+  background-color: lightcoral;
+}
+
+li {
+  list-style-type: square;
+  color: white;
+}
+
+/* 클래스 선택자 사용 예제  */
+
+/* 1. 기본 버튼 스타일 */
+.btn {
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+}
+
+/* 2. 주요 버튼 스타일 */
+.primary {
+  background-color: blue;
+  color: white;
+}
+
+/* 3. 보조 버튼 스타일 */
+.secondary {
+  background-color: gray;
+  color: white;
+}
+
+/* 아이디 선택자 예제 */
+#featured-article {
+  background-color: brown;
+  padding: 20px;
+}
+
+/* 그룹 선택자 예제 */
+#header, footer {
+  background-color: lightgray;
+  color: black;
+  padding: 20px;
+  text-align: center;
+}
+
+header {
+  border-bottom: 2px solid black;
+}
+
+footer {
+  border-top: 2px solid red;
+}

@@ -1,0 +1,57 @@
+/*! [속성]선택자 */
+li a {
+  text-decoration: none;
+  color: black;
+}
+
+/* href 속성이 있는 a요소에게만 스타일 지정 */
+a[href] {
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+/*! [속성=값]선택자 */
+a[target="_blank"] {
+  padding: 20px;
+  background-color: green;
+}
+
+/*! [속성~=값]선택자 */
+a.flat {
+  background-color: gray;
+  border: 1px solid blue;
+}
+
+a[class~="button"] {
+  border-radius: 10px;
+}
+
+/*! [속성|=값]선택자 */
+
+/* 속성값이 us이거나 us-로 시작하는 요소 */
+a[title|="us"] {
+  background-color: aliceblue;
+}
+
+a[title|="ja"] {
+  background-color: greenyellow;
+}
+
+a[title|="chn"] {
+  background-color: bisque;
+}
+
+/*! [속성^=값]선택자 */
+a[href$="hwp"] { /*연결한 파일의 확장자가 hwp인 링크*/
+  background-color: brown;
+}
+
+a[href$="xlsx"] {
+  background-color: aqua;
+}
+
+/*! [속성*=값]선택자 */
+a[href*="o"] {
+  background-color: blue;
+  color: white;
+}

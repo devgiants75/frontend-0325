@@ -1,0 +1,42 @@
+section {
+  width: 600px;
+}
+
+p {
+  width: 500px;
+  border: 1px solid black;
+}
+
+/* 
+! 자손 선택자
+section 요소의 모든 하위 p 요소에 적용 
+*/
+section p {
+  color: blue;
+}
+
+/*  
+! 자식 선택자
+section 요소의 자식 p 요소에게만 적용
+*/
+section > p {
+  color: tomato;
+}
+
+/*  
+! 인접 형제 선택자
+h1 요소의 형제 요소 중 첫 번째 p요소에 적용
+*/
+h1 + p {
+  background-color: blueviolet;
+  color: white;
+}
+
+/*  
+! (일반) 형제 선택자
+h1 요소와 형제인 모든 p요소에 적용
+*/
+h1 ~ p {
+  background-color: black;
+  color: white;
+}

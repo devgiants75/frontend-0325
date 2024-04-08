@@ -1,0 +1,41 @@
+#section1:target {
+  background-color: black;
+}
+
+#section2:target {
+  background-color: blue;
+}
+
+/* :enabled, :disabled */
+input:enabled {
+  /* 사용자가 입력 가능 */
+  background-color: lightgreen;
+}
+
+input:disabled {
+  /* 사용자가 입력 불가능 */
+  background-color: lightgray;
+}
+
+/* :checked */
+input:checked {
+  outline: 5px solid green;
+}
+
+/* 
+인접 형제 선택자 
+: h1 + p 인 경우
+: h1 요소 다음에 오는 p요소들 중 첫 번째 p요소
+*/
+input:checked + label {
+  color: red;
+}
+
+/* :not() 선택자 */
+input:not([type=checkbox]) {
+  border: 5px solid black;
+}
+
+*:not(h2) {
+  font-size: 12px;
+}

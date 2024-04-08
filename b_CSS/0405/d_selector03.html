@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>d_selector03.html</title>
+  <link rel="stylesheet" href="styles/d_selector03.css">
+</head>
+<body>
+  <!--  
+    :first-child
+    - 부모 요소의 첫 번째 자식 요소
+
+    :last-child
+    - 부모 요소의 마지막 자식 요소
+
+    :nth-child('n')
+    - 부모 안에 있는 '모든 요소' 중에서 n번째 자식 요소를 선택
+
+    A:nth-of-type('n')
+    - 특정 유형의 n번째 요소
+    - 부모 안에 있는 'A 요소' 중에서 n번째 요소를 선택
+  -->
+
+  <div class="container">
+    <p>첫 번째 단락(first-child)</p>
+    <p>두 번째 단락(nth-child)</p>
+    <p class="special">세 번째 단락</p>
+    <p>네 번째 단락(last-child)</p>
+  </div>
+</body>
+</html>
