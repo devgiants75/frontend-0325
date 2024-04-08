@@ -1,0 +1,51 @@
+#one {
+  color: #0000ff;
+}
+
+#two {
+  color: purple;
+}
+
+#three {
+  color: hsla(144, 86%, 80%, 0.765);
+  color: rgba(0, 255, 0, 0.5);
+}
+
+/* text-align 예제 */
+p {
+  width: 400px;
+  background-color: rgba(0, 0, 255, 0.5);
+  border: 1px solid #222;
+  padding: 10px;
+  margin: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.justify {
+  /* 
+    양쪽 정렬 
+    : 텍스트가 가로 너비 끝까지를 차지한 후 아래로 흐르지 않을 경우 지정되지 X
+    - 텍스트가 왼쪽부터 오른쪽까지 나열된 경우 양쪽의 남는 공간을 정렬
+  
+  */
+  text-align: justify;
+}
+
+/* line-height 속성 예제 */
+h2 {
+  font-size: 60px;
+}
+
+#heading {
+  width: 100%;
+  height: 150px;
+  background-color: #222;
+  color: rgb(255, 255, 255);
+  /* 글자 가로 정렬: text-align */
+  text-align: center;
+  /* 글자 세로 정렬: line-height */
+  line-height: 150px;
+}

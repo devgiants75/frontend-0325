@@ -88,13 +88,35 @@
 }
 
 @font-face {
-  font-family: 'SKYBORI.otf';
-  /* format 형식은 글꼴의 확장자 명시 */
-  src: url('../../../fonts/SKYBORI.otf') format('otf');
+  font-family: 'SKYBORI';
+  /* 
+    format 형식은 글꼴의 확장자 명시 
+    - otf 글꼴 확장자
+      : opentype font 글꼴을 의미
+      : format() 형식에 'opentype'을 명시
+  */
+  src: url('../../../fonts/SKYBORI.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 #family4 {
   font-family: 'SKYBORI', 돋움;
+}
+
+@font-face {
+  font-family: 'WavvePADO-Regular';
+  /* 
+    format 형식은 글꼴의 확장자 명시 
+    - otf 글꼴 확장자
+      : opentype font 글꼴을 의미
+      : format() 형식에 'opentype'을 명시
+  */
+  src: url('../../../fonts/WavvePADO-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#family5 {
+  font-family: 'WavvePADO-Regular', 돋움;
 }

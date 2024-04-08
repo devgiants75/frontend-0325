@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+}
+
+.box {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.px {
+  /* 웹 사이트의 기본 글자 크기: 16px*/
+  font-size: 16px; 
+  width: 200px;
+}
+
+/* 
+  부모(html)의 글자 크기를 자식(body)요소가 상속받음 
+*/
+html {
+  font-size: 20px;
+}
+
+body {
+  font-size: 16px;
+}
+
+#container {
+  font-size: 20px;
+}
+
+.rem {
+  /* 
+    rem: html 요소의 글자 크기를 기준
+      1rem = 20px 
+  */
+  font-size: 1rem; 
+  width: 10rem;
+}
+
+.em {
+  font-size: 1em;
+  width: 10em;
+}
+
+.vw {
+  font-size: 2vw;
+  width: 50vw;
+}
+
+.vh {
+  font-size: 2vh;
+  width: 50vh;
+}
+
+#parent {
+  font-size: 32px;
+  width: 400px;
+}
+
+.percent {
+  /* .percent의 부모요소 - #parent */
+  font-size: 50%;
+  width: 50%;
+}
+
+/* 
+CSS 변수값 사용 예시 
+
+:root
+- CSS에서 HTML 문서의 루트 요소를 선택하는데 사용
+- CSS 변수(사용자 정의 속성)의 전역 선언에 유용하게 사용
+  : 전체 문서에 걸쳐서 일관된 스타일 값을 유지하는데 사용
+*/
+
+:root {
+  /* 
+  변수명 지정 방식 
+  : 하이픈(-) 2개로 시작
+    연결되는 단어의 구분 하이픈(-) 1개로 지정
+  */
+  /* 크기 변수 지정 */
+  --text-size: 20px;
+  --small-text-size: 14px;
+
+  /* 색상 변수 지정 */
+  --primary-color: #3498db;
+  --secoundary-color: #2ecc71;
+}
+
+.box {
+  background-color: var(--primary-color);
+  border: 5px solid var(--secoundary-color);
+}
+
+/* 예제 - px/vw/em 비교 */
+.wrapper {
+  font-size: 1em;
+  border: 2px solid blue;
+  padding: 20px;
+}
+
+.boxes {
+  border: 3px solid pink;
+  padding: 20px;
+  margin: 10px;
+}
+
+#px {
+  width: 200px;
+}
+
+#vw {
+  width: 10vw;
+}
+
+#em {
+  width: 20em;
+}

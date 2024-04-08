@@ -23,15 +23,6 @@ a:active {
 }
 
 /* 예제 실습 */
-/* 
-a:link {
-  color: blue;
-}
-
-a:visited {
-  color: purple;
-} 
-*/
 
 #hoverButton:hover {
   color: white;
@@ -43,11 +34,10 @@ a:visited {
   background-color: yellow;
 }
 
-/* 
-input[id="focusInput"]:focus {
-  border: 2px solid green;
-}  
-*/
+#focusInput:hover {
+  border: 12px solid green;
+  padding: 20px;
+}
 
 input[type="checkbox"]:checked + label {
   background-color: yellow;
