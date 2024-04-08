@@ -9,7 +9,7 @@ a:visited {
     방문한 링크의 기본 스타일링
     : 보라색 글자색 + 밑줄
   */
-  color: green;
+  color: purple;
 }
 
 a:hover {
@@ -23,15 +23,6 @@ a:active {
 }
 
 /* 예제 실습 */
-/* 
-a:link {
-  color: blue;
-}
-
-a:visited {
-  color: purple;
-} 
-*/
 
 #hoverButton:hover {
   color: white;
@@ -43,17 +34,16 @@ a:visited {
   background-color: yellow;
 }
 
-/* 
-input[id="focusInput"]:focus {
-  border: 2px solid green;
+#focusInput:hover {
+  border: 12px solid green; 
+  padding: 20px;
 }  
-*/
 
 input[type="checkbox"]:checked + label {
   background-color: yellow;
 }
 
-input:disabled {
+input[id="disabledInput"]:disabled {
   color: white;
   background-color: gray;
 }
