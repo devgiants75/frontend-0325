@@ -1,0 +1,61 @@
+/*  
+    4. 목록 (<ul>)
+      색상: 갈색
+      글자 크기: 16px
+      목록의 모든 단어를 대문자로 표시
+
+    5. 링크 (<a>)
+      색상: 보라색
+      호버 상태일 때 색상: 붉은색
+      방문한 링크 색상: 회색
+      밑줄 없음
+      글자 크기: 16px
+      글자 간 간격: 0.8px
+      텍스트 그림자
+      : 회색, 가로/세로 각각 2px 떨어진 위치, 3px의 흐림 정도로 적용
+*/
+h1 {
+  color: blue;
+  font-size: 36px;
+  text-align: center;
+}
+
+h2 {
+  color: #00ff00;
+  font-size: 28px;
+  text-align: left;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+p {
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  line-height: 1.6;
+  text-indent: 40px;
+  letter-spacing: 1.2px;
+  word-spacing: 2.4px;
+}
+
+ul {
+  color: brown;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+a {
+  color: purple;
+  text-decoration: none;
+  font-size: 16px;
+  /* 자간이 1 미만일 경우 촘촘하게 표시 */
+  letter-spacing: 0.8px; 
+  text-shadow: 2px 2px 3px gray;
+}
+
+a:visited {
+  color: gray;
+}
+
+a:hover {
+  color: red;
+}
