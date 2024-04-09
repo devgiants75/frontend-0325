@@ -1,0 +1,26 @@
+#list-style-type-ul {
+  /* disc, circle, square */
+  /* 
+  list-style-type: square; 
+  list-style-position: inside; 
+  */
+  list-style: inside square;
+}
+
+#list-style-type-ol {
+  list-style-type: decimal-leading-zero;
+  list-style-type: lower-roman;
+  list-style-type: upper-roman;
+  list-style-type: upper-alpha; /* upper-latin */
+  list-style-type: lower-alpha; /* lower-latin */
+  /* 기본값 - 지정하지 않은 것과 동일 (none) */
+  list-style-position: outside;
+}
+
+#list-style-image {
+  /* 
+  url('이미지 경로') 함수
+    : 속성값에 이미지를 포함시켜주는 함수 
+  */
+  list-style-image: url('../../../images/dog.png');
+}

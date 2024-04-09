@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>b_table.html</title>
   <link rel="stylesheet" href="styles/b_table.css">
 </head>
 <body>
@@ -18,8 +18,9 @@
       (표 바깥 테두리, 셀 테두리)
       ? 표의 테두리 - table 태그에 적용
       ? 셀의 테두리는 td, th 각 셀 태그에 적용
+
       속성 형태
-      : 두께 모양 색상
+      : 두께 모양 색상 (각 속성값은 띄어쓰기로 구분)
       두께 - 길이 단위
       모양 - 키워드
       색상 - 색상 단위
@@ -38,5 +39,26 @@
       collpase: 합쳐주는 기능
       separate: 기본값
   -->
+  <table>
+    <caption>20240409 테이블 속성</caption>
+    <tr>
+      <!-- 
+        table head: 글자를 굵게 지정하는 셀 
+      -->
+      <th>야구팀</th>
+      <th>연고지</th>
+      <th>감독</th>
+    </tr>
+    <tr>
+      <td>롯데</td>
+      <td>부산</td>
+      <td>김태형</td>
+    </tr>
+    <tr>
+      <td>엘지</td>
+      <td>서울</td>
+      <td>염경엽</td>
+    </tr>
+  </table>
 </body>
 </html>

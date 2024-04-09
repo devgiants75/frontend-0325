@@ -1,0 +1,124 @@
+div {
+  width: 100px;
+  height: 100px;
+
+  display: inline-block;
+  margin: 15px;
+
+  font-size: 10px;
+  text-align: center;
+  line-height: 100px;
+  background-color: lightblue;
+
+  border-width: 5px;
+}
+
+#box1 { border-style: solid; }
+#box2 { border-style: dotted; }
+#box3 { border-style: dashed; }
+#box4 { border-style: double; }
+#box5 { border-style: groove; }
+#box6 { border-style: inset; }
+#box7 { border-style: outset; }
+#box8 { border-style: ridge; }
+
+div[id*="border"] {
+  border-style: solid;
+}
+
+/* 
+4가지 방향 모두 같은 크기 지정 
+: 1개의 값을 입력
+*/
+#border1 {
+  border-width: 10px;
+}
+
+/*  
+상하, 좌우의 쌍으로 각각 다른 크기 지정
+: 2개의 값을 입력
+: 박스모델 방향의 시작점인 top부터 지정
+: 첫 번째 값(상하), 두번째 값(좌우)
+*/
+#border2 {
+  border-width: 5px 20px;
+}
+
+/*  
+상, 좌우, 하의 값에 각각 다른 크기 지정
+: 3개의 값을 입력
+: 첫 번째 값(상), 두 번째 값(좌우), 세 번째 값(하)
+*/
+#border3 {
+  border-width: 1px 30px 10px;
+}
+
+/*  
+모두 다른 방향의 값을 지정
+: top > right > bottom > left 순으로 값을 지정
+*/
+
+#border4 {
+  border-width: 1px 10px 30px 50px;
+}
+
+div[id*="color"] {
+  width: 200px;
+  height: 200px;
+  border-style: dashed;
+  border-width: 2px;
+}
+
+#color1 {
+  border-color: red;
+}
+
+#color2 {
+  /* 
+  4개의 방향에 각각 다른 색상을 지정할 경우 
+  : border와 color 키워드 사이에 방향값을 지정
+  */
+  border-top-color: blue;
+  border-right-color: pink;
+  border-bottom-color: green;
+  border-left-color: yellow;
+}
+
+div[id*="bor"] {
+  width: 100px;
+  height: 100px;
+}
+
+#bor1 {
+  /* 
+    border 속성의 경우 
+    : 길이 스타일 색상 순 사용을 권장
+  */
+  border: 3px dotted blue;
+}
+
+#bor2 {
+  border-top: 2px solid yellow;
+  border-left: 5px double pink;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+#dog1 {
+  border-radius: 25px;
+}
+
+#dog2 {
+  border-radius: 5px;
+}
+
+/* 
+border-radius 속성값으로 50%을 가지는 경우 원으로 표시 
+: 프로필 사진 첨부에 활용
+*/
+#dog3 {
+  border-radius: 50%;
+}

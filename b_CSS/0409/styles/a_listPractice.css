@@ -1,0 +1,38 @@
+ul {
+  /* list-style-type: square;
+  list-style-position: inside; */
+  list-style: square inside;
+}
+
+/*  
+  연결 선택자 '띄어쓰기'로 선택자를 구분
+  A:nth-child() - 부모 안에 있는 모든 요소 중에서 n번째 자식을 선택
+*/
+ul li:nth-child(1) {
+  color: red;
+}
+ul li:nth-child(2) {
+  color: green;
+}
+ul li:nth-child(3) {
+  color: blue;
+}
+
+ul li:hover {
+  color: pink;
+}
+
+ol {
+  /* lower-alpha도 가능 */
+  list-style: lower-latin outside;
+}
+
+ol li:nth-child(1) {
+  background-color: yellow;
+}
+ol li:nth-child(2) {
+  background-color: gray;
+}
+ol li:nth-child(3) {
+  background-color: orange;
+}
