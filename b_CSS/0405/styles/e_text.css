@@ -89,16 +89,12 @@
 
 @font-face {
   font-family: 'SKYBORI';
-<<<<<<< HEAD
   /* 
     format 형식은 글꼴의 확장자 명시 
     - otf 글꼴 확장자
       : opentype font 글꼴을 의미
       : format() 형식에 'opentype'을 명시
   */
-=======
-  /* format 형식은 글꼴의 확장자 명시 */
->>>>>>> 92762d5e59c16da4080f007a3eac5a98a6c730d4
   src: url('../../../fonts/SKYBORI.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
@@ -110,16 +106,12 @@
 
 @font-face {
   font-family: 'WavvePADO-Regular';
-<<<<<<< HEAD
   /* 
     format 형식은 글꼴의 확장자 명시 
     - otf 글꼴 확장자
       : opentype font 글꼴을 의미
       : format() 형식에 'opentype'을 명시
   */
-=======
-  /* format 형식은 글꼴의 확장자 명시 */
->>>>>>> 92762d5e59c16da4080f007a3eac5a98a6c730d4
   src: url('../../../fonts/WavvePADO-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
