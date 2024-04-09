@@ -118,3 +118,12 @@ CSS 변수값 사용 예시
 #em {
   width: 20em;
 }
+
+/*! rem / em 예제  */
+.ems li {
+  font-size: 1.3em;
+}
+
+.rems li {
+  font-size: 1.3rem;
+}
