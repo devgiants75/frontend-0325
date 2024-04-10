@@ -1,0 +1,29 @@
+img {
+  width: 200px;
+  height: 200px;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+}
+
+/*! 부모, 자식 요소의 마진 중첩 */
+.box1 {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+}
+
+/* box1의 내부(자식) 요소 */
+.child {
+  margin-bottom: 30px;
+  background-color: lightcoral;
+  /* 마진 중첩 현상을 없애기 위한 flex 속성 지정 */
+}
+
+.box2 {
+  margin-top: 20px;
+  background-color: lightgreen;
+}
