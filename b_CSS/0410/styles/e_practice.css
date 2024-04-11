@@ -1,30 +1,87 @@
+/*! 문제 1 */
 #container {
   width: 350px;
   margin: 30px auto;
 }
 
+img {
+  border: 5px dashed orange;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px #333;
+}
+
+/*! 문제 2 */
 section{
-  width:800px;
+  width: 800px;
   margin: 0 auto;	
 }
+
 h2{
   font-size:1.5em;
 }
+
 h3 {
   font-size:1.0em;
 }
+
 p {
   line-height:20px;
   font-size:12px;
 }
+
+article {
+  width: 350px;
+  height: 200px;
+  /* 요소를 왼쪽 정렬 */
+  float: left;
+  margin: 10px; /* 좌우 10px >> 20px */
+  padding: 10px; /* 좌우 10px >> 20px */
+  border: 1px solid #ccc;
+}
+
 footer {
   width:100%;
   height:50px;
   background-color:#222;
+  /* 
+  - clear 속성은 float 속성에 의해 영향 받는 요소를 정리할 때 사용 
+  */
+  clear: left;
 }
+
 footer > p {
   color:#fff;
   font-size:0.9em;
   text-align: center;
   line-height:50px;
+}
+
+/* 네비게이션 바 */
+ul {
+  list-style: none;
+}
+
+ul li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 10px 20px;
+  background-color: #ccc;
+  border-right: 1px solid black;
+}
+
+li:last-child a {
+  border: none;
+}
+
+a:link, a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #000;
+  color: #fff;
 }

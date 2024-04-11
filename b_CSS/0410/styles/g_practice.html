@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>g_practice.html</title>
+  <style>
+    body {
+      width: 400px;
+    }
+
+    p {
+      width: 500px;
+      height: 200px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+    }
+
+    #static {
+      /* 생략된 것과 동일하게 지정 */
+      position: static;
+    }
+
+    #relative-1 {
+      position: relative;
+    }
+
+    #relative-2 {
+      position: relative;
+      left: 100px;
+      /* 
+        위쪽에서 -50px 떨어지게 지정 
+        : 요소를 box-sizing 끝부분을 기준으로 
+        : 그 기준을 넘어가는 스타일 지정
+        (위로 이동)
+      */
+      top: -50px;
+    }
+
+    #fixed {
+      width: 100px;
+      height: 100px;
+      background-color: #222;
+      position: fixed;
+      right: 30px;
+      top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <p id="static">position 속성</p>
+  <p id="relative-1">position 속성</p>
+  <p id="relative-2">position 속성</p>
+  <p id="fixed">position 속성</p>
+</body>
+</html>
