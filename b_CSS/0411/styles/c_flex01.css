@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: purple;
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+section {
+  /* 
+    display: flex가 지정된 요소의 직접적 자식요소는 flex item으로 설정 
+  */
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* flex item */
+article {
+  padding: 10px;
+  margin: 10px;
+  background-color: aliceblue;
+}

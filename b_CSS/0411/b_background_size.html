@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b_background_size.html</title>
+  <style>
+    #container {
+      width: 1100px;
+      margin: 50px auto;
+      background-color: aliceblue;
+    }
+
+    .box {
+      /* 박스의 크기 300px인 정사각형 */
+      width: 300px;
+      height: 300px;
+      border: 1px solid #222;
+      margin: 20px;
+      float: left;
+      background: url('../../images/dog.png') no-repeat left top;
+    }
+
+    /* 원래 배경 이미지 크기로 지정 - 기본값 */
+    #bg1 { background-size: auto; }
+    /* 
+      고정 길이 값
+      - 값을 1개만 지정하는 경우 너비값으로 지정
+      - 높이값은 사진 크기의 비율로 자동계산
+    */
+    #bg2 { background-size: 200px; }
+
+    /* 백분율의 값 */
+    #bg3 { background-size: 50%; }
+
+    /* 너비와 높이를 각각 지정 */
+    #bg4 { background-size: 100% 100%; }
+
+    /* 
+      요소 안에 배경 이미지가 다 보이도록 지정 
+      - 부모 요소의 너비와 높이 중에서 이미지와 맞아 떨어지는 크기 값에서 큰 값의 값이 지정
+    */
+    #bg5 { background-size: contain; }
+
+    /* 
+    배경 이미지가 요소를 모두 덮도록 지정
+    - contain의 반대
+    */
+    #bg6 { background-size: cover; }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="box" id="bg1"></div>
+    <div class="box" id="bg2"></div>
+    <div class="box" id="bg3"></div>
+    <div class="box" id="bg4"></div>
+    <div class="box" id="bg5"></div>
+    <div class="box" id="bg6"></div>
+  </div>
+</body>
+</html>
