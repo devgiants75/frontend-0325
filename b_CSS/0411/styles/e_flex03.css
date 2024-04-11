@@ -1,0 +1,40 @@
+body {
+  width: 70%;
+  max-width: 960px;
+  margin: 20px auto;
+}
+
+/* flex 컨테이너 */
+div {
+  height: 100px;
+  border: 1px solid black;
+
+  display: flex;
+  /* 
+  컨테이너에 아이템의 교차축 방향의 정렬을 지정 
+  */
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 
+  flex 아이템 정렬 
+  align-items
+  - 컨테이너에서 아이템을 동일한 값으로 지정
+  align-self
+  - 아이템 개별 항목에 대한 align-items 동작을 재지정
+*/
+
+button:first-child {
+  align-self: flex-end;
+}
+
+button:nth-of-type(3) {
+  align-self: flex-start;
+}
+
+button {
+  font-size: 18px;
+  line-height: 1.5;
+  width: 15%;
+}

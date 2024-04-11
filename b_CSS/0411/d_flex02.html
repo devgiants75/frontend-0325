@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Flexbox</title>
-  <link rel="stylesheet" href="styles/b_flex02.css">
+  <link rel="stylesheet" href="styles/d_flex02.css">
 </head>
 <body>
   <!--  
@@ -17,26 +17,68 @@
 
       flex: 2;
       flex 아이템이 3개 인 경우(a, b, c)
-      a, b에는 1의 비율을
-      c에는 2의 비율을 차지
+      a, b에는 1의 비율을 (각각 1/4)
+      c에는 2의 비율을 차지 (1/2)
 
       ? flex 값 내에서 최소 크기 값 지정
       지정 방식
       flex: 비율 최소고정크기;
+
       >> 각 flex item은 사용 가능한 공간에서 200px 부여 받고 나머지 공간을 1:1:2의 비율로써 분배
+
+      1. 각 아이템이 200px의 공간을 차지하기 전에는 무조건 1:1:1의 비율
+
+      2. 200px이 부여된 이후
+        - 남은 공간을 flex로 지정된 비율로 가져감
+
+    ^ flex item 설정의 약칭 ^
+    ? flex: 1설정
+      - flex-grow: 1
+      - flex-shrink: 1
+      - flex-basis: 1
 
     ! flex-grow
       : Flex 아이템이 Flex 컨테이너 내에서 여분의 공간을 어떻게 채울지 결정
       (단위가 없는 비례값)
+      - flex 컨테이너 내에서 남은 공간의 분배 설정
+        (기본값: 0)
 
     ! flex-shrink
       : Flex 컨테이너가 축소될 때 Flex 아이템의 크기를 어떻게 줄일지 결정
+      (기본값: 1, 아이템 공간에 맞추어 축소)
 
     ! flex-basis
       : Flex 아이템의 기본 크기를 설정
         정식 명칭 단위를 사용하여 지정
+      - 기본 크기값 설정, 최소 크기 지정에 사용
 
   -->
+
+  <header>
+    <h1>Sample flexbox example</h1>
+  </header>
+
+  <section>
+    <article>
+      <h2>First article</h2>
+
+      <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.</p>
+    </article>
+
+    <article>
+      <h2>Second article</h2>
+
+      <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.</p>
+    </article>
+
+    <article>
+      <h2>Third article</h2>
+
+      <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.</p>
+
+      <p>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat ennui. Organic small batch paleo 8-bit. Intelligentsia umami wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings cold-pressed squid chartreuse put a bird on it. Listicle pickled man bun cornhole heirloom art party.</p>
+    </article>
+  </section>
 
 </body>
 </html>
