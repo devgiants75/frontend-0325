@@ -36,13 +36,8 @@ p {
 
 /* 문제 2: 리스트 스타일링 */
 .custom-list {
-  list-style-type: none;
+  list-style-type: square;
   margin-left: 20px;
-}
-
-.custom-list li:before {
-  content: ">";
-  margin-right: 10px;
 }
 
 /* 문제 3: 테이블 스타일링 */

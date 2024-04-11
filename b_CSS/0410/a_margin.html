@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a_margin.html</title>
+  <link rel="stylesheet" href="styles/a_margin.css">
+</head>
+<body>
+  <!--  
+    ! 마진(margin)
+    : 두 박스 모델 사이의 여백
+
+    ? 속성값
+      - 길이단위, 백분율, auto
+      
+    ? 마진 중첩 현상
+      - 두 개 이상의 요소가 수직으로 인접할 때 발생
+      - 인접한 요소들의 마진이 중첩되어 하나의 마진으로 표시
+      - 중첩된 마진의 크기는 그 중에서 가장 큰 마진의 크기로 결정
+
+      - 수직적으로 배치되는 요소들의
+        , 제일 상단부의 마진과 각 요소들 사이의 마진을 균일하게 결정해 일관성 있는 요소를 작성하기 위함
+
+    ? 마진 중첩 현상의 예외
+    - 인라인 블록 요소, 절대 위치 요소(위치를 고정적으로 가지는 요소)의 마진은 중첩되지 X
+    - 수평 마진(좌우)은 중첩되지 X
+  -->
+  <div id="margin1"></div>
+  <div id="margin2"></div>
+  <div id="margin3"></div>
+  <div id="margin4"></div>
+  <div id="margin5"></div>
+
+  <hr />
+
+  <h2>margin을 사용한 요소 가운데 정렬</h2>
+  <div class="div">
+    <div class="center">가운데 정렬된 요소</div>
+  </div>
+</body>
+</html>

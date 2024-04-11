@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>d_layout.html</title>
+  <link rel="stylesheet" href="styles/d_layout.css">
+</head>
+<body>
+  <!--  
+    ! CSS Layout 
+
+    ? 1. display 속성
+
+    - 속성값
+      1) inline
+        : 블록 레벨 요소 >>> 인라인 레벨 요소로 전환
+        : 텍스트나 이미지 등의 연속된 흐름을 유지해야 할 때 사용
+        - 너비, 높이 지정 X
+        - 마진과 패딩이 좌우에만 적용
+
+      2) block
+        : 인라인 레벨 요소 >>> 블록 레벨 요소로 전환
+        : 새로운 줄에서 시작, 부모 요소의 전체 너비를 차지
+        - 너비, 높이, 마진, 패딩 모두 제어 가능
+        - 구조적인 레이아웃 지정 시 사용
+
+      3) inline-block
+        : 인라인 레벨 요소 + 블록 레벨 요소 속성
+        - 인라인: 다른 요소와 같은 줄에 지정
+        - 블록: 너비와 높이를 지정
+
+      4) none
+        : 해당 요소를 화면에 표시하지 않는 속성
+  -->
+  <div class="block">Block Element</div>
+  <span class="inline">Inline Element 1</span>
+  <span class="inline">Inline Element 2</span>
+  <div class="inline-block">Inline-Block Element</div>
+  <div class="none">None Element</div>
+
+  <hr />
+  <nav>
+    <ul>
+      <li>Menu 1</li>
+      <li>Menu 2</li>
+      <li>Menu 3</li>
+      <li>Menu 4</li>
+    </ul>
+  </nav>
+
+  <hr />
+  <img src="../../images/dog.png" alt="강아지" />
+  <p>전날까지 이정후는 타율 0.238(42타수 10안타), 1홈런, 4타점, 출루율 0.306을 기록하고 있었다. 시즌 초반이긴 하지만 기대에 미치지 못하는 수치였다. 하지만 이 매체는 ‘클래식 기록’과는 다른 분석을 내놨다. 이 매체는 “이정후의 강한 타구 비율은 54.1%, 타구 속도는 93.4마일(시속 150km))이나 된다. 반면 헛스윙 비율은 8.8%에 불과하다”며 “(눈에 보이는 기록과 달리) 타석에서 자신의 장점을 제대로 보여주고 있다”고 전했다.</p>
+
+  <hr />
+  <!-- 
+    float 속성의 경우 블록레벨 요소를 전환 시키지 않고, 특징의 유지되면서 요소 위에 공간을 차지하는 것 처럼 표현
+  -->
+  <div class="left">왼쪽에 뜨는 요소1</div>
+  <div class="right">오른쪽에 뜨는 요소2</div>
+  <!-- div가 블록레벨 요소 이지만 인라인처럼 float 속성 요소의 오른쪽에 배치 -->
+  <div class="clear">Float 해제</div>
+</body>
+</html>
