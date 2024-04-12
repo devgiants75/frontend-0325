@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Item 크기 조정</title>
+  <style>
+    .container {
+      display: flex;
+      width: 100%;
+      height: 200px;
+      background-color: lightpink;
+    }
+
+    .items {
+      background-color: cornflowerblue;
+      color: white;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .item-1 {
+      /* 
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 20%; 
+      */
+      flex: 1;
+      align-self: flex-start;
+      order: 2;
+    }
+
+    .item-2 {
+      /* 
+      flex-grow: 2;
+      flex-shrink: 2;
+      flex-basis: auto; 
+      */
+      flex: 2 2 150px;
+      align-self: flex-end;
+      order: -1;
+    }
+
+    .item-3 {
+      /* 
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 100px; 
+      */
+      flex: 0 1 auto;
+      align-self: center;
+      order: 1;
+    }
+
+    .item-4 {
+      align-self: stretch;
+      order: 2;
+    }
+  </style>
+</head>
+<body>
+  <!--  
+    ! flex grow
+      : flex 아이템이 flex 컨테이너 내의 남은 공간을 어떻게 분배할지 결정
+      - 기본값: 0 (자신의 기본 크기 이상으로 확장 X)
+      EX) flex: 1;
+        : 모든 아이템이 남은 공간을 균일하게 분배 확장
+
+    ! flex shrink
+      : Flex 컨테이너의 공간이 부족할 때, 아이템들의 축소 비율을 결정
+      - 기본값: 1 (동등한 비율로 축소)
+      EX) flex-shrink: 2;
+        : 다른 아이템보다 두 배 빠르게 축소
+
+    ! flex-basis
+      : 아이템의 시작 크기를 설정
+        아이템들이 해당 크기를 기반으로 확장되거나 축소
+      - 기본값: auto (아이템의 내용 크기에 따라 결정)
+
+    ? flex 축약속성
+      flex: grow shrink basis;
+      - 기본값: 0 1 auto;
+
+    + align-items, align-content
+    ! align-self 속성
+      : 개별 flex 아이템의 교차 축에 대한 정렬 방식을 컨트롤
+      : align-items로 정의 된 설정에 대해 개별 아이템을 재정의하는 기능
+      ? flex-start, flex-end, center, stretch
+
+    ! order 속성
+      : flex 아이템의 시각적 순서를 부모 컨테이너 내에서 변경할 수 있도록 지정
+      : 정수값을 사용하여 지정
+        , 값이 클수록 아이템이 뒤로 이동
+        , 음수값을 사용하면 아이템을 앞으로 이동
+      - 기본값: 0
+  -->
+  <div class="container">
+    <div class="items item-1">Item 1</div>
+    <div class="items item-2">Item 2</div>
+    <div class="items item-3">Item 3</div>
+    <div class="items item-4">Item 4</div>
+  </div>
+
+</body>
+</html>
