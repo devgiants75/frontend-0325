@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Transition</title>
+	<style>
+    .box {
+      margin:20px auto;
+      width: 100px;
+      height: 100px;
+      background-color: #07f;
+      border: 1px solid #222;
+      /* 
+      트랜지션 대상 - property 속성
+      : 트랜지션을 부여하고자 하는 요소를 나열(,콤마를 기준) 
+
+      트랜지션 시간 - duration 속성
+      : 변경 사항이 일어나는 시간 설정 - 지속 시간
+      : 초(s), 밀리초(ms) 단위 사용
+      */
+      transition-property: width, height;
+      transition-duration: 2s, 1s;
+    }
+    .box:hover {
+      width:200px;
+      height:120px;		
+    }
+	</style>
+</head>
+
+<body>
+  <!--  
+    transition 속성
+
+    ! 1. transition-property 속성
+    - 효과를 적용할 CSS 속성을 지정
+    - 속성값
+      all: 모든 속성에 트랜지션 효과 적용 (X, 생략 가능)
+      none: 트랜지션 효과 미적용
+      속성이름을 ,를 기준으로 나열
+
+    ! 2. transition-duration 속성
+    - 트랜지션 효과의 지속 시간을 정의
+    - 시간 단위: s(초), ms(밀리초)
+    - 단일 속성에 대한 지속 시간을 설정
+      여러 속성에 대해 개별적인 지속 시간을 설정
+      : 기본값 0s (지정하지 않으면 효과 적용 X)
+
+    ! 3. transition-timing-function 속성
+    - 트랜지션의 중간 상태들이 어떻게 처리될지 결정하는 타이밍 함수
+    - 애니메이션의 가속도와 감속을 제어 가능
+    속성값
+      : linear(등속도로 진행 - 같은 속도)
+      ?: ease(시작과 끝에서는 느리고 중간에는 빠르게 진행, 기본값)
+      : ease-in(점점 빨라지는 가속도)
+      : ease-out(점점 느려지는 가속도)
+      : ease-in-out(시작과 끝에서는 느리고, 중간에 가속)
+        >> 스크롤에 따라 요소가 등장하거나 사라지는 효과에 적합
+
+    ! 4. transition-delay 속성
+    - 트랜지션 효과 시작 전에 대기하는 시간을 지정
+    - s(초), ms(밀리초) 단위 사용
+    - 기본값 0s(지연 없이 즉시 시작)
+  -->
+	<div class="box"></div>	
+</body>
+</html>

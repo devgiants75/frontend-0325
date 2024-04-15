@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Transform:rotate</title>
+  <style>
+		#container{
+			width:800px;
+			margin:20px auto;
+		}
+		.origin {
+			width: 100px;
+			height: 100px;
+			float: left;
+			margin: 40px;
+		}
+
+		/* rotate 함수 코드 */
+		#rotate1:hover {
+			/* rotate 함수 내에 양수 값 사용 시: 시계방향 */
+			transform: rotate(40deg);
+		}
+
+		#rotate2:hover {
+			/* rotate 함수 내에 음수 값 사용 시: 시계 반대 방향 */
+			transform: rotate(-40deg);
+		}
+  </style>
+</head>
+<body>		
+	<!--  
+		rotate 함수
+		: 주어진 각도만큼 웹 요소를 시계방향 | 시계 반대 방향으로 회전
+		: 함수값으로 일반 각도(degree)나 래디안(radian)값을 사용 가능
+		- 래디안: 1래디안 = 1/180º
+	-->
+	<div id="container"> 
+		<div class="origin" id="rotate1">
+			<img src="../../../images/dog.png" width="150px">	
+		</div>
+		<div class="origin" id="rotate2">
+			<img src="../../../images/dog.png" width="150px">		
+	</div>
+</body>
+</html>

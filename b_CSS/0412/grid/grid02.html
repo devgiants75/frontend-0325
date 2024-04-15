@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid 레이아웃</title>
+  <style>
+    body {
+      width: 90%;
+      height: 300px;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    .container > div {
+      border: 2px solid lightcoral;
+      padding: 10px;
+      background-color: skyblue;
+      border-radius: 5px;
+    }
+
+    .container {
+      display: grid;
+      /* 
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+      */
+      grid-template-columns: repeat(auto-fill, 100px);
+    }
+
+    /*! 그리드 라인 기반 배치 */
+    .grid-container {
+      display: grid;
+      /* 2개의 열을 1:3비율로 생성 */
+      grid-template-columns: 1fr 3fr;
+      gap: 20px;
+      margin: 20px;
+    }
+
+    header, footer {
+      border: 2px solid lightgreen;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: lightgoldenrodyellow;
+    }
+
+    aside {
+      border-right: 1px solid #999;
+    }
+
+    /* 그리드 라인을 사용한 요소 정렬 */
+    header {
+      /*  
+      현재 그리드의 열은 2개- 1:3의 비율로 생성
+      >> 그리드 열의 라인- 3개
+
+      첫 번째 열에서 시작, 세 번째 열의 시작 점까지 확장
+      : 실제로 두 열을 모두 차지
+      */
+      grid-column: 1 / 3;
+      /* 첫 번째 행에 위치 */
+      grid-row: 1;
+    }
+
+    article {
+      /* 두 번째 행에 위치 */
+      grid-row: 2;
+
+      /* 두 번째 열에 위치 */
+      grid-column: 2;
+    }
+
+    aside {
+      /* 두 번째 행에 위치 */
+      grid-row: 2;
+
+      /* 첫 번째 열에 위치 */
+      grid-column: 1;
+    }
+
+    footer {
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+
+    /* grid-template-area로 위치 잡기 */
+    .grid-container {
+      display: grid;
+      grid-auto-columns: 1fr 3fr 1fr;
+      gap: 20px;
+
+      /* 
+      문자열을 통해 각각의 행을 지정 
+      : 행을 나열하되 각 영역의 형태는 직사각형으로 배치
+      : 
+      */
+      grid-template-areas: 
+        "header header header"
+        "sidebar content main"
+        "footer footer footer"
+      ;
+    }
+
+    header {
+      grid-area: header;
+    }
+
+    article {
+      grid-area: main;
+    }
+
+    aside {
+      grid-area: sidebar;
+    }
+
+    footer {
+      grid-area: footer;
+    }
+
+    main {
+      grid-area: content;
+    }
+  </style>
+</head>
+<body>
+  <!--  
+    ! auto-fit / auto-fill
+      : 그리드 컨테이너에 들어갈 수 있는 만큼의 열을 생성
+
+    ? auto-fit
+    : 가능한 한 많은 트랙(열/행)을 생성하고, 필요에 따라 그리드 컨테이너 내에서 동적으로 트랙을 맞춤
+    >> 빈 트랙을 없애고, 남은 트랙을 확장
+    >> 트랙의 수가 동적으로 변화
+    >> 그리드 아이템이 적어 트랙이 남을 경우, 남은 공간을 확장하여 공간을 채움
+
+    ? auto-fill
+    : 가능한 한 많은 트랙을 생성
+      , 각 트랙은 지정된 크기를 유지
+    >> 그리드 컨테이너 내에서 여백 발생 가능
+    >> 아이템 수가 변경되어도 트랙의 크기는 고정
+
+    ! 그리드의 라인 기반 배치
+      ? 그리드 라인
+        : 그리드 셀을 분할하는 선
+
+      그리드의 라인에 따라 사물 배치
+      : 라인의 시작 '1'
+      : CSS의 문서 흐름에 따라 배치(왼>오, 위>아래)
+
+      ? 시작 라인과 끝 라인 지정
+        >> 약칭 사용 시 시작 줄과 끝 줄을 슬래시(/)로 구분하여 한 번에 지정
+        : 각 영역의 라인으로 구분
+        : 라인의 시작 1
+        : 라인의 끝부터 시작 -1값 사용
+
+        grid-column-start
+        grid-column-end
+        >> grid-column: start / end;
+
+        grid-row-start
+        grid-row-end
+        >> grid-row: start / end;
+
+      ? grid-template-areas 위치잡기
+        : 그리드로 이뤄진 전체 셀을 채움
+        : 두 개의 셀을 합치려면 해당 이름 반복
+        : 셀을 비우려면 .(마침표)
+        : 반드시 직사각형 형태
+  -->
+  <div class="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+  </div>
+
+  <h2>그리드 라인 기반 배치</h2>
+  <div class="grid-container">
+    <header>헤더입니다.</header>
+    <article>
+      <h1>제목입니다.</h1>
+      <p>해당 내용은 그리드 레이아웃1입니다.</p>
+      <p>해당 내용은 그리드 레이아웃2입니다.</p>
+    </article>
+    <aside>
+      <h2>부가적인 내용입니다.</h2>
+      <p>해당 내용은 그리드 레이아웃의 부가적인 내용입니다.</p>
+    </aside>
+
+    <main>해당 내용은 메인입니다.</main>
+    
+    <footer>푸터입니다.</footer>
+  </div>
+</body>
+</html>

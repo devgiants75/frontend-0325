@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Transform</title>
+  <style>
+    #container{
+      width:800px;
+      margin:20px auto;
+    }
+    .origin {
+      width: 100px;
+      height: 100px;
+      margin: 40px;
+      float: left;
+      border: 1px solid black;
+      /* 
+        원근감을 표시 
+        : 변형을 적용할 요소의 부모에게 적용
+      */
+      perspective: 200px;
+    }
+    .origin > div {				
+      width:100px;
+      height:100px;
+      background-color:orange;
+      
+    }
+
+    #rotatex:hover {
+      
+      transform: rotateX(55deg);
+    }
+    #rotatey:hover {
+      transform: rotateY(55deg);
+    }
+    #rotatez:hover {
+      /* 
+      가운데 중점을 중심으로 회전 
+      : 양수의 경우 중점을 기준으로 시계 반대방향의 회전
+      */
+      transform: rotateZ(55deg);
+    }
+    #rotatexyz:hover {
+      /* 
+      처음 3가지의 값은 각각 x, y, z축을 기준으로 한 거리 
+      : 회전 축을 정의하는 벡터를 구성
+        >> 회전의 방향과 축을 결정
+
+      + 4번째 값은 각도 표현
+      */
+      transform: rotate3d(2.5, 1.2, -1.5, 55deg);
+    }
+  </style>
+</head>
+
+<body>
+  <!--  
+    rotate함수의 3차원 사용
+
+    - perspective 속성
+    : 원근감을 표현하기 위해 사용되는 속성
+    : 원래 있던 위치에서 사용자가 있는 쪽으로 얼마나 이동하는지를 나타냄
+    : 속성값은 픽셀 단위
+      >> 0보다 큰 수를 입력, 값이 클수록 사용자로부터 멀어짐
+  -->
+  <div id="container">
+    <div class="origin">
+      <div id="rotatex"></div>
+    </div>
+    <div class="origin">
+      <div id="rotatey"></div>
+    </div>
+    <div class="origin">		
+      <div id="rotatez"></div>
+    </div>
+    <div class="origin">	
+      <div id="rotatexyz"></div>	
+    </div>
+  </div>
+</body>
+</html>

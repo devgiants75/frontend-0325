@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Animation</title>
+	<style>
+		#container {
+			width:500px;
+			margin:20px auto;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			float:left;
+			margin:50px;
+		}
+
+		#box1 {
+			background-color: lightblue;
+			border: 1px solid transparent;
+			/* 애니메이션 지정 */
+			animation-name: shape;
+			/* 애니메이션 실행 시간 */
+			animation-duration: 3s;
+      animation-direction: normal;
+      animation-iteration-count: 3;
+		}
+
+		#box2 {
+			background-color: lightcoral;
+			border: 1px solid transparent;
+			/* 애니메이션 지정 */
+			animation-name: rotate;
+			/* 애니메이션 실행 시간 */
+			animation-duration: 3s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+		}
+
+		/* shape 애니메이션 정의 */
+		@keyframes shape {
+			from {
+				/* 애니메이션 시작 디자인 */
+				border: 1px solid transparent;
+			}
+			to {
+				border: 1px solid #000;
+				/* 원 모양 */
+				border-radius: 50%;
+			}
+		}
+
+		/* rotate 애니메이션 정의 */
+		@keyframes rotate {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(45deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+  <!--  
+    ! animation-direction 속성
+      : 애니메이션이 끝난 후 원래 위치로 돌아가거나 반대 방향으로 실행하도록 지정
+      속성값
+      - normal: 애니메이션이 끝나면 원래 위치로 돌아감(기본값)
+      - alternate: 애니메이션이 끝까지 실행하면 반대 방향으로 되돌아가면서 애니메이션을 실행
+
+    ! animation-iteration-count 속성
+      : 애니메이션 반복 횟수를 지정
+      속성값
+      - 숫자(횟수 지정) | infinite(무한 반복)
+  -->
+	<div id="container">
+		<div class="box" id="box1"></div>
+		<div class="box" id="box2"></div>
+	</div>
+</body>
+</html>

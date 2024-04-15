@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Transition</title>
+<style>
+	/* 메인 스타일 설정 */
+	.box {
+		margin:50px auto;
+		width: 100px;
+		height: 100px;
+		background-color: #fb5;
+		border: 1px solid #222;
+		/* 
+			트랜지션 설정 
+			: 전체 모든 속성, 시간: 2초, 점점 빨라지는 타이밍
+		*/
+		/* transition: all 2s ease-in; */
+		transition: 2s ease-in;
+	}
+
+	/* 사용자의 동작에 반응하는 변경 사항 */
+	/* all 속성값 사용으로 아래의 속성이 모두 트랜지션 대상 */
+	.box:hover {
+		width: 200px;
+		height: 200px;
+		background-color: #f50;
+		transform: rotate(270deg);
+	}
+
+</style>
+</head>
+
+<body>
+	<div class="box"></div>
+</body>
+</html>

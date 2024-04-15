@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practice.html</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      /* 
+        opacity: 투명도 설정 
+        >> 0 ~ 1의 값을 지정 (숫자가 커질수록 선명)
+      */
+      opacity: 1;
+      transition: width 2s ease-in-out,
+                  background-color 2s ease,
+                  opacity 2s ease-in,
+                  height 2s ease-out
+      ;
+    }
+
+    .box:hover {
+      width: 200px;
+      height: 150px;
+      background-color: lightcoral;
+      opacity: 0.5;
+    }
+
+    .box:focus {
+      outline: none;
+      border: 2px solid gold;
+    }
+
+    .box:active {
+      background-color: lightgreen;
+      width: 150px;
+      height: 200px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box"></div>
+  </div>
+</body>
+</html>

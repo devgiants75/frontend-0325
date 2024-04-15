@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Transform</title>
+    <style>
+			#container{
+				width:600px;
+				margin:20px auto;
+			}
+			.origin {
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+				float: left;
+				margin: 40px;
+			}
+			.origin > div {				
+				width:100px;
+				height:100px;
+				background-color:orange;
+			}
+
+			#skewx:hover {
+				transform: skewX(-30deg);
+			}
+
+			#skewy:hover {
+				transform: skewY(30deg);
+			}
+
+			#skewxy:hover {
+				transform: skew(30deg, 20deg);
+			}
+		</style>
+	</head>
+	<body>		
+		<!--  
+			skew 함수
+			: 요소를 지정한 각도만큼 비틀어 왜곡
+			: 2차원적인 변형만 가능
+		-->
+		<div id="container">		
+			<div class="origin">
+				<div id="skewx"></div>
+			</div>
+			<div class="origin">
+				<div id="skewy"></div>
+			</div>
+			<div class="origin">
+				<div id="skewxy"></div>
+			</div>
+		</div>
+
+		
+	</body>
+</html>

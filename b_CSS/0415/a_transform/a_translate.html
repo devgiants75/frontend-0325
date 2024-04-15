@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Transform:translate</title>
+    <style>
+			#container {
+				width:800px;
+				height:200px;
+				margin:20px auto;
+			}
+			.origin {
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+				float: left;
+				margin: 40px;
+			}
+			.origin > div {				
+				width:100px;
+				height:100px;
+				background-color:orange;
+			}
+
+			/* translate 사용 코드 */
+			#movex:hover {
+				/* x축으로(가로) 50px 이동 */
+				transform: translateX(50px);
+			}
+
+			#movey:hover {
+				/* y축으로(세로) 20px 이동 */
+				transform: translateY(20px);
+			}
+
+			#movexy:hover {
+				transform: translate(10px, 20px);
+			}
+		</style>
+	</head>
+	<body>		
+		<!--  
+			translate 함수
+			: 지정한 방향으로 이동할 거리를 지정하여 요소를 이동시키는 함수
+
+			값을 2개 입력: translate(x, y)
+			>> x, y축으로 이동
+
+			값을 3개 입력: translate3d(x, y, z)
+			>> x, y축으로 이동 + z축의 원근감을 표현
+
+			값을 1개 입력: translateX, translateY, translateZ
+			>> 각각의 방향으로 이동
+		-->
+		<div id="container">
+			<div class="origin">
+				<div  id="movex"></div>		
+			</div>
+			<div class="origin">
+				<div id="movey"></div>	
+			</div>
+			<div class="origin">
+				<div id="movexy"></div>		
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

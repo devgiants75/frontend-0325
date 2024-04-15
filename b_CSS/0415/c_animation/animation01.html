@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Animation</title>
+	<style>
+		#container {
+			width:500px;
+			margin:20px auto;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			float:left;
+			margin:50px;
+		}
+
+		#box1 {
+			background-color: lightblue;
+			border: 1px solid transparent;
+			/* 애니메이션 지정 */
+			animation-name: shape;
+			/* 애니메이션 실행 시간 */
+			animation-duration: 3s;
+		}
+
+		#box2 {
+			background-color: lightcoral;
+			border: 1px solid transparent;
+			/* 애니메이션 지정 */
+			animation-name: rotate;
+			/* 애니메이션 실행 시간 */
+			animation-duration: 3s;
+		}
+
+		/* shape 애니메이션 정의 */
+		@keyframes shape {
+			from {
+				/* 애니메이션 시작 디자인 */
+				border: 1px solid transparent;
+			}
+			to {
+				border: 1px solid #000;
+				/* 원 모양 */
+				border-radius: 50%;
+			}
+		}
+
+		/* rotate 애니메이션 정의 */
+		@keyframes rotate {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(45deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!--  
+		! CSS 애니메이션
+
+		? 1.@keyframes 속성
+			: 애니메이션의 시작과 끝을 비롯해 상태가 바뀌는 지점을 설정
+			: '이름'으로 애니메이션을 구별
+
+			@keyframes 이름 {
+				선택자 { 스타일 규칙 }
+			}
+			- @keyframes의 선택자에서 속성값이 바뀌는 지점을 가리킴
+			- 시작 위치는 0%, 끝 위치는 100%로 놓고 위치 지정
+			- 시작과 끝 위치만 사용할 경우 from, to 키워드 사용 가능
+
+		? 1. animation-name 속성
+			: 어떤 애니메이션을 사용할지 구별
+			: @keyframes 속성에서 만든 애니메이션 이름을 사용
+			- 속성값: 키프레임이름 | none
+
+		? 2. animation-duration 속성
+			: 애니메이션 실행 시간 설정, 기본값 0
+			: 초, 밀리초 단위 사용
+	-->
+	<div id="container">
+		<div class="box" id="box1"></div>
+		<div class="box" id="box2"></div>
+	</div>
+</body>
+</html>

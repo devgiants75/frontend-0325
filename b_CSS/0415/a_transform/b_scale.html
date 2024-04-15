@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Transform:scale</title>
+    <style>
+			#container{
+				width:600px;
+				margin:20px auto;
+			}
+			.origin {
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+				float: left;
+				margin: 40px;
+			}
+			.origin > div {				
+				width:100px;
+				height:100px;
+				background-color:orange;
+			}
+
+			/* scale 예시 코드 */
+			#scalex:hover {
+				transform: scaleX(2);
+			}
+
+			#scaley:hover {
+				transform: scaleY(1.5);
+			}
+
+			#scale:hover {
+				transform: scale(0.7);
+			}
+		</style>
+	</head>
+	<body>
+		<!--  
+			scale 함수: 지정한 크기만큼 요소를 확대/축소
+			- 값 지정 시 정수값을 사용
+				해당 값 만큼 확대/축소
+				: 1이상의 경우 확대
+				: 1미만의 경우 축소 EX)0.7배 증가 >> 축소 효과
+
+			값 1개 지정: scaleX(), scaleY(), scaleXZ()
+			값 2개 지정: scale(x, y)
+			값 3개 지정: scale(x, y, z)
+		-->
+		<div id="container">		
+			<div class="origin">
+				<div id="scalex"></div>
+			</div>
+			<div class="origin">
+				<div id="scaley"></div>
+			</div>
+			<div class="origin">
+				<div id="scale"></div>
+			</div>
+		</div>		
+	</body>
+</html>
