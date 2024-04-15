@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 애니메이션</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* 요소의 위치를 상대적으로 설정 */
+      position: relative;
+      background-color: blue;
+
+      animation: moveAround 5s linear infinite;
+    }
+
+    @keyframes moveAround {
+      0% {top: 0; left: 0;}
+      25% {top: 0; left: 100px;}
+      50% {top: 100px; left: 100px;}
+      75% {top: 100px; left: 0px;}
+      100% { top: 0; left: 0;}
+    }
+
+    /* 
+    애니메이션 이름 changeColor
+    : 배경색을 1/5의 간격으로 파란색 > 초록색 > 노란색 > 빨간색 > 보라색 
+    : 무한 반복, 처음과 끝은 느리게 중간은 빠르게 
+    */
+  </style>
+</head>
+<body>
+  <div>안녕하세요, CSS 애니메이션 예제입니다.</div>
+</body>
+</html>
