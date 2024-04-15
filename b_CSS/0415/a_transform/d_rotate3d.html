@@ -14,23 +14,17 @@
       margin: 40px;
       float: left;
       border: 1px solid black;
-<<<<<<< HEAD
       /* 
         원근감을 표시 
         : 변형을 적용할 요소의 부모에게 적용
       */
       perspective: 200px;
-=======
-      
->>>>>>> 39c084992d3a9e0bd32a013fdef68ddac65173ca
     }
     .origin > div {				
       width:100px;
       height:100px;
       background-color:orange;
-      
     }
-<<<<<<< HEAD
 
     #rotatex:hover {
       
@@ -56,13 +50,47 @@
       */
       transform: rotate3d(2.5, 1.2, -1.5, 55deg);
     }
-=======
->>>>>>> 39c084992d3a9e0bd32a013fdef68ddac65173ca
+
+    .element {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      transform: perspective(500px) rotateY(45deg);
+    }
+
+    .parent {
+      display: flex;
+      margin: 20px;
+      perspective: 500px;
+    }
+
+    .child:nth-of-type(1) {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transform: rotateX(45deg);
+      margin: 10px;
+    }
+
+    .child:nth-of-type(2) {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      transform: rotateY(45deg);
+      margin: 10px;
+    }
+
+    .child:nth-of-type(3) {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      transform: rotateY(-45deg);
+      margin: 10px;
+    }
   </style>
 </head>
 
 <body>
-<<<<<<< HEAD
   <!--  
     rotate함수의 3차원 사용
 
@@ -71,9 +99,8 @@
     : 원래 있던 위치에서 사용자가 있는 쪽으로 얼마나 이동하는지를 나타냄
     : 속성값은 픽셀 단위
       >> 0보다 큰 수를 입력, 값이 클수록 사용자로부터 멀어짐
+    : 
   -->
-=======
->>>>>>> 39c084992d3a9e0bd32a013fdef68ddac65173ca
   <div id="container">
     <div class="origin">
       <div id="rotatex"></div>
@@ -87,6 +114,25 @@
     <div class="origin">	
       <div id="rotatexyz"></div>	
     </div>
+  </div>
+
+  <hr />
+  <!--  
+    perspective: 뷰포트를 기준으로 ()소괄호 안에 작성되는 길이 만큼 떨어진 곳에 위치시키는 것
+    
+    1. 변환 대상 요소에 tranform: perspective() 적용
+    - 각각의 요소에 독립적으로 원근감 적용
+
+    2. 부모 요소에 perspective 속성 적용
+    - 그 안의 자식요소에 원근감이 상속, 일정한 패턴 유지에 용이
+  -->
+
+  <div class="element"></div>
+
+  <div class="parent">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
   </div>
 </body>
 </html>

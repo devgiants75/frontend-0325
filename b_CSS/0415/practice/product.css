@@ -1,0 +1,60 @@
+#container {
+  width: 1000px;
+  margin: 20px auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.dog-list {
+  list-style: none;
+  padding: 0;
+}
+
+.dog-list li {
+  float: left;
+  padding: 0;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.dog-list img {
+  width: 300px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  /* 
+  요소의 쌓임 순서를 결정 
+  : 정수값을 사용, 해당 값에 따라 겹치는 순서가 결정
+  : 요소값이 겹치는 경우 다른 요소보다 상위 층에 위치하도록 지정
+  - position 설정이 static이 아닌 값에서 사용
+  */
+  z-index: 5;
+}
+
+.dog-list .caption {
+  position: absolute;
+  top: 200px;
+  width: 300px;
+  height: 200px;
+  padding-top: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 투명하게 설정 - 보이지 않음 */
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+  z-index: 10;
+}
+
+.dog-list li:hover .caption {
+  /* 설명글이 화면에 보이게 설정 */
+  opacity: 1;
+  transform: translateY(-200px);
+}
+
+.dog-list .caption h2, .dog-list .caption p {
+  color: #fff;
+  text-align: center;
+}
