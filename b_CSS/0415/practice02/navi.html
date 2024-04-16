@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>navi.html</title>
+  <style>
+    .navbar {
+      display: flex;
+      background-color: #333;
+      justify-content: center;
+      padding: 10px 20px;
+    }
+
+    .nav-item {
+      color: white;
+      padding: 10px 20px;
+      /* 동작X, 클릭 될 요소의 스타일링 지정 */
+      cursor: pointer;
+      transition: 
+        background-color 0.5s ease, 
+        transform 0.5s ease, 
+        color 0.5s ease;
+    }
+
+    .nav-item:hover, .nav-item:focus {
+      background-color: #555;
+      color: #ff0;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      transform: scale(1.1);
+    }
+
+    .nav-item:active {
+      background-color: #777;
+      border: 1px solid transparent;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="nav-item">Home</div>
+    <div class="nav-item">About</div>
+    <div class="nav-item">Services</div>
+    <div class="nav-item">Contact</div>
+  </div>
+</body>
+</html>

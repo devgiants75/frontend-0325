@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menu.html</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .menu {
+      /* 위치를 상대적으로 설정 */
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .menu-item {
+      width: 60px;
+      height: 60px;
+      background-color: #4caf50;
+      /* 모서리를 완전히 둥글게 설정 */
+      border-radius: 50%;
+      /* 절대 위치를 설정 */
+      position: absolute;
+      top: 70px;
+      left: 70px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+
+      transition: transform 0.5s ease;
+      z-index: 0;
+    }
+
+    .center-button {
+      width: 80px;
+      height: 80px;
+      background-color: #2196f3;
+      border-radius: 50%;
+
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+
+      /* 
+        z축을 기준으로 요소의 나열 순서를 설정 
+        : 값이 클수록 상단에 표시
+      */
+      z-index: 1;
+    }
+
+    .menu:hover .item-1 { 
+      /* 회전하지 않은 채로 x축 100px 이동 */
+      transform: rotate(0deg) translateX(100px) rotate(0deg)
+    }
+    .menu:hover .item-2 { 
+      /* 60도 회전한 채로 x축 100px 이동 */
+      transform: rotate(60deg) translateX(100px) rotate(-60deg)
+    }
+    .menu:hover .item-3 { 
+      transform: rotate(120deg) translateX(100px) rotate(-120deg)
+    }
+    .menu:hover .item-4 { 
+      transform: rotate(180deg) translateX(100px) rotate(-180deg)
+    }
+    .menu:hover .item-5 { 
+      transform: rotate(240deg) translateX(100px) rotate(-240deg)
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <div class="center-button">Menu</div>
+
+    <div class="menu-item item-1">HOME</div>
+    <div class="menu-item item-2">ABOUT</div>
+    <div class="menu-item item-3">PROJECT</div>
+    <div class="menu-item item-4">SKILL</div>
+    <div class="menu-item item-5">PAGES</div>
+  </div>
+</body>
+</html>

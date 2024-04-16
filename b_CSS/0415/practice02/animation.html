@@ -18,7 +18,11 @@
       position: relative;
       background-color: blue;
 
+      /* 
       animation: moveAround 5s linear infinite;
+      animation: changeColor 5s ease-in-out infinite; 
+      */
+      animation: moveAround 5s linear infinite, changeColor 5s ease-in-out infinite;
     }
 
     @keyframes moveAround {
@@ -34,6 +38,14 @@
     : 배경색을 1/5의 간격으로 파란색 > 초록색 > 노란색 > 빨간색 > 보라색 
     : 무한 반복, 처음과 끝은 느리게 중간은 빠르게 
     */
+    @keyframes changeColor {
+      0% { background-color: blue; }
+      25% { background-color: green; }
+      50% { background-color: yellow; }
+      75% { background-color: red; }
+      100% { background-color: purple; }
+    }
+
   </style>
 </head>
 <body>
