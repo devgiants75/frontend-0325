@@ -4,11 +4,46 @@
   <meta charset="UTF-8">
   <title>Animation</title>
   <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 60px auto;
+      animation: rotate 3s infinite, background 3s infinite alternate;
+    }
 
+    @keyframes rotate {
+      from {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      }
+      50% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+      }
+      to {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+      }
+    }
+
+    @keyframes background {
+      from { background-color: lightcoral; }
+      50% { background-color: lightblue; }
+      to { background-color: lightgreen; }
+    }
   </style>
 </head>
 
 <body>
+  <!--  
+    ! animation-timing-function 속성
+      : 애니메이션 속도 곡선을 지정
+      - 퍼센트 값으로 설정
+        0%(from) ~ 100%(to)
+        : 중간의 %값 설정으로 시작과 끝 사이의 중간 지점에 대한 스타일 변화 설정 가능
+
+    ! animation 속성
+      : 여러 개의 애니메이션 속성을 하나의 속성으로 줄여서 사용
+      : 지정하지 않는 속성은 기본값 사용
+      - animation-duration 속성 값은 반드시 지정
+  -->
 	<div class="box">	</div>
 </body>
 </html>
