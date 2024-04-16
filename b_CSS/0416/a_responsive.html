@@ -3,11 +3,137 @@
 
 <head>
   <meta charset="UTF-8">
+  <!--  
+    ! meta 태그 & viewport
+
+    ? width
+      : 뷰포트의 가로 크기를 결정
+      device-width: 디바이스의 스크린 너비에 맞춰라
+      EX) 500px값이 부여되는 경우 전체 모바일 페이지의 너비가 500px의 값만 보여짐
+    
+    ? initial-scale
+      : 페이지에 처음 접속 시 보여질 배율
+      1의 속성값: CSS 픽셀과 화면에 보일 픽셀이 1:1로 설정
+
+    ? user-scalable
+      : 사용자의 축소/확대 허용 여부
+      : 초기값 yes
+      : no로 설정 시 금지 가능
+        >> no로 설정 시 웹 접근성 관련한 경고를 받을 수 있다.
+  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>반응형 웹</title>
+  <link rel="stylesheet" href="styles/a_responsive.css">
 </head>
 
 <body>
+  <!--  
+    ! 웹 사이트 종류 
+
+    1. 적응형 웹
+      : PC와 모바일 등 기기에 따라 각각의 주소 체계를 가지는 웹
+      : 기기마다 각각의 소스 코드 작성
+      : 기기에 적합한 스타일 설정이 가능
+      
+      네이버 PC홈 : https://www.naver.com/
+      네이버 모바일홈 : https://m.naver.com/
+
+    2. 반응형 웹 (디자인)
+      : Responsive Web Design
+
+      - 멀티 디바이스 웹을 위한 디자인 방식
+      : 웹 페이지가 모든 화면 크기와 해상도에서 적절하게 반응하여 콘텐츠를 최적화된 형태로 표시하는 웹 디자인 방법론
+
+      ? 반응형 웹 디자인 사용 목적
+        - 유연성: 하나의 웹 사이트로 다양한 디바이스에서 최적화된 경험 제공 가능.
+        - 비용 절감
+        - 유지 보수
+
+    ! 미디어 쿼리(Media Query)
+    : 다양한 디바이스의 특성에 따라 다른 스타일을 적용할 수 있도록 하는 CSS 기법
+    - 미디어 쿼리를 사용하여 뷰포트의 크기에 따라 다른 스타일 적용이 가능
+
+    ? 기본 구문
+      : media 키워드를 사용하여 명시
+      : '미디어 유형 / 논리 연산자 / 특성'으로 이루어짐
+
+      & CSS 문법 체계에서 대문자 안에 작성된 내용은 선택 사항(OR)
+      @media [only | not] 미디어 유형 [and 조건] * [and 조건] {
+        CSS 스타일 적용
+      }
+
+    ? 적용 방법
+      1) CSS 파일 내에 직접 작성
+        - 일반 CSS 외부 스타일 시트 사용법 처럼 작성
+
+      2) link 태그 내에서 media 속성을 사용해 작성
+        : 소스 코드 유지 보수에 어려움이 있어 사용하지 X
+      <link rel="stylesheet" media="all and (min-width:1200px)" href="desktop.css" >
+      <link rel="stylesheet" media="all and (min-width:768px) and (max-width:1199px)" href="laptop.css" >
+
+    ! 1. 미디어 유형
+    ? - 지정하지 않을 경우 all 속성이 사용 (기본값)
+      all: 모든 미디어 유형에서 사용*
+      print: 인쇄 장치에서 사용
+      screen: 컴퓨터 스크린에서 사용*
+              (스마트폰의 스크린도 포함)
+      tv: 음성과 영상이 동시에 출력되는 tv에서 사용
+
+    ! 2. 논리 연산자
+      - only
+        : 미디어쿼리를 지원하는 브라우저만 적용
+      - not
+        : 모든 쿼리가 거짓이어야 적용
+      - and
+        : 조건을 여러 개 연결해서 추가 (모든 쿼리가 참이어야 적용)
+      - ,(or)
+        : 조건 중 어느 하나라도 참이면 적용
+
+    ! 3. 특성
+      width/height
+      뷰포트 너비/뷰포트 높이
+      
+        ? min-width, min-height / min-device-width,height
+          : 최소 너비와 최소 높이(해당 크기가 되기 전까지 적용)
+        ? max-width, max-height / max-device-width,height
+          : 최대 너비와 최대 높이(해당 크기까지 적용)
+
+        - 기준점
+          스마트폰: 가로(너비 - 480px) / 세로(높이 - 320px)
+
+          태블릿: 세로 크기가 768px 이상이면 테블릿으로 지정
+                  가로 크기는 데스크톱과 똑같이 1024px 이상으로 지정
+
+          PC: 가로크기가 1024px 이상이면 PC로 지정
+
+      aspect-ratio
+      뷰포트 가로세로비율
+      : 16/9
+      : 4/3
+
+      orientation
+      뷰포트 방향
+      : 디바이스가 세로모드인지 가로모드인지 검사하는 기능
+      가로모드-landscape
+      세로모드-portrait
+
+      hover, poniter 미디어 기능
+      - 사용자가 터치스크린으로 장치와 상호작용 할 경우 스타일 지정
+
+    ! 미디어 쿼리 분기점 선정
+      - breakpoints: 미디어쿼리가 도입되는 시점
+      - Mobile First 디자인 원칙
+        : 먼저 모바일 기기에 최적화된 디자인을 만든 후
+          태블릿이나 데스크톱과 같은 더 큰 화면에 맞게 확장
+          >> 웹 사용자들이 모바일 기기에서 인터넷을 사용하는 비율이 크게 증가함에 따라 중요!
+      1. 작은 화면에서 시작
+      2. 점진적 향상
+
+      ? 미디어 쿼리의 분기점이 되는 width 설정 시
+        min / max 값
+        - 모바일 퍼스트: min
+        - PC 퍼스트: max
+    -->
   <h1>안녕하세요</h1>
   <p>
     반응형 웹 디자인
