@@ -1,0 +1,39 @@
+/*  
+  기본 글자 크기가 40px로 지정된 p요소를
+  , 브라우저 화면이 600px보다 작은 화면에서는 20px로 축소
+
+  >> max-width: 600px의 글자 크기 스타일을 20px로 지정
+*/
+p {
+  font-size: 40px;
+}
+
+/* 미디어 유형 설정X - all */
+@media (max-width: 600px) {
+  /* css 코드 작성 */
+  p {
+    font-size: 20px;
+  }
+}
+
+/* 
+모든 디바이스 & 최소 너비가 768px 이상 & 최대 너비가 1080px 이하
+>> 태블릿 사이즈
+>> 768 ~ 1080 사이의 스타일 지정 
+*/
+
+@media all and (min-width: 768px) and (max-width: 1080px) {
+  h1 {
+    color: red;
+  }
+}
+
+/*  
+  최소 높이가 680 이상이거나 '세로 모드의 스크린 기기' 중 하나를 만족하는 경우 적용
+*/
+@media (min-height: 680px), screen and (orientation: portrait) {
+  h1 {
+    background-color: blue;
+  }
+}
+

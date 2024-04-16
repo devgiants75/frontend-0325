@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .card {
+      max-width: 300px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    /* 768px 이상일 때 */
+    @media screen and (min-width: 768px) {
+      .card {
+        max-width: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="../../../images/dog01.png" alt="image">
+    <div class="card-content">
+      <h2>Card Title</h2>
+      <p>This is example text</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 미디어쿼리</title>
+  <style>
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .images {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .images img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+      .images {
+        width: 50%;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .images {
+        width: 33.33%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="image-gallery">
+    <div class="images">
+      <img src="../../../images/dog01.png" alt="1">
+      <img src="../../../images/dog02.jpg" alt="2">
+      <img src="../../../images/dog03.jpg" alt="3">
+    </div>
+  </div>
+</body>
+</html>

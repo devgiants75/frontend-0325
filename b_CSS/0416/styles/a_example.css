@@ -1,0 +1,73 @@
+/*  
+! 모바일 우선 기법
+: 분기점이 낮은 순서대로 작성
+*/
+
+p {
+  font-size: 12px;
+}
+
+@media (min-width: 640px) {
+  /* 최소 너비가 640px (640px 이상) */
+  p {
+    font-size: 14px;
+    color: blue;
+  }
+}
+
+@media (min-width: 768px) {
+  /* 최소 너비가 768px (768px 이상) */
+  p {
+    font-size: 16px;
+    color: purple;
+  }
+}
+
+/* 데스크톱(PC) 크기 */
+@media (min-width: 1024px) {
+  /* 최소 너비가 1024px (1024px 이상) */
+  p {
+    font-size: 18px;
+    color: red;
+  }
+}
+
+/*  
+! 데스크톱 우선 기법
+: 뷰포트의 값이 작아질수록 스타일을 덮는 방식,
+  분기점이 높은 순서부터 작성
+*/
+
+h1 {
+  background-color: lightblue;
+}
+
+@media (max-width: 1023px) {
+  /* 
+  1023px 까지는 라이트코랄 
+  : 데스크톱 전까지 (모바일, 태블릿)
+  */
+  h1 {
+    background-color: lightcoral;
+  }
+}
+
+@media (max-width: 767px) {
+  /* 
+  767px 까지는 라이트그린
+  : 태블릿 전까지 (모바일)
+  */
+  h1 {
+    background-color: lightgreen;
+  }
+}
+
+@media (max-width: 639px) {
+  /* 
+  639px 까지는 라이트그래이
+  */
+  h1 {
+    background-color: lightgray;
+  }
+}
+

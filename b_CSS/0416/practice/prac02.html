@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 네비바</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .responsive-nav ul {
+      list-style: none;
+      padding: 0;
+      background-color: #333;
+      text-align: center;
+    }
+
+    .responsive-nav li {
+      display: inline;
+      margin-right: 5px;
+      transition: margin-right 0.3s;
+    }
+
+    .responsive-nav a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      transition: padding 0.3s ease;
+    }
+
+    @media screen and (max-width: 600px) {
+      .responsive-nav li {
+        display: block;
+        margin: 0;
+        transition: display 0.3s ease, margin 0.3s ease;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="responsive-nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
