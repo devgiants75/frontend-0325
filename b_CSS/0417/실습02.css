@@ -88,3 +88,91 @@ nav {
     display: block;
   }
 }
+
+/* 전체 섹션 스타일링 */
+section {
+  padding: 50px 20px;
+  padding-top: 50px;
+  transition: padding-top 0.3s ease, background-color 0.3s ease;
+}
+
+/*  
+  링크의 수신처로 id속성을 사용하여 파일의 부분 이동을 하는 경우
+  : 해당 부분이 자동으로 target 설정이 됨
+*/
+section:target {
+  /* 
+  타겟팅이 되었을 때 패딩의 상단을 늘이는 이유
+  : 고정된 header 아래에 요소를 배치하기 위함
+  */
+  padding-top: 70px;
+  background-color: #f0f0f0;
+}
+
+.banner {
+  /*  
+  no-repeat: 반복 없이 이미지 지정
+  center center: 수평 / 수직 방향으로의 가운데 정렬
+  /cover: 배경 이미지의 크기 조정 방식
+    - 요소의 전체 영역을 완전히 커버하도록 확장 표시
+  */
+  background: url('../../images/cat01.jpg') no-repeat center center /cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.banner h1, .banner p {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* 애니메이션 키프레임 정의 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#about img {
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#about img:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.portfolio-container, .services-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.portfolio-item, .service {
+  margin: 10px;
+  flex-basis: 30%;
+  text-align: center;
+  /* 
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 5px; 
+  */
+}
+
+.portfolio-item img {
+  width: 100%;
+}
