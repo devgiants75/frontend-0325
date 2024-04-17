@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 속성 예제</title>
+</head>
+
+<body>
+  <!-- 
+    ! overflow 속성 
+    : 요소의 내용이 해당 요소의 박스(보더, 패딩 포함)를 초과할 때 어떻게 보여질지를 정의
+
+    ? 속성값
+    visible: 컨텐츠가 넘쳐도 숨기지 않고 보여줌
+    hidden: 넘치는 컨텐츠를 숨김
+    scroll: 넘치는 부분에 대해 스크롤바를 제공
+    auto: 브라우저가 넘치는 부분에 대해 자동으로 스크롤바를 제공할지 결정
+  -->
+  <div class="overflow-example">
+    많은 내용이 여기 있어요. 넘치는 내용을 스크롤로 확인해보세요.
+  </div>
+
+  <!-- 
+    ! opacity 속성 
+    : 요소의 투명도를 설정
+
+    ? 속성값
+    0.0 ~ 1.0: 요소의 투명도를 설정
+    >> 0.0은 완전 투명, 1.0은 완전 불투명
+  -->
+  <div class="opacity-example">
+    저는 반투명합니다!
+  </div>
+
+  <!-- 
+    ! z-index
+    : 요소의 쌓임 순서를 결정
+    : position 속성이 static이 아닌 경우에만 작동
+
+    ? 속성값
+    숫자가 클수록 상위에 표시
+    >> 정수값 (예: 1, 2, -1, 999 등): 요소의 쌓임 순서를 정의
+  -->
+  <div class="z-index-example">
+    <div class="back"></div>
+    <div class="front"></div>
+  </div>
+
+  <!-- 
+    ! cursor 속성 
+    : 요소 위로 마우스를 옮겼을 때 나타나는 커서의 모양을 정의
+
+    ? 속성값
+    auto: 기본 커서
+    default: 기본 포인팅 커서
+    pointer: 링크를 가리킬 때 사용하는 손 모양 커서
+    text: 텍스트 선택 영역에 사용되는 I 모양 커서
+  -->
+  <div class="cursor-example">
+    마우스를 올리세요!
+  </div>
+
+  <!-- 
+    ! vertical-align 속성 
+    : 인라인 또는 테이블 셀 요소의 수직 정렬을 설정
+
+    ? 속성값
+    baseline: 요소의 기준선을 부모의 기준선에 맞춤
+    top: 요소의 상단을 라인 박스의 상단에 맞춤
+    middle: 요소를 라인 박스의 중간에 위치
+    bottom: 요소의 하단을 라인 박스의 하단에 맞춤
+  -->
+  <div class="vertical-align-example">
+    <span class="aligned">위쪽 정렬</span>
+  </div>
+
+  <!-- 
+    ! visibility 속성 
+    : 요소의 보이기/숨기기를 제어
+
+    ? 속성값
+    visible: 요소가 보여짐 (기본값).
+    hidden: 요소가 보이지 않지만, 공간은 차지
+    collapse: 주로 테이블에서 사용되며, 숨겨진 요소의 공간도 없애버림
+  -->
+  <div class="visibility-example">
+    보이지 않아요, 하지만 공간은 차지해요.
+  </div>
+
+  <!-- 
+    ! filter 속성 
+    : 이미지나 요소에 다양한 그래픽 효과를 적용
+
+    ? 속성값
+    none: 필터 없음
+    blur(px): 흐림 효과
+    brightness(%): 밝기 조절
+  -->
+  <div class="filter-example"></div>
+</body>
+
+</html>
