@@ -57,15 +57,31 @@
       <div class="service">개발</div>
       <div class="service">마케팅</div>
     </div>
-
   </section>
   <section id="contact">
     <h2>연락처</h2>
 		<p>우리는 여러분의 의견을 소중하게 생각합니다. 언제든지 연락주세요!</p>
+    <form>
+      <input type="text" placeholder="이름">
+      <input type="email" placeholder="이메일">
+      <textarea placeholder="메시지"></textarea>
+      <button type="submit">보내기</button>
+    </form>
   </section>
   
   <footer>
-
+    <p>&copy; 2024 모던웹. 모든 권리 보유.</p>
   </footer>
+
+  <script>
+		document.querySelector('.menu-toggle').addEventListener('click', () => {
+			const navLinks = document.querySelector('.nav-links');
+			if (navLinks.style.maxHeight) {
+				navLinks.style.maxHeight = null;
+			} else {
+				navLinks.style.maxHeight = navLinks.scrollHeight + "px";
+			}
+		});
+	</script>
 </body>
 </html>
