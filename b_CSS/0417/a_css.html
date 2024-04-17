@@ -4,6 +4,88 @@
 <head>
   <meta charset="UTF-8">
   <title>CSS 속성 예제</title>
+  <style>
+    .overflow-example {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      margin: 10px;
+      /* overflow 속성 */
+      overflow: auto;
+    }
+
+    .opacity-example {
+      background-color: blue;
+      color: white;
+      padding: 20px;
+      /* opacity 속성 */
+      opacity: 0.5;
+    }
+
+    .z-index-example {
+      position: relative;
+      width: 140px;
+      height: 140px;
+    }
+
+    .back {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      /* z-index 속성 */
+      z-index: 0;
+    }
+
+    .front {
+      background-color: blue;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      /* z-index 속성 */
+      z-index: -1;
+    }
+
+    .cursor-example {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+
+    .vertical-align-example {
+      height: 100px;
+      border: 1px solid black;
+      /* 
+        vertical-align을 사용하는 부모 컨테이너에 줄간격을 설정 
+        : 수직 정렬을 위해 부모 요소에 줄간격 설정 시 해당 줄 간격을 기준으로 위치 선정
+      */
+      line-height: 100px;
+    }
+
+    .aligned {
+      display: inline-block;
+      vertical-align: bottom;
+      height: 50px;
+      width: 50px;
+      background-color: yellow;
+    }
+
+    .visibility-example {
+      visibility: hidden;
+    }
+
+    .filter-example {
+      filter: blur(5px) brightness(50%); 
+      width: 500px;
+      height: 500px;
+      background-image: url('../../images/dog01.jpg');
+    }
+  </style>
 </head>
 
 <body>
@@ -12,13 +94,14 @@
     : 요소의 내용이 해당 요소의 박스(보더, 패딩 포함)를 초과할 때 어떻게 보여질지를 정의
 
     ? 속성값
-    visible: 컨텐츠가 넘쳐도 숨기지 않고 보여줌
+    visible: 컨텐츠가 넘쳐도 숨기지 않고 보여줌(기본값)
     hidden: 넘치는 컨텐츠를 숨김
     scroll: 넘치는 부분에 대해 스크롤바를 제공
     auto: 브라우저가 넘치는 부분에 대해 자동으로 스크롤바를 제공할지 결정
   -->
   <div class="overflow-example">
     많은 내용이 여기 있어요. 넘치는 내용을 스크롤로 확인해보세요.
+    넘치는 내용입니다.
   </div>
 
   <!-- 
@@ -39,7 +122,7 @@
     : position 속성이 static이 아닌 경우에만 작동
 
     ? 속성값
-    숫자가 클수록 상위에 표시
+    : 숫자가 클수록 상위에 표시
     >> 정수값 (예: 1, 2, -1, 999 등): 요소의 쌓임 순서를 정의
   -->
   <div class="z-index-example">
@@ -53,7 +136,7 @@
 
     ? 속성값
     auto: 기본 커서
-    default: 기본 포인팅 커서
+    default: 기본 포인팅 커서(화살표)
     pointer: 링크를 가리킬 때 사용하는 손 모양 커서
     text: 텍스트 선택 영역에 사용되는 I 모양 커서
   -->
@@ -87,13 +170,14 @@
   <div class="visibility-example">
     보이지 않아요, 하지만 공간은 차지해요.
   </div>
+  <hr />
 
   <!-- 
     ! filter 속성 
     : 이미지나 요소에 다양한 그래픽 효과를 적용
 
     ? 속성값
-    none: 필터 없음
+    none: 필터 없음(기본값)
     blur(px): 흐림 효과
     brightness(%): 밝기 조절
   -->
