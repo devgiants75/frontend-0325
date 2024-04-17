@@ -48,7 +48,7 @@ body {
 
 a:link,
 a:visited {
-  color: #333
+  color: var(--link-color);
 }
 
 nav ul,
@@ -59,30 +59,99 @@ aside ul {
 
 nav a:link,
 nav a:visited {
-  background-color: rgba(207, 232, 220, 0.2);
-  border: 2px solid rgb(79, 185, 227);
+  background-color: var(--main-bg-color);
+  border: 2px solid var(--border-color);
   text-decoration: none;
   display: block;
   padding: 10px;
-  color: #333;
+  color: var(--link-color);
   font-weight: bold;
 }
 
 nav a:hover {
-  background-color: rgba(207, 232, 220, 0.7);
+  background-color: var(--highlight-bg-color);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  /* 
+    grid 클래스를 그리드 레이아웃 컨테이너로 표시 
+    : 자동 채우기로 200px에서 1fr 사이의 
+      최소 크기를 가진 열로 반복하여 생성
+    : 그리드 갭을 20px 설정
+  */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.grid li {
+  border: 1px solid var(--default-border);
+  padding: 10px;
 }
 
 .related {
-  background-color: rgba(79, 185, 227, 0.3);
-  border: 1px solid rgb(79, 185, 227);
+  background-color: var(--border-highlight);
+  border: 1px solid var(--border-color);
   padding: 10px;
 }
 
 .sidebar {
-  background-color: rgba(207, 232, 220, 0.5);
+  background-color: var(--sidebar-bg-color);
   padding: 10px;
 }
 
 article {
   margin-bottom: 1em;
+}
+
+/* 디바이스의 화면 너비가 40em(640px) 이상일 때 적용될 스타일 */
+@media screen and (min-width: 40em) {
+  /* 
+    그리드 레이아웃으로 변경 (3:1 비율로 두 열을 구성) 
+    + 열 사이 간격은 20px로 지정
+  */
+  article {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+  }
+
+  nav ul {
+    /* ul: flex 레이아웃의 컨테이너 */
+    display: flex;
+  }
+
+  nav li {
+    /* 
+      li: flex 레이아웃의 아이템 
+      - 속성값 1은 각 요소가 컨테이너 공간을 동등하게 차지
+    */
+    flex: 1;
+  }
+}
+
+/* 화면 너비가 70em(1120px) 이상일 때 적용될 스타일 */
+@media screen and (min-width: 70em) {
+  /*  
+    main 요소를 그리드 레이아웃 컨테이너로 표시
+    >> 3:1 비율로 두 열을 구성
+      + 열 사이의 간격을 20px 설정
+  */
+  main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+  }
+
+  article {
+    margin-bottom: 0;
+  }
+
+  footer {
+    border-top: 1px solid var(--footer-border-color);
+    margin-top: 2em;
+  }
 }
