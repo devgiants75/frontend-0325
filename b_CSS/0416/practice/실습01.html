@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미디어쿼리 실습</title>
+  <style>
+    body {
+      background: url(../../../images/dog01.png) no-repeat fixed;
+      background-size: cover;
+    }
+  
+    /* 
+      미디어 쿼리를 사용하여
+      최대 너비가 1024px 일 때 dog01이라는 이미지
+      최대 너비가 768px 일 때 dog02이라는 이미지
+      최대 너비가 320px 일 때 dog03이라는 이미지 
+    */
+  
+    @media screen and (max-width: 1024px) {
+      body {
+        background: url(../../../images/dog01.jpg) no-repeat fixed;
+        background-size: cover;
+      }
+    }
+  
+    @media screen and (max-width: 768px) {
+      body {
+        background: url(../../../images/dog02.jpg) no-repeat fixed;
+        background-size: cover;
+      }
+    }
+  
+    @media screen and (max-width: 320px) {
+      body {
+        background: url(../../../images/dog03.jpg) no-repeat fixed;
+        background-size: cover;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>
