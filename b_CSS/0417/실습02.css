@@ -5,6 +5,46 @@
   transition: all 0.3s ease-in-out;
 }
 
+/*  
+! 스크롤바의 기능은 사용하되 보이지 않도록 설정
+>> 스크롤바의 경우 브라우저에서 제공
+  (Chrome, Safari, Edge, Firefox 등)
+
+  1) Chrome, Safari 지정 방식
+    - '::-webkit-scrollbar' CSS 의사요소를 사용하여 스크롤 바를 숨김 처리
+      >> 해당 선택자에 diplay: none; 설정
+*/
+
+/* 
+! Chrome, Safari 지정방식
+*/
+/* 프로젝트의 모든 요소에 대해 스크롤 바를 숨김 처리 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 특정 요소에만 스크롤 바를 숨김 처리 */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/*  
+! Edge, Firefox 지정 방식
+*/
+body {
+  /* 
+  스크롤 기능이 동작되도록 설정 
+  : Edge와 Firefox 모두 설정
+  */
+  overflow: auto;
+
+  /*! Edge */
+  -ms-overflow-style: none;
+
+  /*! Firefox */
+  scrollbar-width: none;
+}
+
 body, html {
   width: 100%;
   height: 100%;
@@ -165,14 +205,74 @@ section:target {
   margin: 10px;
   flex-basis: 30%;
   text-align: center;
-  /* 
-  width: 200px;
-  height: 100px;
-  border: 1px solid black;
-  border-radius: 5px; 
-  */
 }
 
 .portfolio-item img {
   width: 100%;
+}
+
+.service {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 5px; 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact {
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+  text-align: center;
+  color: #333;
+}
+
+#contact h2 {
+  color: #0056b3;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+#contact form {
+  max-width: 500px;
+  margin: auto;
+}
+
+#contact input, #contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#contact button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
