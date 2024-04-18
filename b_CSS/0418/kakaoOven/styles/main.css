@@ -1,0 +1,40 @@
+.container {
+  width: 1170px;
+  margin: 0px auto;
+  padding: 0px 15px;
+}
+
+header {
+  margin: 0px 0px 20px;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: #383d40;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brand-text {
+  display: flex;
+  padding: 15px;
+  padding-left: 0;
+  height: 50px;
+}
+
+.bt-left {
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 17px;
+}
+
+.bt-right {
+  padding: 1px 3px;
+  line-height: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #aaa;
+}
