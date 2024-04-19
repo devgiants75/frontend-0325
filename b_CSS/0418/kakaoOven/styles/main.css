@@ -150,3 +150,222 @@ header {
 .change-viewtype:not([type=active]):hover {
   background-color: #e6e6e6;
 }
+
+.row {
+  display: flex;
+  height: 680px;
+}
+
+.nav-stacked {
+  margin: 0;
+  padding: 0px 15px 0px 0px;
+  width: 277.5px;
+  list-style: none;
+}
+
+.nav-stacked-list {
+  margin-bottom: 2px;
+  border-radius: 2px;
+  padding: 10px 15px;
+  width: 262.5px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.active-list {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* active-list 클래스가 아닐 때 스타일 규정 */
+.nav-stacked-list:not([class *= active-list]):hover {
+  background-color: #eee;
+}
+
+.project-main {
+  padding-left: 15px;
+  width: 862.5px;
+}
+
+.project-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  border: 1px solid #adadad;
+  border-radius: 2px;
+  padding: 6px 12px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.btn-default {
+  background-color: #fff;
+}
+
+.btn-default:hover {
+  background-color: #eee;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #357ebd;
+}
+
+.project-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 0px;
+}
+
+.project-item {
+  padding: 0px 15px;
+}
+
+.project-container {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  width: 252.5px;
+  margin-bottom: 20px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 4px;
+}
+
+item-option-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  width: 35px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.item-option-btn:hover {
+  border: 1px solid #ddd;
+  background-color: #e6e6e6;
+}
+
+.item-option-btn .fa-solid {
+  font-size: 11px;
+  margin: 0px 1px;
+}
+
+.item-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 242.5px;
+  height: 162.5px;
+
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.item-img-container img {
+  width: 100%;
+}
+
+.item-content {
+  padding: 9px;
+}
+
+.item-title {
+  margin: 6px 0px 10px;
+  font-size: 24px;
+  color: #3498db;
+}
+
+.item-description {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 12px;
+  height: 48px;
+  padding-bottom: 12px;
+  font-size: 12px;
+}
+
+.project-time {
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.project-time .fa-clock {
+  font-size: 12px;
+}
+
+.btn-test {
+  padding: 1.8px 5.4px 2.7px;
+  height: auto;
+  line-height: 8px;
+  font-size: 10px;
+  background-color: #5cb85c;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*! 푸터 영역 */
+.container .dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 114.5px;
+  padding: 0px 15px;
+  width: 1140px;
+  height: 79px;
+}
+
+.cd-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  width: auto;
+  height: 61px;
+}
+
+.cdf-left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 341px;
+}
+
+.bsm-name {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.bsm-left {
+  color: #3498db;
+}
+
+.bsm-right {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.cdf-right {
+  line-height: 17px;
+  font-size: 11.5px;
+}
+
+.cdf-right .fa-copyright {
+  font-size: 11.5px;
+}
