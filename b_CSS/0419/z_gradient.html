@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 그라데이션</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <!--  
+    ! 1. 선형 그라데이션 (Linear Gradient)
+      : 시작점과 끝점 사이의 직선을 따라 색상이 전환되는 방식
+      : linear-gradient() 함수 사용
+
+      ? 기본 구문
+        background: linear-gradient(direction, color-stop1, color-stop2, ...);
+        
+        - direction: 그라데이션의 방향을 지정
+          >> 각도(예: 45deg)나 방향(예: to right)을 사용 가능
+        - color-stop: 색상이 변하는 위치를 지정
+          >> 각 색상 위치는 퍼센트(%)로 지정 가능
+
+        EX01) 하늘색에서 핑크색으로 부드럽게 변하는 그라데이션
+              : background: linear-gradient(to right, skyblue, pink);
+
+        EX02) 각도를 사용한 예시
+              : background: linear-gradient(45deg, blue, red);
+
+    ! 2. 방사형 그라데이션 (Radial Gradient)
+      :  중심점에서 시작하여 원형으로 색상이 전환되는 방식
+      : radial-gradient() 함수 사용
+
+      ? 기본 구문
+        background: radial-gradient(shape size at position, start-color, ..., last-color);
+
+        - shape: 그라데이션의 모양 지정 (circle 또는 ellipse)
+        - size: 그라데이션의 크기 지정 (예: closest-side, farthest-corner)
+        - position: 그라데이션 중심의 위치 지정 (예: center, 50% 50%)
+
+        EX01) 중앙에서 밖으로 노란색에서 보라색으로 변하는 원형 그라데이션
+              : background: radial-gradient(circle, yellow, purple);
+
+    ! 2. 복잡한 그라데이션
+      :  복수의 색상 지점을 사용하거나, 여러 방향과 모양의 그라데이션을 조합하여 사용
+
+      ? 기본 구문
+        background: radial-gradient(shape size at position, start-color, ..., last-color);
+
+        EX01) 다색 선형 그라데이션
+              : background: linear-gradient(to right, red 20%, orange 40%, yellow 60%, green 80%);
+
+        EX02) 복합 방사형 그라데이션
+              : background: radial-gradient(circle at top left, red, yellow 30%, green 60%);
+
+
+  -->
+  <div class="linear-gradient">선형 그라데이션 예제</div>
+  <div class="radial-gradient">방사형 그라데이션 예제</div>
+  <div class="multi-color-linear">다색 선형 그라데이션</div>
+  <div class="complex-radial">복합 방사형 그라데이션</div>
+</body>
+
+</html>
