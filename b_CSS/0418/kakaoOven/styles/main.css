@@ -178,7 +178,18 @@ header {
 }
 
 /* active-list 클래스가 아닐 때 스타일 규정 */
+.nav-stacked-list:not(.active-list):hover {
+  /* 
+    정확하게 .active-list 클래스가 아닌 요소만 지정 
+    EX) class="active-listener", class="active-list-first" 포함하지 X
+  */
+}
+
 .nav-stacked-list:not([class *= active-list]):hover {
+  /*  
+    .active-list의 문자열을 포함하는 모든 요소를 제외
+    EX) "my-active-list", "active-listener" 요소들 까지 포함하여 스타일 지정
+  */
   background-color: #eee;
 }
 
