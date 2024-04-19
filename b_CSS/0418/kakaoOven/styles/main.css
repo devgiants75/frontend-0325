@@ -242,7 +242,7 @@ header {
   padding-bottom: 4px;
 }
 
-item-option-btn {
+.item-option-btn {
   display: flex;
   justify-content: center;
   align-items: center;
