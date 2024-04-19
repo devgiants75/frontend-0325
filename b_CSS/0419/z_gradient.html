@@ -6,6 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS 그라데이션</title>
   <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      /* 
+        x축 방향 가운데 정렬(flex의 방향이 column으로 지정) 
+      */
+      align-items: center;
+      justify-content: space-around;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    div {
+      width: 60%;
+      height: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+
+    .linear-gradient {
+      background: linear-gradient(to right, skyblue, pink);
+      background: linear-gradient(45deg, skyblue, pink);
+    }
+
+    .radial-gradient {
+      /* 원 */
+      background: radial-gradient(circle, yellow, purple);
+
+      /* 타원 */
+      background: radial-gradient(ellipse, yellow, purple);
+
+      /* 가까운 측면까지 색상이 확장 */
+      background: radial-gradient(closest-side, yellow, purple);
+
+      /* 가장 먼 꼭짓점까지 색상이 확장 */
+      background: radial-gradient(farthest-corner, yellow, purple);
+    }
+
+    .multi-color-linear {
+      background: linear-gradient(to right, red 20%, orange 40%, yellow 60%, green 80%);
+    }
+
+    .complex-radial {
+      background: radial-gradient(circle at top left, red, yellow, 30%, green 60%);
+    }
   </style>
 </head>
 
@@ -36,7 +86,7 @@
       ? 기본 구문
         background: radial-gradient(shape size at position, start-color, ..., last-color);
 
-        - shape: 그라데이션의 모양 지정 (circle 또는 ellipse)
+        - shape: 그라데이션의 모양 지정 (circle(원) 또는 ellipse(타원))
         - size: 그라데이션의 크기 지정 (예: closest-side, farthest-corner)
         - position: 그라데이션 중심의 위치 지정 (예: center, 50% 50%)
 
