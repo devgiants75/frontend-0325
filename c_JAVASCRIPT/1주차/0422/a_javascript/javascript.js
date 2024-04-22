@@ -56,3 +56,25 @@
     - 프레임워크 및 라이브러리: Angular, React, Vue.js 등 
                                 다양한 자바스크립트 기반 프레임워크를 통해 복잡한 애플리케이션 개발 지원
 */
+
+//! 자바스크립트 주석
+
+//? : /(슬래시) 2개 - 한 줄 주석(단축키 Ctrl + /)
+
+/*
+? /(슬래시) 사이에 별 두 개 작성 - 여러 줄 주석
+  - 여러 줄을 동시에 주석 처리
+*/ 
+
+// 현재 웹 페이지에서 첫 번째 button 태그를 찾아서 저장
+const button = document.querySelector('button');
+
+// addEventListener 기능 사용
+// : button 요소에 클릭 이벤트를 추가
+button.addEventListener('click', updateName);
+
+// updateName 정의
+function updateName() {
+  const name = prompt('새로운 이름을 입력하세요.');
+  button.textContent = `Player 1: ${name}님`;
+}
