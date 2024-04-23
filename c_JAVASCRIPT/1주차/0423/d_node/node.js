@@ -1,17 +1,22 @@
 //! node.js 설치
 
-// 1. nodejs 홈페이지 접속
+//! 1. nodejs 홈페이지 접속
 // https://nodejs.org/en
 // : LTS 버전 설치 (Long Term Support)
 
-// 2. 환경 변수 설정
+//! 2. 환경 변수 설정
 // 윈도우 > 시스템 환경 변수 편집
 // >> 환경 변수
 // >> 시스템 변수(하단) 
 // >> 새로 만들기
-// >> 변수 이름: NODE_HOME
+
+// + 변수 이름: NODE_HOME
 // >> 변수 값: node 설치 환경 경로를 지정
 // C:\Program Files\nodejs
+
+// + path 변수
+// >> 새로 만들기' 클릭, Node.js가 설치된 경로를 입력
+// >> C:\Program Files\nodejs\ 경로에 설치
 
 // >> ITPS에 대한 사용자 변수(상단)
 // 변수명 Path 더블 클릭(환경 변수 편집)
