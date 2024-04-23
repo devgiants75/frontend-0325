@@ -9,7 +9,9 @@
 // ex) console.error() >> cer
 
 console.log("데이터 입력");
-console.error("오류 입력");
+console.error("오류 입력"); // 사용자 정의 에러 출력 시 사용
+console.log("오류 뒤 데이터");
+console.error("오류 입력2");
 
 //? 2. ESLint
 // : JS에 대한 문법적 오류나 일관되지 않은 코딩 스타일, 사용되지 않는 코드를 식별
@@ -18,6 +20,8 @@ console.error("오류 입력");
 //? 3. Prettier - Code formatter
 // : 코드를 자동으로 정리하여 일관된 스타일로 설정
 // >> 프로젝트의 코딩 스타일 차이를 줄임
+
+// 단축키 ctrl + a: 전체 선택
 
 // :  설치 후 정리할 코드에 ctrl + k + f 사용 시 자동 정렬
 // 기본 구성에 대한 기능 사용 질문
