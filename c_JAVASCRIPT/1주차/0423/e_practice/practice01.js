@@ -24,3 +24,13 @@ console.log('나이의 타입: ', typeof numberAge);
 // : 출력결과
 // 8, 2 입력 시
 // 두 수의 합은 10입니다.
+
+let num1 = Number(prompt('첫 번째 숫자를 입력하세요'));
+let num2 = Number(prompt('두 번째 숫자를 입력하세요'));
+
+console.log(`두 수의 합은 ${num1 + num2}`);
+
+let num3 = '3';
+let num4 = '4';
+let result = `${Number(num3) + Number(num4)}` 
+console.log(result); // 7
