@@ -20,6 +20,31 @@ switch (식) {
 }
 */
 
+let fruit = 'apple'; // 문자열
+
+// case 값의 경우 조건식의 데이터와 같은 데이터 타입을 가져야 함
+switch (fruit) {
+  // : 조건값과 일치한 case가 존재하면 그 이후의 코드를 모두 실행
+  case 'apple':
+    console.log('사과입니다.');
+    break;
+  case 'banana':
+    console.log('바나나입니다.');
+    break;
+  case 'orange':
+    console.log('오렌지입니다.');
+    break;
+    // break(필수 사항 X)
+    // : 이전의 선택이 표현식의 값과 일치한다면
+    //   , 브라우저는 해당 코드 블럭에서 실행을 멈추고, switch문 아래에 있는 코드로 이동
+    // >> break를 만나면 switch문을 탈출!
+  default:
+    console.log('일치하는 과일이 없습니다.');
+    // default(필수 사항 X)
+    // : 어떤 case와도 일치하지 않는다면 실행하는 코드 블럭
+}
+
+
 //* 날씨 예보 예제 작성하기
 
 //! 삼항(조건) 연산자
@@ -41,16 +66,29 @@ if (조건) {
 }
 */
 
+let num = 11;
+let message = num > 10 ? '10보다 큰 수' : '10보다 작거나 같은 수';
+
+// if (num > 10) {
+//   message = '10보다 큰 수';
+// } else {
+//   message = '10보다 작거나 같은 수'
+// }
+
+console.log(message);
+
 // 중첩 else if문과 삼항 연산자
 // : JS의 if조건문은 해당 조건들 내에서 또 다른 조건식을 작성할 수 있다.
 /*
 if (조건1) {
   조건1이 참일 때 실행될 코드
+
   if (조건 2) {
     조건 1과 조건 2가 모두 참일 때 실행될 코드
   } else {
     조건 1은 참이지만, 조건 2는 거짓일 때 실행될 코드
   }
+
 } else {
   조건1이 거짓일 때 실행될 코드
 }
@@ -60,19 +98,51 @@ if (조건1) {
 // >> 90점 이상 A
 // >> 80점 이상 B
 // >> 70점 이상 C
-// 그외의 경우 D
+// 그외의 경우 D (69점 ~ 50점)
 
 // 50점 미만일 경우 불합격
 // 재시험을 치뤄야 함.
+let score = 100;
+
+if (score >= 50 && score <= 100) {
+  console.log('시험 합격');
+
+  if (score >= 90) { // 90 ~ 100
+    console.log('A');
+  } else if (score >= 80) { // 80 ~ 89
+    console.log('B');
+  } else if (score >= 70) { // 70 ~ 79
+    console.log('C');
+  } else { // 50 ~ 69
+    console.log('D');
+  }
+
+} else {
+  console.log('불합격');
+}
 
 // 위 중첩 if문을 삼항 연산자로 변환
+score = 71;
+
+// 100점 초과 0점 미만의 점수는 존재하지 X
+// : OR 연산자(||)를 사용 - 두 조건을 동시에 부합하는 값이 존재하지 X
+
+let grade = 
+  score > 100 || score < 0 ? '존재하지 않는 점수' : 
+  // 0점 이상 100점 이하인 수
+  score >= 90 ? 'A' :
+  score >= 80 ? 'B' :
+  score >= 70 ? 'C' :
+  score >= 60 ? 'D' : '불합격';
+
+console.log(grade);
 
 //! ------------------------- //
 // 출력값 확인
-true ? alert('출력A') : alert('출력B'); 
-true ? alert('출력B') : alert('출력A');
-true || console.log('출력A');
-true && console.log('출력A'); 
+true ? alert('출력A') : alert('출력B'); // - 출력A
+true ? alert('출력B') : alert('출력A'); // - 출력B
+true || console.log('출력A'); // - 출력되지 않음
+true && console.log('출력A'); // - 출력A
 
 // OR 연산자
 false || false == false;
