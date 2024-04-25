@@ -6,14 +6,14 @@
 
 // 사용자로부터 prompt창으로 연도를 입력
 // : prompt 창으로 입력받는 값은 문자열 타입
-let inputYear;
+let inputYear = prompt('연도를 입력해주세요.');
 
 // parseInt()로 해당 값을 정수 변환
-let year;
+let year = Number(inputYear);
 
-// 사용자의 입력이 NaN일 경우 오류 발생
+// 사용자의 입력이 NaN(Not a Number)일 경우 오류 발생
 // : 해당 사용자의 입력이 NaN이 아님을 판별
-// : isNaN() - 어떤 값이 NaN값인지 판별
+// : isNaN() - 어떤 값이 NaN값인지 판별하여 boolean값으로 반환
 
 // >> 위의 윤년 조건에 따라 해당 연도가 윤년인지 아닌지를 판별
 // >> 콘솔창에 판별 결과를 표시
@@ -23,6 +23,11 @@ let year;
 if (!isNaN(year)) {
   // NaN이 아닌 연도 계산
   // >> 윤년의 공식을 작성 (if문)
+  
+  // 윤년일 경우: year년은 윤년입니다.
+  // 윤년이 아닐 경우: year년은 윤년이 아닙니다.
+
+  // 배수값 확인: 나머지의 값이 0일 경우 해당 수의 배수
 } else {
   console.log('유효하지 않은 숫자 입니다.');
 }

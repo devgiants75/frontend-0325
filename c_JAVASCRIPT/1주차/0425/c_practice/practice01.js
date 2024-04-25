@@ -7,9 +7,17 @@ let score; // 점수를 저장할 변수 선언
 score = 70;
 
 // 1. 점수가 70점 이상이 경우 '합격!'을 출력(콘솔창)
+if (score >= 70) {
+  console.log('합격!');
+}
 
 // 2. 점수가 60점 이상인 경우 '합격!'을 출력
 //    60점 미만인 경우 '불합격!'을 출력
+if (score >= 60) {
+  console.log('합격!');
+} else {
+  console.log('불합격!');
+}
 
 // 3. 
 // -점수가 0점 미만, 100점 초과인 경우
@@ -19,8 +27,41 @@ score = 70;
 // - 70점 이상 'C' 출력
 // - 그 외에는 'D' 출력
 
+if (score < 0 || score > 100) {
+  console.log('점수가 잘못되었습니다.');
+} else if (score >= 90) { // 90점 이상 100 이하의 수
+  console.log('A');
+} else if (score >= 80) { // 80점 이상 89 이하의 수
+  console.log('B');
+} else if (score >= 70) { // 70점 이상 79 이하의 수
+  console.log('C');
+} else {
+  console.log('D'); // 0 이상 70점 미만의 수
+}
+
 // >> 위의 else if문을 switch문으로 변경
 score = 71;
+
+// switch의 조건으로 true를 입력
+// : switch문을 강제로 실행
+// : case안의 조건으로 해당 case문을 실행할지 여부를 제어
+switch (true) {
+  // 점수의 범위를 축약(유효성 검사)
+  case score < 0 || score > 100:
+    console.log("잘못된 점수");
+    break;
+  case score >= 90:
+    console.log("A");
+    break;
+  case score >= 80:
+    console.log("B");
+    break;
+  case score >= 70:
+    console.log("C");
+    break;
+  default:
+    console.log('D');
+}
 
 //! 논리연산자와 삼항연산자
 true ? console.log('A') : console.log('B');

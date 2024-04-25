@@ -47,6 +47,37 @@ switch (fruit) {
 
 //* 날씨 예보 예제 작성하기
 
+const select = document.querySelector('select');
+const para = document.querySelector('p');
+
+select.onchange = setWeather;
+
+function setWeather() {
+  const choice = select.value;
+
+  switch (choice) {
+    case 'sunny':
+      para.textContent = '맑은 하루입니다.';
+      console.log('맑은 하루');
+      break;
+    case 'rainy':
+      para.textContent = '비가 내립니다.';
+      console.log('비가 내림');
+      break;
+    case 'snowing':
+      para.textContent = '눈이 내립니다.';
+      console.log('눈이 내림');
+      break;
+    case 'overcast':
+      para.textContent = '흐린 하루입니다.';
+      console.log('흐린 하루');
+      break;
+
+    default:
+      para.textContent = '날씨를 선택해주세요.';
+  }
+}
+
 //! 삼항(조건) 연산자
 // : 조건에 따라 값을 반환하는 세 개의 피연산자를 가지는 식(항이 3개 - 연산자 2개)
 
@@ -141,8 +172,26 @@ console.log(grade);
 // 출력값 확인
 true ? alert('출력A') : alert('출력B'); // - 출력A
 true ? alert('출력B') : alert('출력A'); // - 출력B
+
 true || console.log('출력A'); // - 출력되지 않음
+
+//& A || B
+// >> A가 참이면 A의 값을 바로 반환(true값 반환)
+//    : B가 평가되지 않음(실행 X)
+
+// >> A가 거짓이면 B의 값을 반환
+let returnData = false || 'B의 값';
+console.log(returnData); // B의 값
+
 true && console.log('출력A'); // - 출력A
+
+//& A && B
+// >> A가 참이면 B의 값을 평가하여 반환
+
+// >> A가 거짓이면 A의 값을 바로 반환(false값을 반환)
+//    : B가 평가되지 않음(실행 X)
+returnData = true && 'b의 값';
+console.log(returnData); // b의 값
 
 // OR 연산자
 false || false == false;

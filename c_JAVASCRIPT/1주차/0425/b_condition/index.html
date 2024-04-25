@@ -4,8 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS 조건문</title>
+  <style>
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+
+      border: 1px solid black;
+      background-color: #eee;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
+  <div id="container">
+    <label for="weather">
+      오늘의 날씨를 선택해주세요.
+    </label>
+    <select id="weather">
+      <option value="">---선택해주세요---</option>
+      <option value="sunny">sunny</option>
+      <option value="rainy">rainy</option>
+      <option value="snowing">snowing</option>
+      <option value="overcast">overcast</option>
+    </select>
+
+    <hr />
+    <p></p>
+  </div>
   
   <script src="./condition02.js"></script>
 </body>
