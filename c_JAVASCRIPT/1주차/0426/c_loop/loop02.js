@@ -31,6 +31,11 @@ for (let key in obj) {
 //    반복할 코드
 // }
 
+const arr = [1, 2, 3, 4, 5];
+
+for (let value of arr) {
+  console.log(value);
+}
 
 //! 반복문의 Best Practice
 
@@ -38,9 +43,16 @@ for (let key in obj) {
 // >> 배열의 길이는 루프 바깥에서 한 번만 계산하는 것이 효율적
 
 // 비효율적인 방법
-let array = [];
-for (let index = 0; index < array.length; index++) {
-  // ...
+let array = [1, 2, 3, 4, 5];
+
+console.log('---배열의 길이 값---');
+
+// 배열의 요소의 개수만큼 반복
+
+let arrayLength = array.length;
+
+for (let index = 0; index < arrayLength; index++) { // 배열의 마지막 요소까지 접근
+  console.log(array[index]);
 }
 
 // 효율적인 방법
