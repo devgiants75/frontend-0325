@@ -1,6 +1,5 @@
 //! 종합 문제: 숫자 추측 게임 //
 
-console.log('확인');
 // 사용자가 1부터 100 사이의 숫자를 맞추는 게임
 
 // 컴퓨터는 사용자가 숫자를 맞출 때까지 숫자를 입력받고(반복)
@@ -22,62 +21,35 @@ console.log('확인');
 // 숫자가 아닌 입력이나 1과 100 사이의 범위를 벗어나는 입력을 받은 경우, "유효한 숫자를 입력해주세요."라고 출력하고 다른 숫자를 재입력받기
 
 //! 게임 구현 //
-
-// 1. 무작위 숫자를 생성(1부터 100까지의 정수)
-// Math.random(): 0과 1사이의 무작위 수를 생성(소수점 자리 표현)
 const targetNumber = Math.floor(Math.random() * 100) + 1;
 
-let attempts = 10;
+// 반복해서 숫자 입력 받기
+while (true) {
+  // 사용자로부터 숫자 입력 받기
+  const userInput = prompt("1부터 100 사이의 숫자를 추측해 보세요:");
 
-// 2. 반복해서 숫자를 입력 받기 (게임 반복)
-while (attempts > 0) {
-  // 무조건 무한 루프
-
-  // 3. 사용자로부터 숫자 입력 받기
-  const userInput = prompt(`1부터 100사이의 숫자를 추측해주세요. 남은 횟수는 ${attempts}번입니다.`);
-
-  // 4. 사용자가 입력한 값을 정수로 변환: parseInt()
-  // + Number() 형변환은 정수와 실수 모두를 숫자형으로 변환
-  const guess = parseInt(userInput);
-
-  // 5. 유효성 검사
-  // : 1 미만이거나 100을 초과할 경우
-
-  // boolean의 false값을 나타내는 데이터
-  // : 0, '', NaN, null, undefined
-  if (!guess || guess < 1 || guess > 100) {
-    console.log("유효한 숫자를 입력해주세요.");
-    // 유효한 숫자가 아니기 때문에 더 이상 로직 구현 X
-
-    //? continue
-    // : 현재 반복을 즉시 중단, 루프의 다음 반복을 재시작
-    // : continue 이후의 코드가 실행X, 루프의 조건식으로 돌아감
-    continue;
-  };
-
-  // 입력한 숫자가 유효한 경우(1 ~ 100 사이의 정수)
-
-  // 6. 조건에 따라 결과 출력
-  if (guess < targetNumber) {
-    console.log("더 높은 숫자를 입력해주세요.");
-  } else if (guess > targetNumber) {
-    console.log("더 낮은 숫자를 입력해주세요.");
-  } else {
-    console.log("정답입니다! 게임을 종료합니다!");
-
-    //? break 키워드
-    // : 루프를 완전히 탈출 (루프의 메인 블럭{}을 벗어남)
-    // : break를 만나면 그 즉시 루프의 실행이 중단
-    //   + 루프 다음의 코드 실행
+  //& 사용자가 prompt 창의 '취소'버튼을 클릭한 경우
+  // >> 사용자의 입력값이 null로 인식
+  if (userInput === null) {
+    console.log("게임을 중단했습니다.");
     break;
   }
 
-  // 시도 횟수를 차감(감소)
-  attempts--;
+  const guess = parseInt(userInput);
 
-  // 기회가 소진될 경우 게임 종료 안내
-  if(attempts === 0) {
-    console.log(`기회를 모두 사용하셨습니다. 게임을 종료합니다.`);
-    console.log(`정답은 ${targetNumber}입니다.`);
+  // 유효성 검사
+  if (isNaN(guess) || guess < 1 || guess > 100) {
+    console.log("유효한 숫자를 입력해주세요.");
+    continue;
   }
-};
+
+  // 숫자 비교
+  if (guess < targetNumber) {
+    console.log("더 높은 숫자를 입력하세요.");
+  } else if (guess > targetNumber) {
+    console.log("더 낮은 숫자를 입력하세요.");
+  } else {
+    console.log("정답입니다!");
+    break; // 정답을 맞췄으므로 반복문 탈출
+  }
+}
