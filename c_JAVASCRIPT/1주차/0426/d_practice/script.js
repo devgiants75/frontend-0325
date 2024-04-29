@@ -48,3 +48,41 @@ do {
 } while (userInput <= 10);
 
 //! 반복문 실습
+
+// JS에서 사용할 HTML요소를 불러오기
+const para = document.querySelector('p');
+const inputNumber = document.querySelector('input');
+const btn = document.querySelector('button');
+
+// 버튼 클릭 시 발생할 이벤트 등록
+btn.addEventListener('click', function() {
+  para.textContent = 'Output: ';
+  // 입력 필드(input)에서 값을 가져와 변수에 저장
+  let num = inputNumber.value;
+  // 입력 필드 초기화(비움)
+  inputNumber.value = '';
+  // 입력 필드 포커싱
+  inputNumber.focus();
+
+  //& 1부터 사용자가 입력한 숫자(num)까지 반복
+  for (let i = 1; i <= num; i++) {
+    // 현재 숫자의 제곱근을 계산(Math.sqrt()사용)
+    let sqRoot = Math.sqrt(i);
+
+    // 해당 제곱근이 정수가 아닌 경우 반복을 계속
+    // 8의 제곱근 2.828
+    // 9의 제곱근 3
+    // >> i가 완전 제곱수가 아닐 경우 건너뛰기
+
+    // floor(): 내림 
+    if (Math.floor(sqRoot) !== sqRoot) {
+      continue; // continue를 만나면 반복 조건문으로 다시 이동
+    }
+
+    // i가 완전 제곱수 인 경우에는 
+    // 현재 숫자를 단락(p)의 텍스트에 추가
+
+    // 연산의 우선순위 덧셈과 뺄셈식이 할당 보다 우선시 됨!
+    para.textContent += i + ' ';
+  }
+})
