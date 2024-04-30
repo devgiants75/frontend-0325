@@ -47,4 +47,29 @@ console.log(`파이1의 값은 ${pi}입니다.`);
     let pi = 3.141592653;
     console.log(`파이4의 값은 ${pi}입니다.`);
   }
+
+  // 섀도잉 후에도 각각의 스코프의 변수값은 유지
+  console.log('===섀도잉 후 pi의 값===');
+  console.log(`파이3의 값은 ${pi}입니다.`);
 }
+
+// 함수 블록을 사용한 스코프 생성
+function sample() {
+  let pi = 3.14159625333333;
+  console.log(`파이5의 값은 ${pi}입니다.`);
+}
+
+sample();
+
+//? 즉시 호출 함수를 사용한 이름 충돌 문제 해결
+let commonVar = '전역 변수';
+console.log(commonVar);
+
+// 스코프(범위)의 충돌을 방지하기 위해 함수를 사용
+// : 일반적으로 전역의 스코프 내의 작성 코드와 동일하기 동작
+(function() {
+  let commonVar = 'IIFE 내부 변수'; // 전역 변수에 작성된 것 처럼 동작
+  console.log(commonVar);
+})();
+
+console.log(commonVar); // '전역 변수'
