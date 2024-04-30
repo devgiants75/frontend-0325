@@ -45,3 +45,15 @@ console.log(filterGreaterThanTen([5, 12, 18, 2, 9, 21])); // [ 12, 18, 21 ]
 // : 매개변수로 array(배열)와 element(검색값)을 받음
 // - 배열의 모든 요소에 접근하는 동안에 element값과 동일한 값이 있는 경우 true를 반환
 // - element값과 동일한 값이 없는 경우 false를 반환
+
+function containsElement(array, element) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      return true;
+    }
+  }
+  return false;
+}
+// 예시 사용
+console.log(containsElement([1, 2, 3, 4, 5], 3));  // 출력: true
+console.log(containsElement([1, 2, 3, 4, 5], 6));  // 출력: false
