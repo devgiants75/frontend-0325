@@ -8,7 +8,7 @@
 // 스킬을 사용할 때마다 캐릭터의 상태 변화
 // => 함수를 통해 구현
 
-//? 캐릭터 상태
+//? 캐릭터 상태(데이터)
 
 // 체력 (HP)
 // 마력 (MP)
@@ -49,3 +49,103 @@
 // 현재 상태: HP = 130, MP = 45
 
 //! 소스코드 작성
+
+//! 힐(Heal) 기술을 사용하는 함수 정의
+// 매개변수 hp와 mp는 각각 사용자의 현재 체력과 마력
+function heal(hp, mp) {
+  if (mp >= 10) {
+    // 마력에 10 이상인 경우에만 힐 사용 가능
+    hp += 30; // 체력 30 회복
+    mp -= 10; // 마력 10 소모
+    console.log(`힐 사용: HP = ${hp}, MP = ${mp}`); // 사용 결과 로그 출력
+  } else {
+    console.log('마력 부족으로 힐 사용 불가');
+  }
+
+  // 해당 스킬 사용 후 변경된 hp와 mp를 반환
+  return [hp, mp];
+}
+
+//! 파이어볼(Fireball) 기술을 사용하는 함수 정의
+// mp는 사용자의 현재 마력
+function fireball(mp) {
+  if (mp >= 15) {
+    const damage = 25;
+    mp -= 15;
+    console.log(`파이어볼 사용: 적에게 ${damage}의 공격을 하였습니다. MP = ${mp}`);
+  } else {
+    console.log('마력 부족으로 파이어볼 사용 불가');
+  }
+
+  return mp;
+}
+
+//! 메디테이션(Meditation) 기술을 사용하는 함수 정의
+function meditation(mp) {
+  mp += 20;
+  console.log(`메디테이션 사용: MP = ${mp}`);
+  return mp;
+}
+
+//! 실행 함수 구현 - 게임의 실행 로직을 담당
+function main() {
+  // 초기 캐릭터 설정
+  let hp = 100;
+  let mp = 50;
+
+  //* readline 모듈을 사용하여 콘솔에서 사용자 입력 받기.
+  // : Node.js에 내장된 입출력 관리 기능 사용을 요청
+  // : 해당 모듈이 저장된 readline에 입출력에 관한 다양한 메서드(기능)와 속성(데이터)에 접근 가능
+  const readline = require('readline');
+
+  //* readline.createInterface() 메서드
+  // : input, output의 입력과 출력에 대한 공간이 생성
+
+  // rl.question(): 사용자에게 질문, 응답을 받아 처리 가능
+  // rl.close(): 입력을 닫고 프로그램을 종료
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  // 실제 호출 프로그램
+  const prompt = () => {
+    // 현재 상태 출력
+    console.log(`현재 상태: HP = ${hp}, MP = ${mp}`);
+
+    // 사용자에게 입력 받기
+    rl.question(
+      '---사용할 스킬을 선택하세요 (H, F, M, Q to quit) :---',
+      function (input) {
+        const choice = input.toUpperCase(); // 입력을 대문자로 변환
+
+        switch (choice) {
+          case 'H':
+            // heal 함수 사용 후 반환 값을 저장
+            [hp, mp] = heal(hp, mp);
+            prompt(); // 다시 명령 입력 대기
+            break;
+          case 'F':
+            mp = fireball(mp);
+            prompt();
+            break;
+          case 'M':
+            mp = meditation(mp);
+            prompt();
+            break;
+          case 'Q':
+            console.log('게임을 종료합니다.');
+            rl.close(); // readline 인터페이스 종료
+            break;
+          default:
+            console.log('잘못된 입력입니다. 다시 선택하세요.');
+            prompt();
+        }
+      }
+    );
+  };
+
+  prompt(); // 사용자 입력을 처음으로 받는 함수 호출
+}
+
+main(); // main 함수 호출하여 프로그램 시작
