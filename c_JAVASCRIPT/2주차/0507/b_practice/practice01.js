@@ -6,6 +6,29 @@
 // 기능 (동작, 메서드)
 // : 걷다, 말하다, 먹다 등
 
+let person = {
+  name: '이승아',
+  age: 50,
+  job: 'developer',
+
+  walk: function() {
+    console.log('걷기');
+  },
+
+  speak: function() {
+    console.log('말하기');
+  },
+
+  eat: function() {
+    console.log('먹기');
+  }
+}
+
+console.log(person.walk());
+console.log(person.speak());
+console.log(person.eat());
+
+
 //& 2. 책
 
 // 특성 (속성, 프로퍼티)
@@ -13,6 +36,27 @@
 
 // 기능 (동작, 메서드)
 // : 책을 읽는 행위, 페이지를 넘기는 행위, 책에 대한 정보를 보여주는 행위 등
+
+function Book () {
+  this.title = '자바스크립트',
+  this.author = '이승아',
+  this.pageCount = 150,
+  this.publisher = '코리아it아카데미',
+
+  displayInfo = function() {
+    console.log(`${this.title}은 ${this.author}에 의해 작성되었습니다.`);
+  }
+
+  readPage = function() {
+    console.log(`${this.title}은 ${this.pageCount}의 페이지가 있습니다.`);
+  }
+}
+
+let book1 = new Book();
+let book2 = new Book();
+
+console.log(book1.title);
+console.log(book2.title);
 
 //& 3. 자동차
 
