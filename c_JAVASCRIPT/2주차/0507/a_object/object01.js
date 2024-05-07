@@ -149,10 +149,10 @@ let person1 = new Human('이승아', 169);
 
 console.log(person1.name);
 console.log(person1.height);
-console.log(person1.greet()); // Hello, 이승아
+person1.greet(); // Hello, 이승아
 
 let person2 = new Human('이도경', 157);
 
 console.log(person2.name);
 console.log(person2.height);
-console.log(person2.greet()); // Hello, 이도경
+person2.greet(); // Hello, 이도경

@@ -19,11 +19,31 @@
 // : 관례적으로 함수명의 첫 글자는 대문자로 시작
 //   (일반적 기능을 담은 함수와 구별)
 
-// - 생성자 함수를 사용한 객체 생성
+function Person(firstName, lastName, age, gender, interests) {
+  this.name = {
+    first: firstName,
+    last: lastName
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
 
+  this.greeting = function() {
+    // 일반적으로 객체의 메서드는 해당 객체의 속성을 활용하는 용도가 많기 때문에
+    // : 객체 자체를 가리키는 this 사용이 빈번
+    // >> 일반 함수 사용을 권장(익명 함수도 가능), 화살표 함수 사용 X
+    console.log(`Hello, ${this.name.first}`);
+  }
+}
+
+// - 생성자 함수를 사용한 객체 생성
+let person1 = new Person('승아', '이', 50, 'female', ['exercise', 'develope']);
+let person2 = new Person('도경', '이', 50, 'female', ['exercise', 'develope']);
 
 // >> 생성자 함수로 만들어진 객체 내의 this는
 //    new 키워드를 통해 만들어진 객체 그 자체
+person1.greeting(); // Hello, 승아
+person2.greeting(); // Hello, 도경
 
 //! 클래스를 사용한 객체 생성 방법
 // : ES6 이후 도입
@@ -41,3 +61,32 @@
 
 //? 클래스 생성 방법
 // class 키워드 사용, 클래스명은 대문자로 시작을 권장
+
+// class 클래스명 {}
+class Person2 {
+  // 속성 - 생성자 함수 정의와 동일
+  name;
+  age;
+  job;
+
+  // 생성자: constructor() 매서드 정의
+  constructor(name, age, job) {
+    // this.속성명
+    // : 생성자 호출 시 자동으로 속성 생성
+    this.name = name;
+    this.age = age;
+    this.job = job;
+  }
+
+  // 메서드 - function 키워드 사용 X
+  greet() {
+    console.log(`안녕하세요 ${this.name}님`);
+  }
+}
+
+// 클래스가 호출되는 것이 아니라 생성자 함수가 호출
+let personA = new Person2('이지희', 19, '고등학생');
+let personB = new Person2('이지훈', 16, '중학생');
+
+personA.greet(); // 안녕하세요 이지희님
+personB.greet(); // 안녕하세요 이지훈님
