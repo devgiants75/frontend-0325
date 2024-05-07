@@ -1,3 +1,4 @@
+<<<<<<< HEAD:z_GIT/git02.js
 //! Git 설치
 
 //& 1. Windows
@@ -48,6 +49,8 @@
 
 // >> 터미널로 돌아가기 : q
 
+=======
+>>>>>>> 726d7ee14cded47f274ceb6b788fea49915ba6aa:z_GIT/git02 copy.js
 //! 리포지토리 초기화 및 복제
 
 //& 1. git init
