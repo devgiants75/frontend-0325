@@ -1,6 +1,6 @@
 //! Git 설치
 
-//& 1. macOS
+//& 1. Windows
 // 1) Git 공식 웹사이트 방문
 // : Git 공식 홈페이지에 접속하여 Windows 용 Git 설치 프로그램을 다운로드
 
@@ -10,7 +10,7 @@
 // 3) Git Bash 실행
 // : 설치가 완료되면, Git Bash를 실행하여 Git 명령어를 사용
 
-//& 2. Windows
+//& 2. macOS
 // 1) Homebrew 사용
 // : 터미널을 열고, macOS 패키지 관리자인 Homebrew를 통해 Git을 설치
 
@@ -28,20 +28,33 @@
 // : Git을 사용하기 전에 사용자 이름과 이메일 주소를 설정
 // : Git을 통해 수행되는 모든 커밋에 포함되며, 코드에 기여한 사람을 식별하는 데 사용
 
+//* 개행문자 설정
+// 1) MacOS
+// git config --global core.autocrlf input
+
+// 2) Windows
+// git config --global core.autocrlf true
+
 //* 사용자 이름 설정
 // git config --global user.name "Your Name"
+// git config --global user.name "seungalee314"
 
 //* 이메일 주소 설정
 // git config --global user.email "your.email@example.com"
+// git config --global user.email "seungalee314@naver.com"
 
 //* 설정 확인(설정한 정보 확인)
-// git config --list
+// git config --global --list
+
+// >> 터미널로 돌아가기 : q
 
 //! 리포지토리 초기화 및 복제
 
 //& 1. git init
 // : 새로운 Git 리포지토리를 초기화하는 데 사용
 // : 현재 디렉토리에 .git 폴더가 생성되어 버전 관리가 시작
+
+// >> MacOS의 경우 해당 프로젝트(최상위 루트)의 Finder에서 Command + Shift + .(점)
 
 //* git init
 
