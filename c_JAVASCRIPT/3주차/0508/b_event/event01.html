@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS 이벤트 01</title>
+  <style>
+    button {
+      margin: 5px;
+      padding: 20px;
+    }
+
+    div {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      margin: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML 이벤트 핸들러 프로퍼티 -->
+  <button id="bgChange">Change Background Color</button>
+  
+  <hr />
+
+  <!-- 
+    인라인 이벤트 핸들러
+    : on속성을 버튼 태그에서 지정하고
+    : 해당 속성에서 사용할 기능(함수)을 js파일에서 작성
+    >> 유지보수가 어렵고, 코드가 복잡해지기 때문에 권장하지 X
+  -->
+  <button id="textChange" onclick="bgChange()">Change Text Color</button>
+
+  <!-- Press Me 버튼을 클릭하면 alert창에 Hello라는 메시지가 출력 -->
+  <button onclick="alert('Hello');">Press Me</button>
+
+  <hr />
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+
+  <hr />
+  <!-- 3. addEventListener 메서드 사용 -->
+  <button class="btnsChange">Change Buttons Color</button>
+  <button class="btnsChange">Change Buttons Color</button>
+  <button class="btnsChange">Change Buttons Color</button>
+
+  <!-- 4. 이벤트 제거  -->
+  <button id="remove">이벤트 제거</button>
+  
+  <script src="./event01.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>실시간 검색 필터링</title>
+</head>
+
+<body>
+  <h2>실시간 검색 필터</h2>
+  <input type="text" id="search-input" placeholder="여기에 검색어를 입력하세요...">
+  <ul id="item-list">
+    <li>사과</li>
+    <li>바나나</li>
+    <li>오렌지</li>
+    <li>망고</li>
+    <li>포도</li>
+    <li>키위</li>
+    <li>체리</li>    
+    <li>오디</li>    
+  </ul>
+  <div id="no-results" style="display:none;">검색 결과가 없습니다.</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputField = document.getElementById('search-input');
+      const list = document.getElementById('item-list');
+      const items = list.getElementsByTagName('li');
+      const noResults = document.getElementById('no-results');
+
+      inputField.addEventListener('input', function () {
+        let value = inputField.value.toLowerCase();
+        let visibleItemsCount = 0; // 보여지는 아이템의 수를 세기 위한 변수
+
+        Array.from(items).forEach(item => {
+          if (item.textContent.toLowerCase().includes(value)) {
+            item.style.display = ''; // 일치하는 경우 보이도록 설정
+            visibleItemsCount++;
+          } else {
+            item.style.display = 'none'; // 일치하지 않는 경우 숨김
+          }
+        });
+
+        // 검색 결과가 없는 경우 알림 표시
+        noResults.style.display = visibleItemsCount > 0 ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+
+</html>
