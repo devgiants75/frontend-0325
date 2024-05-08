@@ -32,16 +32,9 @@ function generateRandomColor() {
 // : HTML 요소에 직접 onclick, onload, onchange 등의 이벤트 핸들러 속성을 설정하는 방법
 
 // btn 상수에 버튼 태그에 대한 참조(주소값)를 저장
-const bgButton = document.querySelector('#bgChange');
 
 // onclick, onmounseout 프로퍼티는 이벤트 핸들러 속성
-bgButton.onmouseout = function() {
 
-  const randomColor = generateRandomColor();
-  // randomColor 상수는 'rgb(x, y, z)'
-  
-  document.body.style.backgroundColor = randomColor;
-}
 
 //& on키워드를 사용
 // : 속성에 함수를 할당해서 이벤트를 연결
@@ -70,36 +63,19 @@ bgButton.onmouseout = function() {
 // : 사용하지 않는 것을 권장
 // : 코드를 파싱(분석)하기가 어려워지고 유지보수에 어려움이 있음.
 
-const textButton = document.querySelector('#textChange');
-
-function bgChange() {
-
-  const randomColor = generateRandomColor();
-  textButton.style.color = randomColor;
-}
-
 //& HTML 요소의 참조를 가지고 오는 방법
 // 1. document.querySelector('요소명');
 // : 같은 요소명을 가진 요소가 많을 경우 첫 번째 요소만 가지고 옴
-const btnsButton = document.querySelector('.btnsChange');
 
 // 2. document.querySelectorAll('요소명');
 // : 여러 개의 요소의 참조를 모두 가져와 한 번에 이벤트 핸들러를 추가
 // : 해당 참조값들이 배열(리스트)로 저장
-const divs = document.querySelectorAll('div')
 
-// for (let i = 0; i < buttons.length; i++) {
-   // 각각의 요소에 접근할 때 마다 해당 요소에 onclick의 속성으로 bgChange 함수를 전달
-//   buttons[i].onclick = generateRandomColor;
-// }
+
 
 // forEach를 사용하여 위의 반복문을 재작성
 // : 콜백함수(함수의 인자로 함수가 전달)
-divs.forEach(div => {
-  div.onclick = function() {
-      this.style.backgroundColor = generateRandomColor();
-  };
-});
+
 
 //? 3. addEventListener 메서드
 // : 표준 이벤트 모델
@@ -107,12 +83,6 @@ divs.forEach(div => {
 // : 한 요소에 여러 개의 이벤트 핸들러 등록 가능
 
 // addEventListener 메서드는 요소에 이벤트 리스너를 '추가'
-btnsButton.addEventListener('click', function() {
-
-    const randomColor = generateRandomColor();
-
-    btnsButton.style.backgroundColor = randomColor;
-});
 
 // addEventListener() 함수의 두 가지 매개변수
 // 첫 번째 매개변수: 이벤트 유형(등록하고자 하는 이벤트의 이름 / 예 - click, load, input 등)
@@ -123,16 +93,9 @@ btnsButton.addEventListener('click', function() {
 // : 이벤트 핸들러를 제거하는 메서드
 
 // HTML 요소 참조
-const removeEvent = document.querySelector('#remove');
 
 // 이벤트 핸들러 함수 정의
-function removeChange() {
-  const randomColor = generateRandomColor();
-  removeEvent.style.color = randomColor;
-}
 
 // 이벤트 리스너 추가
-removeEvent.addEventListener('click', removeChange);
 
 // 필요한 경우, 이벤트 리스너 제거
-removeEvent.removeEventListener('click', removeChange);
