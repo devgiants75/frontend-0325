@@ -9,18 +9,32 @@
 
 const person = {
   name: 'John',
+  innerPerson: {
+    name: '이승아',
+    greet: function() {
+      console.log(`해당 선언적 함수는 직접적인 this를 가집니다. ${this.name}`); // person.innerPerson.name
+    }
+  },
 
   greet: function() {
-    console.log(`Hello, ${this.name}`);
+    console.log(`Hello, ${this.name}`); // person.name
 
+    // 화살표 함수는 해당 함수가 포함된 녀석의 this를 가져옴
     const innerFunc = () => {
-      console.log(`This inside arrow: ${this.name}`);
+      console.log(`This inside arrow: ${this.name}`); // person.name
     };
     innerFunc();
+
+    // 선언적 함수
+    const innerFunc2 = function() {
+      console.log(`This inside arrow: ${this.name}`); // undefined
+    };
+    innerFunc2();
   }
 };
 
 person.greet();  
+person.innerPerson.greet();
 // 출력: Hello, John
 // This inside arrow: John
 
