@@ -58,6 +58,7 @@ class Library {
     this.books = []; // 도서관의 책 목록을 저장하는 배열
   }
 
+  //& 새로운 책을 도서 목록에 추가하는 메서드
   addBook(title, author) {
     // 새 책 객체를 생성 >> 순차적인 id를 할당
     // : id 값은 books 배열의 길이 + 1
@@ -66,6 +67,53 @@ class Library {
     console.log(`${title} by ${author} has been added to the library`);
   }
 
+  //& 도서 목록을 출력하는 메서드(method)
+  displayBooks() {
+    console.log('도서관 카탈로그: ');
+    this.books.forEach((book) => {
+      console.log(`
+        ${book.id}: ${book.title} by ${book.author}
+        - ${book.isAvailable ? '대여 가능' : '대여 불가능'}
+      `);
+    })
+  }
+
+  //& 특정 ID의 책을 대여하는 메서드
+  rentBook(id) {
+    const book = this.books.find((book) => book.id === id); // id에 해당하는 책 요소를 찾기
+    if (book) { // 책이 존재한다면
+      book.rent(); // 해당 책의 rent 메서드를 호출
+    } else {
+      console.log('해당 책을 찾을 수 없습니다.');
+    }
+  }
+
+  //& 특정 ID의 책을 반납하는 메서드
+  returnBook(id) {
+    const book = this.books.find((book) => book.id === id);
+    if (book) {
+      book.returnBook(); // 해당 책의 returnBook 메서드를 호출
+    } else {
+      console.log('해당 책을 찾을 수 없습니다.');
+    }
+  }
+
 }
 
 // 예제 사용
+const scienceLibrary = new Library(); // Library 클래스의 인스턴스를 생성 - 과학 도서관
+scienceLibrary.addBook('과학동아', '이승아');
+scienceLibrary.addBook('신기한 화학 사전', '이도경');
+
+scienceLibrary.displayBooks(); // 도서 목록을 출력
+
+scienceLibrary.rentBook(1);
+scienceLibrary.rentBook(1);
+
+scienceLibrary.returnBook(1);
+
+scienceLibrary.displayBooks();
+
+const englishLibrary = new Library(); // Library 클래스의 인스턴스를 생성 - 영어 도서관
+englishLibrary.addBook('Herry Porter', 'J.K');
+englishLibrary.displayBooks();
