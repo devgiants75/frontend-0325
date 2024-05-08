@@ -60,11 +60,11 @@ function deleteTodo(id) { // id: 제거할 요소의 id
 function toggleTodoComplete(id) {
   todos = todos.map(todo => {
     // if (todo.id === id) { // 현재 순회하는 할 일의 id와 주어진 id가 일치한다면
-    //   return {...todos, completed: !todo.completed}
+    //   return {...todo, completed: !todo.completed}
     // }
     // return todo; // 일치하지 않는 경우 기존 객체를 반환
 
-    return todo.id === id ? {...todos, completed: !todo.completed} : todo;
+    return todo.id === id ? {...todo, completed: !todo.completed} : todo;
   });
 
   //? 변경된 할 일 목록을 콘솔에 출력
@@ -87,7 +87,7 @@ console.log(lsa);
 function displayTodos() {
   console.log('현재 Todos: ');
   todos.forEach(todo => {
-    console.log(`${todo.id}: ${todo.content} - ${todo.completed ? '✔' : ''}`);
+    console.log(`${todo.id}: ${todo.content} - ${todo.completed ? '완료' : '미완료'}`);
   });
 }
 
