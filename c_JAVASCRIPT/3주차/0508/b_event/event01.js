@@ -2,17 +2,26 @@
 
 // random 함수를 정의: 랜덤 숫자 생성
 function random(number) {
-  // Math.random(): 0이상 1미만의 부동 소수점을 생성
-  // Math.floor(): 주어진 숫자를 내림하여 가장 가까운 정수를 반환
+  //& Math 모듈
+  // : JS에서 제공하는 다양한 숫자 활용 기능
 
-    // Math.floor(): 괄호 안의 숫자를 내림하여 가장 가까운 정수로 생성
-    // Math.random(): 0이상 1미만의 부동 소수점 난수(랜덤 숫자)를 반환
-    // Math.random() * (number + 1): 0이상 number + 1 미만의 범위의 난수가 반환
+  // Math.random(): 0이상 1미만의 부동 소수점(실수)을 생성
+  // Math.random(): 0이상 1미만의 부동 소수점 난수(랜덤 숫자)를 반환
+  // Math.random() * (number + 1): 0이상 number + 1 미만의 범위의 난수가 반환
+
+  // Math.floor(): 주어진 숫자를 내림하여 가장 가까운 정수를 반환
+  // Math.floor(): 괄호 안의 숫자를 내림하여 가장 가까운 정수로 생성
+
+  // EX) number에 100 지정 시: 0 ~ 101미만의 정수를 생성 >> 0 ~ 100 정수가 반환
+
   return Math.floor(Math.random() * (number + 1));
 }
 
 // 랜덤 색상 생성 함수
 function generateRandomColor() {
+  // rgb의 색상 생성 함수
+  // 각각의 red, green, blue의 값은 0 ~ 255 숫자로 부여
+  
   return `rgb(${random(255)}, ${random(255)}, ${random(255)})`; // 'rgb(x, y, z)'
 }
 
@@ -29,6 +38,13 @@ function generateRandomColor() {
 //! 3. 이벤트 핸들러 '등록' 방법
 
 //? 1. HTML 이벤트 핸들러 속성(프로퍼티)
+const bgButton = document.querySelector('#bgChange');
+bgButton.onclick = function() {
+  const randomColor = generateRandomColor();
+
+  document.body.style.backgroundColor = randomColor;
+}
+
 // : HTML 요소에 직접 onclick, onload, onchange 등의 이벤트 핸들러 속성을 설정하는 방법
 
 // btn 상수에 버튼 태그에 대한 참조(주소값)를 저장
