@@ -19,9 +19,6 @@
 
 //? : event, evt, e등과 같은 이름을 명명된 매개변수로 전달
 
-const btn = document.querySelector('button');
-const div = document.querySelector('div');
-
 function random(number) {
   return Math.floor(Math.random() * (number + 1));
 }
