@@ -5,14 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS 이벤트 02</title>
   <style>
-    button {
-      margin: 10px;
-      padding: 20px;
+    #colorButton,
+    .colorDiv {
+      padding: 10px;
+      margin: 5px;
+      text-align: center;
+      border: 1px solid #ddd;
     }
-    #change-color {
-      border: 1px solid black;
-      margin: 10px;
-      padding: 20px;
+  
+    .colorDiv {
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      background-color: #f0f0f0;
     }
 
     /* 실습 문제 */
@@ -22,7 +27,7 @@
       grid-template-rows: repeat(4, 1fr);
       gap: 10px;
       width: 100%;
-      height: 100px;
+      height: 200px;
     }
     .tile {
       border: 1px solid #333;
@@ -35,8 +40,11 @@
 </head>
 <body>
   <h2>이벤트 객체</h2>
-  <button>Change Color</button>
-  <div id="change-color">Change Color</div>
+  <button id="colorButton">색 변경</button>
+  <div id="colorDiv1" class="colorDiv"></div>
+  <div id="colorDiv2" class="colorDiv"></div>
+  <div id="colorDiv3" class="colorDiv"></div>
+  <div id="colorDiv4" class="colorDiv"></div>
 
   <hr />
   <div id="grid-container">
