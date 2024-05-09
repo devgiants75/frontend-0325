@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>실시간 검색 필터링</title>
+  <title>이벤트 캡쳐링/버블링</title>
 </head>
 <body>
-  
+  <div id="grandparent">
+    할아버지
+    <div id="parent">
+      아버지
+      <div id="child">
+        아들
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const grandparent = document.getElementById('grandparent');
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+
+    document.body.addEventListener('click', function() {
+      console.log('바디 캡쳐링');
+    }, true);
+
+    grandparent.addEventListener('click', function() {
+      console.log('할아버지 캡쳐링');
+    }, true);
+
+    parent.addEventListener('click', function() {
+      console.log('아버지 캡쳐링');
+    }, true);
+
+    child.addEventListener('click', function(e) {
+      console.log('아들 캡쳐링');
+      // e.stopPropagation();
+    }, true);
+  </script>
 </body>
 </html>
