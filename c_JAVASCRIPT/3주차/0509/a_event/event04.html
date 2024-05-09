@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS 키보드/마우스 이벤트 정리</title>
+</head>
+<body>
+  <form id="myForm">
+    <input type="text" value="입력 내용">
+    <button type="submit">제출</button>
+  </form>
+  
+  <script>
+    //! 이벤트 리스너 등록 속성
+    // 1. 키보드 이벤트
+    // keydown, keyup, keypress
+    window.addEventListener('keydown', function(e) {
+      console.log(`키보드를 입력하였습니다. ${e.key} - ${e.keyCode}`);
+    });
+
+    // 2. 마우스 이벤트
+    // click, dlbclick, mousemove, mousedown, mouseup
+
+    window.addEventListener('click', function(e) {
+      console.log(`마우스를 클릭하였습니다. ${e.clientX} - ${e.clientY}`);
+    });
+
+    // 3. 폼 이벤트
+    // submit, reset
+    // , change(폼의 값 변경 + 해당 요소에서 포커스를 빼면 발생)
+    // , input(change와 달리 포커스를 빼지 않아도 발생)
+    // , focus. blur
+    let form = document.getElementById('myForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      console.log('폼이 제출되었습니다.');
+    });
+  </script>
+</body>
+</html>
