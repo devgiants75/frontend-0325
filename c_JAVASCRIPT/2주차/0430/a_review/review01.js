@@ -95,14 +95,27 @@ function main() {
 
   //* readline 모듈을 사용하여 콘솔에서 사용자 입력 받기.
   // : Node.js에 내장된 입출력 관리 기능 사용을 요청
-  // : 해당 모듈이 저장된 readline에 입출력에 관한 다양한 메서드(기능)와 속성(데이터)에 접근 가능
+  // : Node.js에서 제공하는 readline 모듈을 불러와 readline이라는 상수에 할당
+  // : require("readline") 호출은 해당 모듈의 기능들을 사용할 수 있게 해주며
+  //   , 이를 통해 입력과 출력을 관리할 수 있는 여러 메서드와 속성에 접근 가능
   const readline = require('readline');
 
   //* readline.createInterface() 메서드
-  // : input, output의 입력과 출력에 대한 공간이 생성
+  // : readline.Interface 인스턴스를 생성
+  // : 해당 인스턴스는 텍스트 입력 스트림과 출력 스트림을 관리하며, 사용자와의 대화형 세션을 구축
+  // : 메서드는 설정 객체를 인자로 받음
 
-  // rl.question(): 사용자에게 질문, 응답을 받아 처리 가능
-  // rl.close(): 입력을 닫고 프로그램을 종료
+  // - 주요 구성 요소
+  // input: 입력 스트림을 지정
+  //        process.stdin은 표준 입력 스트림(보통 키보드 입력)을 의미하며, 이를 통해 사용자로부터의 입력 받음
+  // output: 출력 스트림을 지정
+  //        process.stdout은 표준 출력 스트림(보통 콘솔 출력)을 의미하며, 이를 통해 사용자에게 메시지를 출력
+
+  // - 이 인터페이스를 사용하면 사용자로부터 키보드 입력을 비동기적으로 받아 처리할 수 있으며, 입력마다 콜백 함수를 통해 각 입력을 개별적으로 처리 가능
+  
+  // rl 객체는 다양한 이벤트를 수신하고 처리할 수 있는 메서드들을 제공
+  // : rl.question() 메서드를 사용해 사용자에게 질문을 할 수 있고, 사용자의 응답을 받아 다음 로직을 실행 가능
+  // : rl.close() 메서드를 호출하여 입력 스트림을 닫고 프로그램을 종료
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
