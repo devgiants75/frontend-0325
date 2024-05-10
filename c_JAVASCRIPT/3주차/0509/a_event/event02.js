@@ -29,8 +29,18 @@ function random(number) {
 function bgChange(e) {
   const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
 
-  // JS에서 스타일 지정 방식
-  // : lowerCamelCase를 사용
+  // target 프로퍼티
+  // : 항상 이벤트가 발생된 요소에 대한 참조
+  // document.body.style
+  // - 웹 문서의 전체 스타일 설정
+
+  // e.target (해당 이벤트가 발생한 그 객체에서만 스타일을 지정)
+  // : div를 클릭할 경우 해당 이벤트 리스너가 실행되는 주체는(e.target) div 요소 자체
+
+  // JS에서의 스타일 지정 방식은
+  // : CSS의 스타일 지정법을 lowerCamelCase로 지정
+  // background-color: backgroundColor
+  // border-radius: borderRadius
   e.target.style.backgroundColor = randomColor;
 }
 
@@ -91,7 +101,14 @@ form.onsubmit = function(e) {
   if (fname.value === '' || email.value === '') {
     // >> input 창의 값은 string 타입이기 때문에
     //    , 비워질 경우 빈 문자열로 반환
+
+    // 기본 행동을 방지하는 메서드
+    // sumbit 버튼을 클릭할 때 자동 전송되는 기능 등
+    // : 양식 제출, 링크 이동 등의 기본 해동을 방지하는 메서드
     e.preventDefault();
+
+    // 조건식의 내용을 확인하여 조건이 일치하지 않을 경우에만 전송이 실행
+    // : 이름과 이메일이 모두 입력된 경우
     para.textContent = '이름과 이메일 모두 입력해야만 합니다.';
   }
 }
@@ -134,5 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 자식에서 부모로 진행(버블링)
     e.stopPropagation();
   }, true);
-});
 
+});// 버블링과 캡쳐링에서 이벤트의 버블링이 전파력이 더 강함
+// : 하위 요소에서 이벤트를 전파 중지
+// 해당 이벤트에 stopPropagation() 실행

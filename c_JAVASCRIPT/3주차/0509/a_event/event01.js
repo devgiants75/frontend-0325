@@ -36,6 +36,8 @@ function generateRandomColor() {
 
 //? 1. HTML 이벤트 핸들러 속성(프로퍼티)
 // : HTML 요소에 직접 onclick, onload, onchange 등의 이벤트 핸들러 속성을 설정하는 방법
+// : HTML 요소를 JS의 객체로 가져와서 이벤트 핸들러 프로퍼티 함수를 할당
+// >> HTML과 CSS 분리 가능 - 유지 보수 쉬움
 
 // - 웹 문서에 가져오는 HTML 요소는 객체로 저장
 // :bgButton 상수에 버튼 태그에 대한 참조(주소값)를 저장
@@ -47,6 +49,11 @@ bgButton.onmouseover = function () {
 
   document.body.style.backgroundColor = randomColor;
 };
+
+//& on키워드 - 이벤트 핸들러
+// : 속성에 함수를 할당해서 이벤트를 연결
+
+// 이벤트 핸들러를 사용하여 웹 페이지 요소에 이벤트 기능을 추가하는 방법
 
 //* 기본 이벤트 핸들러
 // - btn.onclick: 요소를 클릭했을 때 실행되는 이벤트
