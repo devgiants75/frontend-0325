@@ -77,3 +77,17 @@ li.completed {
   text-decoration: line-through;
   color: #888;
 }
+
+/* & css border-radius 상속 문제 해결 */
+.container {
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
