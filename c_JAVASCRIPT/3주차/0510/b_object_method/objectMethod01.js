@@ -15,7 +15,11 @@ let num = 123.456782;
 console.log(num.toFixed(3)); // 123.457
 console.log(num.toFixed(5)); // 123.45678
 
+<<<<<<< HEAD
 //& 2) Number.isNaN(데이터), Number.isFinite(데이터)
+=======
+//& 2) isNaN(), isFinite()
+>>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
 // : 각각 NaN과 Infinity인지 확인
 
 // NaN: Not a Number
@@ -24,6 +28,7 @@ console.log(num.toFixed(5)); // 123.45678
 // - Number 키워드 뒤에 점을 찍고 사용 O
 
 console.log('가' === NaN); // false
+<<<<<<< HEAD
 // : NaN과 비교 연산자를 사용하여 비교할 경우 - 모든 값이 false로 반환
 
 let notNum = Number('숫자로 변환할 수 없는 값');
@@ -31,6 +36,18 @@ console.log(notNum); // NaN
 console.log(notNum === NaN); // false
 console.log(Number.isNaN(notNum)); // true
 // notNum.isNaN() 이렇게 사용하지 X
+=======
+// : NaN과 비교 연산자를 사용하여 비교할 경우
+// : 모든 값이 false로 반환
+// >> isNaN을 사용하여 해당 값이 NaN인지 여부를 확인
+
+let notNum = Number('숫자로 변환할 수 없는 값');
+
+console.log(notNum); // NaN
+console.log(notNum === NaN); // false
+console.log(Number.isNaN(notNum)); // true
+// notNum.isNaN() 이렇게 사용 X
+>>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
 
 // : Infinity(무한)
 // : 무한의 숫자값은 양수와 음수로 나뉨
@@ -48,9 +65,14 @@ console.log(-10 / 0);
 let negativeInfinityNum = -10 / 0; // -Infinity(음의 무한대)
 
 // 유한한 숫자가 아니기 때문에 각각의 값이 false로 반환
+<<<<<<< HEAD
 // : inFinity - 무한대
 console.log(Number.isFinite(infinityNum)); // false
 console.log(Number.isFinite(negativeInfinityNum)); // false
+=======
+console.log(Number.isFinite(infinityNum));
+console.log(Number.isFinite(negativeInfinityNum));
+>>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
 
 console.log(Number.isFinite(1)); // true
 console.log(Number.isFinite(-1)); // true
@@ -80,7 +102,11 @@ let stringB = '  앞과 뒤에 공백을 넣습니다.  ';
 console.log(stringA);
 console.log(stringB);
 
+<<<<<<< HEAD
 console.log(stringA.trim()); // 문자열 내부의 공백은 제거하지 X
+=======
+console.log(stringA.trim());
+>>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
 console.log(stringB.trim());
 
 // 사용자와의 상호작용(input 등을 사용)

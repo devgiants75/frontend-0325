@@ -69,8 +69,12 @@ console.log(JSON.parse(jsonData));
 
 //! 4. Math 내장 객체
 // : 수학과 관련된 기본적인 연산을 할 때 사용되는 객체
-// 속성: PI
-console.log(Math.PI); // 3.141592653589793
+// 속성: PI, e
+console.log(Math.PI);
+
+// 0이상 1미만의 난수를 생성
+console.log(Math.random()); 
+console.log(Math.random() * 10);
 
 // Math.ramdom()
 // 0이상 10 미만의 무작위 수를 생성
@@ -87,27 +91,40 @@ console.log(Math.sqrt(16)); // 4
 console.log(Math.sqrt(144)); // 12
 
 //! Date 객체
-// : 날짜와 시간을 처리하는 메소드를 제공
+// : 자바스크립트에서 날짜와 시간을 관리하기 위해 사용되는 내장 객체
+// : 날짜와 관련된 다양한 메소드를 제공하여 날짜 데이터를 쉽게 처리 가능
 
 // 현재 날짜와 시간을 now 변수에 저장
+let now = new Date();
 
-// 현재 날짜와 시간을 출력
+// console.log를 사용하여 현재 날짜와 시간을 출력
+console.log(now); // 예: 2023-05-10T12:34:56.789Z
 
 // getDate 메소드를 사용하여 현재 '일'을 반환
+console.log(now.getDate()); // 월의 일자를 반환 (1~31)
 
 // getDay 메소드를 사용하여 현재 '요일'을 반환
 // 이 값은 0부터 시작하여 일요일을 0, 월요일을 1로 표시
+console.log(now.getDay()); // 요일을 반환 (0: 일요일, 1: 월요일, ..., 6: 토요일)
 
 // --- 추가 자료 --- //
 // getFullYear 메소드를 사용하여 현재 '년'을 반환
+console.log(now.getFullYear()); // 예: 2023
 
 // getMonth 메소드를 사용하여 현재 '월'을 반환
 // +) getMonth는 0부터 시작하므로, 실제 월보다 1이 작음
+console.log(now.getMonth() + 1); // 1부터 12까지의 월을 반환
 
 // getHours, getMinutes, getSeconds 메소드를 사용하여 시, 분, 초를 반환
+console.log(now.getHours()); // 현재 시간 (0~23)
+console.log(now.getMinutes()); // 현재 분 (0~59)
+console.log(now.getSeconds()); // 현재 초 (0~59)
 
 // getTime 메소드는 1970년 1월 1일 00:00:00 UTC 이후 경과한 밀리초를 반환
+console.log(now.getTime()); // 타임스탬프
 
 // toLocaleDateString 메소드를 사용하여 현지화된 날짜 표현을 가져옴
+console.log(now.toLocaleDateString()); // 예: '2023-05-10'
 
 // toLocaleTimeString 메소드를 사용하여 현지화된 시간 표현을 가져옴
+console.log(now.toLocaleTimeString()); // 예: '12:34:56'
