@@ -45,6 +45,17 @@ form.addEventListener("submit", function (event) {
 // 폼 유효성 검사
 // 폼 이벤트는 폼 유효성 검사에도 활용
 // 사용자가 폼에 적절한 값을 입력했는지 확인, 그렇지 않다면 경고 메시지를 보여주는 동작을 처리 가능
+form.addEventListener('submit', function(event) {
+
+  // input 창에 입력되는 데이터를 username 변수에 저장
+  let username = document.getElementById('username').value;
+
+  // 사용자의 이름은 반드시 2자 이상 5자 미만
+  if (username.length < 2 || username.length >= 5) {
+    alert('사용자 이름이 유효하지 않습니다.');
+    event.preventDefault(); // 폼의 기본 제출 동작을 방지
+  }
+})
 
 //! 페이지 로드 이벤트
 
@@ -54,10 +65,14 @@ form.addEventListener("submit", function (event) {
 // addEventLister 메서드를 사용하여 페이지 로드 이벤트 핸들러를 등록
 
 // +) load 이벤트 핸들링 예시
-
+window.addEventListener('load', function() {
+  console.log('페이지의 모든 콘텐츠가 로드되었습니다.');
+});
 
 // +) DOMContentLoaded 이벤트 핸들링 예시
-
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM 트리가 완성되었습니다.');
+});
 
 //& ======================================================================================================== //
 // HTML 문서에서 <script> 태그를 닫는 </body> 태그 바로 위에 위치 시

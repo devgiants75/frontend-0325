@@ -45,32 +45,46 @@ let data = [
 //   >> JSON.stringify(자바스크립트 객체)
 
 console.log('들여쓰기 되어있지 않은 JSON 문자열 데이터');
+console.log(JSON.stringify(data));
 
-// JSON.stringify()의 2번째 매개변수
+// JSON.stringify()의 2번째 인자
 // : 객체에서 어떤 속성만 선택해서 추출하고 싶을 때 사용
 // : 거의 사용하지 X (일반적으로 null을 사용)
+console.log('name과 age 속성만 포함하여 출력');
+console.log(JSON.stringify(data, ['name', 'age'], 2));
 
-// JSON.stringify()의 3번째 매개변수
+// JSON.stringify()의 3번째 인자
 // : 들여쓰기 N칸 설정
 
 console.log('들여쓰기 설정된 JSON 데이터');
+console.log(JSON.stringify(data, null, 2));
 
 //? 2) JSON.parse()
 // : JSON 문자열을 자바스크립트 객체로 전환
+let jsonData = JSON.stringify(data);
+console.log(jsonData);
 
 console.log('===자바스크립트 객체 출력===');
+console.log(JSON.parse(jsonData));
 
 //! 4. Math 내장 객체
 // : 수학과 관련된 기본적인 연산을 할 때 사용되는 객체
-// 속성: PI, e
+// 속성: PI
+console.log(Math.PI); // 3.141592653589793
 
-// 0이상 10 미만의 정수의 무작위 수를 생성
+// Math.ramdom()
+// 0이상 10 미만의 무작위 수를 생성
+console.log(Math.random()); // 0.5919407678602304 - 실수
+console.log(Math.random() * 10);
 
-// Math.floor
+// Math.floor()
 // : 숫자를 가장 가까운 정수로 내림
 // : 주어진 숫자와 같거나 작은 정수 중에서 가장 큰 수를 반환
+console.log(Math.floor(Math.random() * 10));
 
-// 제곱근 계산: sqrt()
+// 제곱근 계산: sqrt() - square root
+console.log(Math.sqrt(16)); // 4
+console.log(Math.sqrt(144)); // 12
 
 //! Date 객체
 // : 날짜와 시간을 처리하는 메소드를 제공
