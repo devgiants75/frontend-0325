@@ -17,6 +17,7 @@
 //? 초기 JavaScript
 // : JavaScript가 처음 출시되었을 때는 모듈 시스템이 없어 전역 변수를 사용하여 코드를 관리
 // >> 단점 - 코드가 커질수록 유지보수와 변수 이름 충돌의 문제
+var username = '이승아'; // 전역 변수 - 해당 모듈 내에서만 접근 가능(module01.js)
 
 //? CommonJS와 AMD
 // : 서버 사이드(Node.js) 및 클라이언트 사이드(웹 브라우저)에서 모듈을 지원하기 위해 CommonJS와 Asynchronous Module Definition(AMD)이 등장
