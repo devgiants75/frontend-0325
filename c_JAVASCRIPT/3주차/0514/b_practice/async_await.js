@@ -5,3 +5,27 @@
 
 // Async/Await를 사용하여 JSONPlaceholder에서 데이터를 가져오는 함수
 
+//& https://jsonplaceholder.typicode.com
+// 위의 url에서 사용하고자 하는 데이터를 /posts, /comments, /users 등을 붙여 사용
+// : 각각의 데이터 속에서 원하고자하는 데이터를 검색할 경우 /id값(숫자)
+
+// EX) id가 2인 posts를 가져오는 경우
+// : https://jsonplaceholder.typicode.com/posts/2
+
+async function fetchPosts(postId) {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+
+    if (!response.ok) {
+      throw new Error(`Http error! status: ${response.status}`);
+    }
+
+    const posts = await response.json();
+    console.log(posts);
+
+  } catch(error) {
+    console.log('게시물 가져오기에 실패하였습니다.', error);
+  }
+}
+
+fetchPosts(11);

@@ -24,6 +24,16 @@
 //? resolve(value): 프로미스를 이행 상태로 변경, 결과값 value를 반환
 //? reject(error): 프로미스를 거부 상태로 변경, 에러 error를 반환
 
+const myPromise = new Promise((resolve, reject) => {
+  // 비동기로 수행될 작업을 작성
+  const condition = true; // 조건을 설정하는 예시
+
+  if (condition) {
+    resolve('프로미스가 이행되었습니다.');
+  } else {
+    reject('프로미스가 거부되었습니다.');
+  }
+});
 
 //! 프로미스의 메서드 사용
 // : .then(), .catch(), .finally()
@@ -44,12 +54,49 @@
 // 계단식 전달 방법을 사용한 콜백함수와 달리
 // , Promise는 then과 catch 블럭을 사용하여 코드의 가독성을 증가
 
+myPromise
+  .then((result) => {
+    console.log(result);
+    return '절차가 다음 단계로 넘어갑니다.'; // '프로미스가 이행되었습니다.'
+  })
+  .then((nextResult) => {
+    console.log(nextResult); // '절차가 다음 단계로 넘어갑니다.'
+  })
+  .catch((error) => {
+    // 프로미스 작업 중 실패 처리를 잡아주는 블럭
+    console.error(error);
+  })
+  .finally(() => {
+    console.log('작업 완료'); // 성공, 실패와 상관없이 수행
+  });
+
 //! 프로미스 체이닝 & 에러 핸들링
 // 프로미스 체이닝
 // : 여러 개의 프로미스를 연결하여, 한 작업이 완료된 후에 다음 작업을 실행하는 기법
 // : 비동기 작업을 간결하고 명확하게 표현 가능
 
 // .then() 메서드를 사용하여 해당 두 작업을 순차적으로 연결하고 최종 결과물을 출력
+
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('데이터');
+    }, 3000);
+  })
+}
+
+function processData(data) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`${data}를 사용합니다.`);
+    }, 3000);
+  })
+}
+
+fetchData()
+  .then(result => processData(result))
+  .then(processedResult => console.log(processedResult))
+  .catch(error => console.error(error));
 
 //? 에러 핸들링
 // : 프로미스는 어떠한 체이닝(연결) 속에서도 .catch()메서드를 사용하면 체인 내의 어느 지점에서든 발생한 에러를 잡아낼 수 있음
