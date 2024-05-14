@@ -31,17 +31,32 @@
 console.log('=========동기 구현===========');
 
 function work() {
-  
+  // 현재 시간을 숫자 형태(단위, ms초)로 가져오는 자바스크립트 내장 함수
+  const start = Date.now();
+  for (let i = 0; i < 99999999; i++) {} // 39ms
+
+  const end = Date.now();
+  console.log(end - start + 'ms');
 }
 
+work(); // 39ms
+console.log('다음 작업');
 
 //* ---------------------------------------//
 console.log('=========비동기 구현===========');
 function anotherWork() {
-  
+  setTimeout(() => {
+    const start = Date.now();
+    for (let i = 0; i < 9999999999; i++) {} // 약 8초
+
+    const end = Date.now();
+    console.log(end - start + 'ms');
+  }, 0);
 }
 
-
+console.log('작업 시작');
+anotherWork();
+console.log('다음 작업');
 
 // setTimeout 함수는 첫번째 파라미터에 넣는 함수를 두번째 파라미터에 넣은 시간(ms 단위)이 흐른 후 호출
 
@@ -52,10 +67,25 @@ function anotherWork() {
 // : 함수 타입의 값을 파라미터로 넘겨줘서, 파라미터로 받은 함수를 특정 작업이 끝나고 호출을 해주는 것
 
 //* ---------------------------------------//
-function callbackWork() {
+function callbackWork(callback) {
+  setTimeout(() => {
+    const start = Date.now();
+    for (let i = 0; i < 9999999999; i++) {} // 약 8초
 
+    const end = Date.now();
+    console.log(end - start + 'ms');
+
+    // 해당 콜백 기능 완료 후 진행하고자 하는 함수 호출
+    callback();
+  }, 0);
 }
 
+console.log('콜백 비동기 작업 시작');
+callbackWork(() => {
+  console.log('시간이 오래걸리는 작업이 완료되었습니다.');
+});
+
+console.log('다음 작업');
 
 // 다음과 같은 작업들은 주로 비동기적으로 처리
 
@@ -77,4 +107,3 @@ function callbackWork() {
 
 //! 3. 자바스크립트에서의 비동기 프로그래밍 구현(3가지 구현 방법)
 // : 콜백 함수 / 프로미스(Promise) / Async,Await
-
