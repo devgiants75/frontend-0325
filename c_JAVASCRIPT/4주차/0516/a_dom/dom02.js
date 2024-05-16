@@ -16,6 +16,14 @@
 // : 입력된 문자열을 HTML 형식으로 넣습니다.
 
 document.addEventListener('DOMContentLoaded', () => {
+  const a = document.querySelector('#textContent');
+  const b = document.querySelector('#innerHtml');
+
+  a.textContent = '<h2>textContent 속성</h2>';
+  // : 텍스트 그 자체가 내용으로 삽입
+
+  b.innerHTML = '<h2>innerHTML 속성</h2>';
+  // : HTML 문서 구조를 인식하여 해석한 뒤 내용만 삽입
 });
 
 // +) JS에서 글자 조작 시에는 문서 구조는 HTML이 담당
@@ -32,6 +40,26 @@ document.addEventListener('DOMContentLoaded', () => {
 // : 특정 속성을 추출
 
 document.addEventListener('DOMContentLoaded', () => {
+  const cats = document.querySelectorAll('.cats');
+
+  cats.forEach((cat, index) => {
+    const width = (index + 1) * 100;
+
+    // 이미지 너비와 높이를 직접 설정
+    cat.style.width = width + 'px';
+    cat.style.height = '250px';
+
+    const source = `./cat01.jpg`;
+    const alter = '고양이 이미지';
+
+    // cat.setAttribute('src', source);
+    // cat.setAttribute('alt', alter);
+    cat.src = source;
+    cat.alt = alter;
+
+    console.log(cat.src);
+    console.log(cat.alt);
+  })
 })
 
 //! 4. 스타일 조작하기
@@ -55,4 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // div 25개의 스타일을 조작하여 검은색에서 흰색으로 그라데이션 효과를 보이도록 지정
 document.addEventListener('DOMContentLoaded', () => {
+  const divs = document.querySelectorAll('#container > div');
+
+  divs.forEach((div, index) => {
+    const gradation = index * 10; // 0 ~ 240
+
+    // 크기 지정 시 단위를 반드시 문자열 내에 같이 작성
+    div.style.height = '10px';
+    div.style.backgroundColor = `rgba(${gradation}, ${gradation}, ${gradation})`;
+  })
 })

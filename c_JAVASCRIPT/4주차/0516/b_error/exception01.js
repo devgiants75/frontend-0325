@@ -15,7 +15,7 @@
 EX) 괄호를 닫지 않거나, 잘못된 키워드를 사용하는 경우 등
     : 구문 자체의 오류가 있으면 웹 브라우저가 코드를 분석 조차 하지 X >> 실행 X
 
-? 런타임 오류(예외)
+? 3. 런타임 오류(예외)
 - 프로그램의 실행 중에 발생하는 오류
 - 예측 가능한 비정상적인 조건 또는 예외적인 사건을 의미
 : 코드가 순차적으로 실행되다가 오류가 위치하는 부분 이후에는 실행이 중단
@@ -30,6 +30,9 @@ console.log('# 프로그램이 시작되었습니다!');
 //? SyntaxError 발생 - 구문 오류
 // : 오류 자체에 어떤 파일의 어느 위치에서 오류가 발생했는지 명시
 
+// console.log('괄호를 닫지 않는 실수를 했습니다.'
+console.log('괄호를 닫지 않는 실수를 했습니다.');
+
 // 터미널 실행 단축키: ctrl + shift + `(백틱)
 
 //! 런타임 오류(예외) 예제
@@ -39,6 +42,9 @@ console.log("@ 프로그램이 시작되었습니다!");
 //? TypeError
 // : 자바스크립트는 SyntaxError라고 출력되는 오류 이외의 모든 오류가 예외(런타임 에러)로 분류
 // ex) TypeError, ReferenceError, RangeError 등
+
+// console.rog('log를 rog로 잘못 입력하였습니다.');
+console.log('런타임 오류 발생 이후의 코드는 실행되지 X');
 
 //! JS 실행 중 발생하는 예외를 다루는 방법
 // : 예외 처리
@@ -52,10 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // HTML에 h1요소가 존재하지 X
   // : ReferenceError 발생
   // : HTML 웹문서(document)에서 참조할 h1 요소가 존재하지 않음
-})
+  const h1 = document.querySelector('h1'); // null
+  // h1.textContent = '안녕하세요';
+
+  if (h1) {
+    h1.textContent = '안녕하세요';
+  } else {
+    console.log('h1 태그를 추출할 수 없습니다.');
+  }
+
+  console.log('다음 문장을 실행합니다.');
+});
 
 //? 2. 고급 예외 처리
-// : try catch finally 구문
+// : try catch (finally) 구문
 
 // try: 블록 내에서 실행된 코드는 예외 발생 여부를 감시
 //      예외가 발생하면 즉시 실행이 중단되고 catch 블록으로 제어가 이동
@@ -80,10 +96,49 @@ try {
 
 function riskyOperation() {
   // 50% 확률로 예외 발생
-  if (Math.random() < 0.5) {
+  if (Math.random() < 0.5) { // 1/2 확률로 에러를 발생
       throw new Error("Something went wrong!");
   }
   return "Operation successful";
 }
 
+try {
+  // 예외가 발생될 코드 || 일반 로직의 코드를 작성
+  const result = riskyOperation();
+  console.log(result);
+
+  console.log('try 블럭의 마지막 줄');
+} catch(e) { // e: exception
+  console.log('catch 블럭의 마지막 줄');
+} finally {
+  console.log('finally 블럭의 마지막 줄');
+}
+
 //? finally 구문을 사용하는 이유
+function test() {
+  try {
+    alert('A 위치입니다.');
+    throw '예외 강제 발생';
+  } catch(exception) {
+    alert('B 위치입니다.');
+    return
+  }
+
+  alert('C 위치입니다.');
+}
+
+test();
+
+function sample() {
+  try {
+    console.log('A 위치입니다.');
+    throw '예외 강제 발생';
+  } catch(exception) {
+    console.log('B 위치입니다.');
+    return
+  } finally {
+    console.log('C 위치입니다.');
+  }
+}
+
+sample();

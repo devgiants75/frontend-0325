@@ -25,22 +25,10 @@ h1 {
   left: 0;
   width: 640px;
   height: 480px;
-<<<<<<< HEAD
-  /* 배경색을 투명으로 설정: transparent와 동일한 효과 */
-  background-color: rgba(0, 0, 0, 0); 
-}
-
-button {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-
-=======
   background-color: rgba(0, 0, 0, 0);
 }
 
 button {
->>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
   border: 0;
   padding: 10px;
   background: rgba(150, 150, 150, 0.6);
@@ -48,12 +36,9 @@ button {
   border: 1px solid #999;
   border-radius: 5px;
   cursor: pointer;
-<<<<<<< HEAD
-=======
   position: absolute;
   top: 2px;
   left: 2px;
->>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
 }
 
 .thumb-bar img {

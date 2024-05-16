@@ -1,1 +1,1 @@
-// 0510 >> event_gellery 리팩토링
+// 0510 >> a_review >> event_gellery 리팩토링

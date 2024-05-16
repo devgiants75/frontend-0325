@@ -14,6 +14,24 @@
 // 부모객체.appendChild(자식객체)
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 문서 객체 생성
+  const div = document.createElement('div');
+  const header = document.createElement('h1');
+
+  // 생성한 태그 조작
+  div.style.padding = '10px';
+  div.style.backgroundColor = 'pink';
+
+  header.textContent = '문서 객체를 동적으로 생성';
+  header.setAttribute('data-custom', '사용자 정의 속성');
+  header.style.color = 'white';
+  header.style.backgroundColor = 'black';
+
+  console.log(header);
+
+  // h1 태그를 body 태그 아래에 추가(자식 요소)
+  document.body.appendChild(div);
+  div.appendChild(header);
 });
 
 //! 2. 문서 객체 이동
@@ -21,6 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
 // : 문서 객체의 부모는 반드시 하나여야 한다.
 // : 따라서, 문서 객체를 다른 문서 객체에 추가할 경우 문서 객체가 이동
 document.addEventListener('DOMContentLoaded', () => {
+  const divA = document.querySelector('#first');
+  const divB = document.querySelector('#second');
+  const h1 = document.createElement('h1');
+  h1.textContent = '이동하는 h1 태그';
+
+  // 서로 번갈아가면서 실행하는 함수 구현
+  const toFirst = () => {
+    divA.appendChild(h1); // 추가와 동시에 이동
+    setTimeout(toSecond, 1000);
+  }
+
+  const toSecond = () => {
+    divB.appendChild(h1); // 추가와 동시에 이동
+    setTimeout(toFirst, 1000);
+  }
+
+  toFirst();
 });
 
 //! 3. 문서 객체 제거
@@ -36,4 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // 문서객체.parentNode.removeChild(문서객체)
 
 document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const h2 = document.querySelector('h2');
+
+    // h2.parentNode.removeChild(h2);
+    document.body.removeChild(h2);
+  }, 3000);
 })

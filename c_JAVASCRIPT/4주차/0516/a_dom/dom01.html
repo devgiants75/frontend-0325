@@ -7,12 +7,20 @@
   <script>
     //? body태그가 생성되기 이전의 script 태그로 body태그를 조작 (Error)
 
+    // Error
+    // const h1 = (text) => `<h1>${text}</h1>`;
+    // document.body.innerHTML += h1('1번째 script 태그');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const h1 = (text) => `<h1>${text}</h1>`;
+      document.body.innerHTML += h1('1번째 script 태그');
+    });
+
     //& 동작원리
     // : DOMContentLoaded 이벤트 리스너를 등록
     // : 전체 문서가 완전히 로드되고 파싱이 완료된 후에 발생
     //   >>  HTML 문서의 모든 요소가 로드된 후에 실행
   </script>
-  
 </head>
 <body>
   <h1></h1>
@@ -27,12 +35,12 @@
   <div id="example">GET ELEMENT BY ID</div>
 
   <script>
+    const h2 = (text) => `<h2>${text}</h2>`;
+    document.body.innerHTML += h2('2번째 script 태그');
 
     //& 동작원리
     // : DOMContentLoaded 이벤트를 기다리지 않고, 스크립트 태그가 로드되는 즉시 실행
     // : 이미 브라우저에 의해 파싱되었기 때문에, 이 스크립트는 문서의 현재 상태에 '2번째 script 태그'라는 텍스트를 즉시 추가
-
-
   </script>
   <script src="dom01.js"></script>
 </body>
