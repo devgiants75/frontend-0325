@@ -1,31 +1,16 @@
-<<<<<<< HEAD
-//& 1) HTML 요소 가져오기
-=======
 // 1. 입력 필드에서 '추가' 버튼을 클릭하면
 // : 새로운 항목이 리스트에 추가되도록 구현
->>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
 let addButton = document.getElementById('add-btn');
 let todoInput = document.getElementById('todo-input');
 let todoList = document.getElementById('todo-list');
 
-<<<<<<< HEAD
 // 입력된 할 일을 li로 추가하는 기능
 addButton.addEventListener('click', function() {
-=======
-addButton.addEventListener('click', function() {
   // 새로운 'li'요소를 생성하여 newItem 변수에 저장
->>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
   // 웹 문서의 새로운 요소 생성 방법
   // : document.createElement('요소명');
   let newItem = document.createElement('li');
 
-<<<<<<< HEAD
-  newItem.textContent = todoInput.value;
-
-  newItem.classList.add('todo-item');
-
-  // 상위요소.appendChild(하위요소);
-=======
   // 입력된 텍스트 내용을 현재 값으로 설정
   // newItem의 텍스트 내용을 입력 필드(todo-input)의 현재 값으로 설정
   newItem.textContent = todoInput.value;
@@ -38,19 +23,12 @@ addButton.addEventListener('click', function() {
   // newItem을 todoList(할 일 목록)의 자식 요소로 추가
   // 하위 요소를 추가하는 방법
   // : 상위요소.appendChild(하위요소)
->>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
   todoList.appendChild(newItem);
 
   // 입력 창의 내용은 사용 후 비우는 것이 원칙
   todoInput.value = '';
 });
 
-<<<<<<< HEAD
-//& 토글 상태 변경 기능
-// : 리스트의 항목을 클릭하면 '완료' 상태를 토글
-todoList.addEventListener('click', function(e) {
-  if(e.target.tagName === 'LI') {
-=======
 // 2. 토글(Toggle)
 // : 두 가지 상태를 취할 수 있는 장치나 기능
 
@@ -63,7 +41,6 @@ todoList.addEventListener('click', function(e){
   if(e.target.tagName === 'LI') {
     // 해당 목록 항목의 클래스 목록에서 'completed'클래스 속성을 추가
     // : completed 클래스가 있으면 제거, 없으면 추가
->>>>>>> e0020aefffd9e06a259784b7268686599ef79f16
     e.target.classList.toggle('completed');
   }
 })

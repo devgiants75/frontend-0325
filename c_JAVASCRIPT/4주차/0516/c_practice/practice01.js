@@ -1,1 +1,0 @@
-// 0510 >> a_review >> event_gellery 리팩토링
