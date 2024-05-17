@@ -9,7 +9,12 @@
 // 'key'는 데이터에 접근하기 위해 사용되는 식별자
 // : 해당 식별자를 통해 저장된 값을 검색 가능
 
+let value = localStorage.getItem('key');
+console.log(value);
+
 //? 사용자 이름 조회 예제
+let username = localStorage.getItem('username');
+console.log(username);
 
 //& 복잡한 데이터 타입 처리
 // 로컬 스토리지는 기본적으로 문자열 데이터만을 저장
@@ -17,7 +22,11 @@
 // >> JSON.parse() 메소드를 사용
 
 //? 객체 데이터 조회 예제
-
+let storedData = localStorage.getItem('사용자정보');
+let userInfo = JSON.parse(storedData);
+console.log(userInfo);
+console.log(userInfo.name);
+console.log(userInfo.age);
 
 //& 주의 사항
 // null 처리
@@ -39,6 +48,7 @@
 // : 'key'는 삭제하고자 하는 데이터의 식별자
 
 // 예제: 사용자 이름 삭제하기
+localStorage.removeItem('username');
 
 //? localStorage.clear() 전체 삭제 사용법
 // localStorage.clear() 메소드는 로컬 스토리지 내의 모든 데이터를 삭제
@@ -47,3 +57,5 @@
 
 // EX) 사용자가 로그아웃할 때 로컬 스토리지의 모든 데이터를 삭제
 //     : 개인 정보 보호가 강화
+
+localStorage.clear();

@@ -1,0 +1,55 @@
+body {
+  background-color: #f4f4f4; /* 단일 색상 배경 */
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+input[type="text"], button {
+  border-radius: 8px;
+  padding: 10px 15px;
+  border: 2px solid #ddd; /* 경계선 스타일 추가 */
+  outline: none;
+}
+
+input[type="text"] {
+  width: 250px; /* 너비 조절 */
+  margin-right: 10px;
+  background: #fff;
+}
+
+button {
+  background-color: #5A5A5A; /* 중립적인 색상 */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* 변환 효과 추가 */
+}
+
+button:hover {
+  background-color: #424242; /* 호버 시 색상 변경 */
+  transform: scale(1.05); /* 버튼 확대 */
+}
+
+.post {
+  background-color: #ffffff; /* 포스트 배경색 변경 */
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 수정 */
+  transition: box-shadow 0.3s; /* 그림자 변화 효과 추가 */
+}
+
+.post:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강조 */
+}
+
+.error {
+  color: #D8000C; /* 오류 메시지 색상 강조 */
+  font-size: 0.9em;
+  padding: 10px;
+  margin-top: 10px;
+  background: #FFD2D2; /* 오류 배경 색상 추가 */
+  border-radius: 8px; /* 둥근 모서리 추가 */
+}

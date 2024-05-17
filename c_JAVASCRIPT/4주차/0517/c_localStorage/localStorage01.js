@@ -10,7 +10,6 @@
 - 로컬 스토리지를 통해 저장된 데이터는 서버에 자동으로 전송되지 않으며
   , 웹 페이지가 로컬 데이터를 직접 제어 가능
 
-
 & 2. 로컬 스토리지의 용도
 
 - 사용자 경험 개선
@@ -56,7 +55,7 @@
 // 로컬 스토리지는 웹 브라우저가 제공하는 데이터 저장 공간
 // , 사용자가 브라우저를 닫아도 저장된 데이터가 유지
 
-// >> localStorage 객체를 통해 간단하게 데이터를 저장하고, 조회 가능 
+// >> localStorage 객체를 통해 간단하게 데이터를 저장하고, 조회 가능
 
 //& localStorage.setItem(key, value)의 기본 사용법
 // localStorage.setItem 메소드는 로컬 스토리지에 데이터를 저장하는 데 사
@@ -67,20 +66,30 @@
 //? 1. 데이터 저장하기
 // 기본 형식
 
+localStorage.setItem("key", "value");
+localStorage.setItem("key2", "value2");
+
 // : 'key'는 데이터에 접근하기 위한 식별자
 //   'value'는 해당 키에 저장할 값
 // >> 저장된 데이터는 브라우저 세션 간에 유지, 사용자가 브라우저를 닫았다가 다시 열어도 데이터를 잃지 X
 
 //! 예제: 사용자 이름 저장하기
-// 이 코드는 'username'이라는 키에 'John Doe'라는 값을 로컬 스토리지에 저장
+// 이 코드는 'username'이라는 키에 '이승아'라는 값을 로컬 스토리지에 저장
 // >> 해당 데이터는 이후에 localStorage.getItem('username')을 호출하여 언제든지 접근 가능
+localStorage.setItem('username', '이승아');
 
 //! 데이터 유형과 직렬화
-// 로컬 스토리지는 기본적으로 문자열 데이터만 저장 가능 
+// 로컬 스토리지는 기본적으로 문자열 데이터만 저장 가능
 // >> 객체나 배열 같은 복잡한 데이터 유형을 저장하려면, 이를 문자열 형태로 직렬화
 // >> JavaScript에서는 JSON.stringify() 메소드를 사용하여 객체를 문자열로 변환 가능
 
 // 객체 저장 예제
+let userInfo =  {
+  name: '이도경',
+  age: 30
+}
+
+localStorage.setItem('사용자정보', JSON.stringify(userInfo));
 
 //& 보안 및 사용 제한
 
