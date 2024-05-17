@@ -51,13 +51,35 @@
 // 예시: 사용자 이름 쿠키 설정
 // - 사이트의 모든 페이지에서 해당 쿠키에 접근할 수 있도록 경로를 /로 설정
 
+document.cookie = "username=leeseungah; path=/;"
+
 //! 쿠키의 만료 시간 설정
 // 쿠키의 expires 속성을 설정하여 쿠키의 생명 주기를 관리 가능
 // : 만료 날짜가 설정되지 않은 쿠키는 세션 쿠키가 되어 브라우저가 닫힐 때 자동으로 삭제
 // : 만료 날짜를 설정하려면, UTC/GMT 시간대의 문자열 형식을 사용
 
+let date = new Date(); // 실시간 날짜, 시간을 생성
+date.setTime(date.getTime() + (1 * 60 * 60 * 1000)); // 1시간 뒤 만료
+// 쿠키 화면의 시간 단위는 UTC(협정 세계시) 시간을 기준
+// : KST(한국 표준시)로 변환하려면 9시간을 더해야 함
+// >> 한국이 UTC보다 9시간 빠름
+
+let expires = "expires=" + date.toUTCString();
+document.cookie = "username=leeseungah; path=/;" + expires + ";"
 
 //! 쿠키 읽기
 // document.cookie를 사용하여 모든 쿠키를 읽기 가능
 // : 세미콜론으로 구분된 이름-값 쌍의 문자열을 반환
 // : 특정 쿠키를 찾기 위해서는 문자열 파싱이 필요
+
+let cookies = document.cookie.split(';'); // 배열 형식으로 반환
+for (let i = 0; i < cookies.length; i++) {
+  let cookie = cookies[i];
+  let parts = cookie.split('=');
+  let name = parts[0].trim();
+  let value = parts[1].trim();
+
+  if (name === 'username') {
+    console.log("Username: ", value);
+  }
+}

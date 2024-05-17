@@ -41,18 +41,35 @@ const alts = {
 };
 
 //& 2) 썸네일 바에 이벤트 리스너 추가
-thumbBar.addEventListener('click', function(e) {
-  // 클릭된 요소가 이미지일 경우
-  if (e.target.tagName === 'IMG') {
-    // displayedImage의 src와 alt를 업데이트
+// thumbBar.addEventListener('click', function(e) {
+//   // 클릭된 요소가 이미지일 경우
+//   if (e.target.tagName === 'IMG') {
+//     // displayedImage의 src와 alt를 업데이트
     
-    // console.log(e.target);
-    // console.log(e.currentTarget);
+//     // console.log(e.target);
+//     // console.log(e.currentTarget);
     
-    const imgSrc = e.target.src;
-    displayedImage.src = imgSrc;
-    displayedImage.alt = alts[imgSrc.split('/').pop()]; // 이미지 파일 이름 추출 및 대체 텍스트 설정
-  }
+//     const imgSrc = e.target.src;
+//     displayedImage.src = imgSrc;
+//     displayedImage.alt = alts[imgSrc.split('/').pop()]; // 이미지 파일 이름 추출 및 대체 텍스트 설정
+//   }
+// });
+
+//! ---------DOM 학습 후------------//
+//? 썸네일 이미지를 동적으로 생성하고 클릭 이벤트 추가
+images.forEach((image) => {
+  const newImage = document.createElement('img');
+
+  //? 생성된 요소에 속성 추가
+  newImage.setAttribute('src', `images/${image}`);
+  newImage.setAttribute('alt', alts[image]);
+
+  thumbBar.appendChild(newImage);
+
+  newImage.addEventListener('click', () => {
+    displayedImage.src = `images/${image}`;
+    displayedImage.alt = alts[image];
+  })
 });
 
 //* 이벤트 객체의 target VS currentTarget
@@ -73,17 +90,32 @@ thumbBar.addEventListener('click', function(e) {
 //    EX) DIV, SPAN, IMG, A, UL, OL, LI 등등 
 
 //& 3) 다크/라이트 버튼의 기능 구현
-btn.addEventListener('click', function() {
-  // 클래스로 현재 상태 확인 (dark 클래스가 있는지)
-  if (btn.classList.contains('dark')) {
-    // Dark 모드에서 Light 모드로 전환
-    btn.textContent = '라이트모드';
+// btn.addEventListener('click', function() {
+//   // 클래스로 현재 상태 확인 (dark 클래스가 있는지)
+//   if (btn.classList.contains('dark')) {
+//     // Dark 모드에서 Light 모드로 전환
+//     btn.textContent = '라이트모드';
+//     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+//     btn.classList.remove('dark');
+//   } else {
+//     // Light 모드에서 Dark 모드로 전환
+//     btn.textContent = '다크모드';
+//     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+//     btn.classList.add('dark');
+//   }
+// });
+
+btn.addEventListener('click', () => {
+  //? 속성 값 가져오기: getAttribute('속성명');
+  const className = btn.getAttribute('class');
+
+  if (className === 'dark') {
+    btn.setAttribute('class', 'light');
+    btn.textContent = '라이트 모드';
     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    btn.classList.remove('dark');
   } else {
-    // Light 모드에서 Dark 모드로 전환
-    btn.textContent = '다크모드';
+    btn.setAttribute('class', 'dark');
+    btn.textContent = '다크 모드';
     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-    btn.classList.add('dark');
   }
-});
+})

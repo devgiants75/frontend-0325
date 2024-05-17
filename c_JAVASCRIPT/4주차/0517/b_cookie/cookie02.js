@@ -13,15 +13,33 @@
 ? 쿠키 문자열 분리
 : document.cookie로부터 반환된 문자열을 세미콜론을 기준으로 분리하여 개별 쿠키를 배열로 변환
 
-?쿠키 파싱
+? 쿠키 파싱
 : 각 쿠키 문자열을 = 기호를 사용하여 이름과 값으로 분리
 
-?값 추출
+? 값 추출
 : 특정 이름을 가진 쿠키의 값을 찾기
 */
 
-
 // : 사용자의 'username' 쿠키 값을 검색하고 콘솔에 출력
+document.cookie = "age=100; path=/;";
+
+function getCookieValue(cookieName) {
+  let cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i];
+    let parts = cookie.split('=');
+    let name = parts[0].trim();
+    if (name === cookieName) {
+      return parts[1] || '';
+    }
+  }
+
+  return '';
+}
+
+let username = getCookieValue('username');
+let age = getCookieValue('age');
+console.log(username, age);
 
 //! JS 쿠키 수정 및 삭제: 쿠키 값 변경 및 만료시켜 삭제하기
 
