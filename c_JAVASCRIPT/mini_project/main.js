@@ -132,7 +132,67 @@ document.addEventListener('DOMContentLoaded', () => {
     [firstCard, secondCard] = [null, null];
   }
 
+  //& 게임 시작 시간을 기록할 변수 선언
+  let gameStartTime;
 
+  //& '시작'버튼 클릭 시 이벤트 리스너 추가
+  startButton.addEventListener('click', () => {
+    initializeGame();
+
+    gameStartTime = new Date();
+    toggleButtonVisibiliy(true);
+
+    revealCardsTemporarily();
+    isGameStarted = true;
+  });
+
+  //& '재시작'버튼 클릭 시 이벤트 리스너 추가
+  resetButton.addEventListener('click', () => {
+    initializeGame();
+
+    gameStartTime = new Date();
+
+    toggleButtonVisibiliy(true);
+
+    revealCardsTemporarily();
+
+    isGameStarted = true;
+  });
+
+  //& '완료'버튼 클릭 시 이벤트 리스너 추가
+  completedButton.addEventListener('click', () => {
+    // - Array.from(): DOM NodeList를 배열로 반환
+    // - every(): 모든 요소가 주어진 함수를 만족할 때 true를 반환
+    const allFliped = Array.from(document.querySelectorAll('.card')).every(
+      (card) => card.classList.contains('flipped')
+    );
+
+    if(allFliped) {
+      const gameTime = new Date() - gameStartTime;
+      alert(`게임 완료~! 소요시간: ${Math.floor(gameTime / 1000)}초`);
+      isGameStarted = false;
+
+      initializeGame();
+
+      toggleButtonVisibiliy(false);
+    } else {
+      alert('완료되지 않았습니다.');
+    }
+  });
+
+  //& 버튼의 가시성을 토글하는 함수 정의
+  function toggleButtonVisibiliy(isGameStarted) {
+    startButton.style.display = isGameStarted ? 'none' : 'block';
+
+    resetButton.style.display = isGameStarted ? 'block' : 'none';
+    completedButton.style.display = isGameStarted ? 'block' : 'none';
+  }
+
+  // 초기에는 시작 버튼만 표시
+  toggleButtonVisibiliy(false);
+
+  // 게임을 초기화
+  initializeGame();
 
 });
 
