@@ -100,28 +100,28 @@ function displayDate(mm, dd, day) {
   let date = new Date();
 
   const months = [
-    '1월',
-    '2월',
-    '3월',
-    '4월',
-    '5월',
-    '6월',
-    '7월',
-    '8월',
-    '9월',
-    '10월',
-    '11월',
-    '12월',
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const days = [
-    '일',
-    '월',
-    '화',
-    '수',
-    '목',
-    '금',
-    '토',
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
 
   // 월(0~11), 일(1~31), 요일(0~6)
@@ -144,7 +144,7 @@ let taskArr = [];
 
 function taskEl(task, completed) {
   this.task = task;
-  this.status = false;
+  this.status = 'false';
 }
 
 form.addEventListener('submit', (event) => {
@@ -177,5 +177,121 @@ form.addEventListener('submit', (event) => {
     updateTaskList();
     updateProgress();
   }
-
 });
+
+function updateTaskList() {
+  let list = JSON.parse(localStorage.getItem('Tasks'));
+  
+  if (list.length > 0) {
+    toDoList.classList.add('active');
+    toDoList.innerHTML +=
+    `
+    <li class="task">
+      <span>${list[list.length - 1].task}</span>
+      <i class='bi bi-x-square delete-btn'></i>
+    </li>
+    `;
+  } else {
+    toDoList.classList.remove('active');
+  }
+
+  updateProgress();
+}
+
+function initializeTaskList() {
+  let list = JSON.parse(localStorage.getItem('Tasks'));
+
+  if (list && list.length > 0) {
+    toDoList.classList.add('active');
+
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].status === 'false') {
+        toDoList.innerHTML += 
+        `
+        <li class="task">
+          <span>${list[i].task}</span>
+          <i class='bi bi-x-square delete-btn'></i>
+        </li>
+        `;
+      } else if (list[i].status === 'true') {
+        toDoList.innerHTML += 
+        `
+        <li class="task completed">
+          <span>${list[i].task}</span>
+          <i class='bi bi-x-square delete-btn'></i>
+        </li>
+        `;
+      } 
+    }
+  } else {
+    toDoList.classList.remove('active');
+  }
+
+  updateProgress();
+}
+
+toDoList.addEventListener('click', (e) => {
+  const lis = [...document.getElementsByClassName('task')];
+  const dlt = [...document.getElementsByClassName('delete-btn')];
+
+  let list = JSON.parse(localStorage.getItem('Tasks'));
+
+  if (lis.includes(e.target)) {
+    e.target.classList.toggle('completed');
+
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].task === e.target.innerText && list[i].status === 'false') {
+        list[i].status = 'true';
+        localStorage.setItem('Tasks', JSON.stringify(list));
+        break;
+      } else if (list[i].task === e.target.innerText && list[i].status === 'true') {
+        list[i].status = 'false';
+        localStorage.setItem('Tasks', JSON.stringify(list));
+        break;
+      }
+    }
+  }
+
+  if (dlt.includes(e.target)) {
+
+    for (let i = 0; i < list.length; i++) {
+      // /[\n\r]+|[\s]{2,}/g
+
+      if (list[i].task.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim() === e.target.parentNode.innerText.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()) {
+        list.splice(i, 1);
+
+        localStorage.setItem('Tasks', JSON.stringify(list));
+
+        toDoList.innerHTML = '';
+
+        initializeTaskList();
+        break;
+      }
+    }
+  }
+
+  updateProgress();
+})
+
+function updateProgress() {
+  let list = JSON.parse(localStorage.getItem('Tasks'));
+
+  let count = 0;
+
+  if (list && list.length > 0) {
+    list.forEach(task => {
+      if (task.status === 'true') {
+        count++;
+      }
+    });
+
+    let newWidth = `${(count / list.length) * 100}%`;
+
+    progressDone.style.width = newWidth;
+  } else {
+    progressDone.style.width = '0%';
+  }
+}
+
+initializeTaskList();
+renderTime();

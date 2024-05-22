@@ -121,7 +121,7 @@ body {
   width: 0%;
 }
 
-.to-do-list {
+.to-do-list.active {
   width: 50%;
   min-width: 500px;
   margin: 0;
