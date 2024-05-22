@@ -1,0 +1,188 @@
+body {
+  background-color: #f9f3ee;
+  color: #5a5a5a;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.main {
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+@font-face {
+  font-family: 'TTLaundryGothicB';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.main-msg {
+  font-size: 24px;
+  font-family: 'TTLaundryGothicB';
+  font-weight: 400;
+  margin-top: 50px;
+  letter-spacing: 1px;
+  color: #3c6e71;
+}
+
+.new-input {
+  width: 100%;
+  max-width: 500px;
+  height: 35px;
+  background-color: transparent;
+  border: 2px solid #dbe7e4;
+  border-radius: 18px;
+  margin-top: 20px;
+  color: #3c6e71;
+  text-align: center;
+  font-size: 18px;
+}
+
+.new-input:hover,
+.new-input:focus {
+  outline: none;
+  border: 2px solid #a4c3b2;
+}
+
+.task-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.task-submit {
+  height: 35px;
+  background-color: #f4a261;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.submit-icon {
+  font-size: 20px;
+  color: #2a9d8f;
+  cursor: pointer;
+}
+
+.submit-label {
+  display: none;
+}
+
+.time-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  font-weight: 700;
+  color: #264653;
+}
+
+.mm-dd-day {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mm-dd-day div {
+  margin: 0 2px;
+  color: rgba(188, 188, 188, 1);
+}
+
+#hr, #min, #sec {
+  width: 110px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.to-do-list {
+  display: none;
+  width: 0%;
+}
+
+.to-do-list {
+  width: 50%;
+  min-width: 500px;
+  margin: 0;
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fffefe;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.task {
+  background-color: #f3e9f1;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  width: 70%;
+  padding: 20px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task:hover {
+  background-color: #e4f2d7;
+}
+
+.task span {
+  margin: 0;
+  color: #5a5a5a;
+}
+
+.task i:hover {
+  color: #2a9d8f;
+}
+
+.task.completed {
+  background-color: #a5d6a7;
+}
+
+.progress {
+  background-color: #e9c46a;
+  border-radius: 20px;
+  height: 20px;
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.progress-done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right, #2a9d8f, #f4a261);
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  transition: 1s ease;
+  border-radius: 20px;
+}

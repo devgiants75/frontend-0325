@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="container">
+    <section class="main">
+      <div class="clock-container">
+        <div class="time-container">
+          <div id="hr">00</div>
+          <div class="divider">:</div>
+          <div id="min">00</div>
+          <div class="divider">:</div>
+          <div id="sec">00</div>
+        </div>
+
+        <div class="mm-dd-day">
+          <div id="mm">May</div>
+          <div id="dd">22</div>
+          <div id="day">Wednesday</div>
+        </div>
+      </div>
+
+      <div class="main-msg">If you don't give up, you can do it.</div>
+
+      <form class="task-form">
+        <label class="submit-label">
+          <input type="submit" class="task-submit" value="">
+          <i></i>
+        </label>
+      </form>
+
+      <div class="progress">
+        <div class="progress-done"></div>
+      </div>
+    </section>
+
+    <ul class="to-do-list">
+      <li class="task">
+        <span>안녕하세요</span>
+        <i></i>
+      </li>
+      <li class="task completed">
+        <span>안녕하세요</span>
+        <i></i>
+      </li>
+    </ul>
+  </div>
+  
+  <script src="./main.js"></script>
+</body>
+</html>
