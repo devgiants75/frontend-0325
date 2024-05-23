@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    // 컴파일된 JavaScript의 ECMAScript 버전
+    "target": "es5",           
+
+    // 사용할 모듈 시스템               
+    "module": "commonjs",       
+
+    // 엄격한 타입 체킹 활성화              
+    "strict": true,                  
+            
+    // ES6 모듈 사양 준수
+    "esModuleInterop": true,                  
+
+    // 컴파일된 파일들이 저장될 디렉토리
+    "outDir": "./dist"                        
+  },
+  "include": [
+    // 컴파일 할 파일들의 위치
+    "src/**/*"         
+  ]
+}
+
+//
+
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
+
+// ============================ //
+target: "es2016"은 생성된 JavaScript 코드가 ECMAScript 2016(ES7) 표준을 따르도록 지정합니다. 이 설정은 특정 ECMAScript 기능(예: 지수 연산자)을 사용할 수 있게 합니다.
+module: "commonjs"는 생성된 코드가 CommonJS 모듈 형식을 사용하도록 지정합니다. 이는 Node.js 환경에서 일반적으로 사용됩니다.
+esModuleInterop: true로 설정하면 CommonJS 모듈을 ES6 모듈처럼 더 쉽게 사용할 수 있게 하며, import 문법을 통한 모듈 가져오기가 가능해집니다.
+forceConsistentCasingInFileNames: 이 옵션은 파일 이름의 대소문자가 일관되게 유지되도록 강제합니다. 이는 특히 대소문자를 구분하는 파일 시스템에서 오류를 방지할 수 있습니다.
+strict: true로 설정하면 모든 엄격한 타입 검사 옵션을 활성화하여, 코드의 안정성과 정확성을 높일 수 있습니다.
+skipLibCheck: true로 설정하면 모든 .d.ts 파일(일반적으로 라이브러리 선언 파일)에 대한 타입 체킹을 생략합니다. 이는 컴파일 속도를 향상시킬 수 있습니다.
+include: "src/**/*"는 src 디렉토리 및 그 하위 모든 파일을 컴파일 대상에 포함시키도록 지정합니다. 이는 프로젝트의 소스 코드가 위치하는 곳을 컴파일러에게 알려주는 역할을 합니다.
