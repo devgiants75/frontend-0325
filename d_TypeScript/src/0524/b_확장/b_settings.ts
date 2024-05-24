@@ -97,3 +97,37 @@
 
 //? Prettier 실행
 // npm run format
+
+//# prettier 만 설정 //
+// 1. Prettier를 개발 의존성으로 설치
+//? npm install --save-dev prettier
+
+// 2. Prettier 설정 파일 생성
+// : 프로젝트 루트 디렉터리에 .prettierrc 파일을 생성하고 원하는 설정을 추가
+
+// 3. Prettier 무시 파일 생성
+// : 프로젝트 루트 디렉터리에 .prettierignore 파일을 생성
+
+// 4. 스크립트 추가
+// : package.json 파일에 Prettier를 실행할 수 있는 스크립트를 추가
+
+//?
+// {
+//   "scripts": {
+//     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+//   }
+// }
+
+// 5. rettier 실행
+// 터미널 또는 명령 프롬프트에서 아래 명령어를 실행하여 코드를 포맷
+
+//? npm run format
+
+// 5. VSCode와 연동
+// : VSCode 확장 프로그램 설치
+// : VSCode의 설정 파일(settings.json)에 다음 내용을 추가
+
+// {
+//   "editor.formatOnSave": true,
+//   "editor.defaultFormatter": "esbenp.prettier-vscode"
+// }
