@@ -16,11 +16,10 @@
 
 // 자동 수정: 일부 규칙 위반에 대해 ESLint는 자동으로 코드를 수정할 수 있는 옵션을 제공
 
-
 //& Prettier
 
 //? 정의 및 목적
-//코드 포맷터로, 코드의 기능성에 영향을 주지 않으면서 일관된 스타일을 적용하여 코드를 더 읽기 쉽고 일관적으로 작동하게 하는 도구
+// 코드 포맷터로, 코드의 기능성에 영향을 주지 않으면서 일관된 스타일을 적용하여 코드를 더 읽기 쉽고 일관적으로 작동하게 하는 도구
 
 //? 기능
 // 지원 언어: JavaScript, TypeScript, CSS, HTML, JSON 등 다양한 언어와 파일 형식 지원
@@ -33,4 +32,4 @@
 // >> ESLint는 코드 품질과 문제점을 중점으로
 //    , Prettier는 코드 스타일을 일관되게 유지
 
-// >> eslint-plugin-prettier와 eslint-config-prettier를 통해 충돌 없이 통합 가능능
+// >> eslint-plugin-prettier와 eslint-config-prettier를 통해 충돌 없이 통합 가능

@@ -1,6 +1,10 @@
 //& ESLint & Prettier 환경 설정
 // : 타입스크립트 설치된 프로젝트 기준
 
+// npm init -y
+// npm install typescript --save-dev
+// npx tsc --init
+
 //! 1. 프로젝트의 루트 디렉터리에서 필요한 패키지를 설치
 // npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier eslint-plugin-prettier
 
@@ -42,7 +46,7 @@
 //   "useTabs": false,
 //   "tabWidth": 2,
 //   "trailingComma": "all",
-//   "printWidth": 80,
+//   "printWidth": 200,
 //   "endOfLine": "auto"
 // }
 
@@ -84,7 +88,7 @@
 
 // {
 //   "scripts": {
-//     "lint": "eslint src/**/*.{ts,tsx}"
+//     "lint": "eslint src/**/*.{ts,tsx}",
 //     "format": "prettier --write 'src/**/*.{ts,tsx,js,json}'"
 //   }
 // }
@@ -107,6 +111,10 @@
 
 // 3. Prettier 무시 파일 생성
 // : 프로젝트 루트 디렉터리에 .prettierignore 파일을 생성
+
+//?
+// node_modules
+// dist
 
 // 4. 스크립트 추가
 // : package.json 파일에 Prettier를 실행할 수 있는 스크립트를 추가
