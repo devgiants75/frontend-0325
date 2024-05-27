@@ -13,14 +13,42 @@
   
   //! 3. union 타입의 예시(사용방법)
   // type UnionType = Type1 | Type2 | Type3;
+
+  type Any = string | number | boolean | string[];
+
+  let value: Any = '문자';
+  value = 123;
+  value = true;
+  value = ['1', '2'];
+  // value = {}; - Error (객체 타입은 Any 타입에 할당 X)
   
   //? 타입 별칭의 예시
   // 관리자 계정 Admin
+  type Admin = {
+    id: string | number;
+    password: number;
+  }
   
   // 사용자 계정 User
+  type User = {
+    id: string | number;
+    name: string;
+  }
 
+  type Person = Admin | User;
   // 타입 별칭의 union 타입의 경우
   // : 중복되지 않은 타입 속성은 옵셔널(?)과 동일
+
+  // type Person = {
+  //   id: string | number;
+  //   password?: number;
+  //   name?: string;
+  // }
+  let lsa: Person = {
+    id: '123',
+    password: 123
+    // name: '이승아'
+  }
   
   //! union 타입의 특징
   // 1. 공통 필드 접근
@@ -34,5 +62,27 @@
   // : 다양한 타입의 사용을 가능하게 하는 유연성을 제공, 타입 가드를 적극적으로 사용하여 코드의 안정성을 향상
   
   //! union 타입 실습
+  type Union = number | string;
 
+  function getAge(age: Union) {
+    // 나이가 입력될 때
+    // - 숫자: 소수점 자리가 없도록 지정하여 문자열 반환(toFixed())
+    // - 문자: 그대로 반환
+    if (typeof age === 'number') {
+      age = age.toFixed();
+      // age = Math.floor(age);
+      return age;
+    } 
+
+    if (typeof age === 'string') {
+      age = age.toUpperCase();
+      return age;
+    }
   }
+
+  let numberAge = getAge(12.345);
+  let stringAge = getAge('12 years old');
+
+  console.log(numberAge); // '12'
+  console.log(stringAge); // '12 YEARS OLD'
+}
