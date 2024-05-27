@@ -59,7 +59,6 @@
   // , 콜론을 붙여 정의
 
   function voidType(parameter: number): void {
-
     console.log('반환값이 없는 함수');
 
     // return parameter;
@@ -91,7 +90,7 @@
   //   , 모든 타입에 할당 가능
   let nullNumber: number = 1;
   // nullNumber = null; - Error
-  // >> 엄격한 타입 검사 실시의 경우 
+  // >> 엄격한 타입 검사 실시의 경우
   //    , null과 undefined 각각의 타입에만 값 할당이 가능
 
   //? 6. any
@@ -111,7 +110,7 @@
   //? 7. never
   // : 절대 발생하지 않는 값의 타입
   // : 함수가 예외를 발생시키거나 끝나지 않을 때 사용
-  function error(message: string):never {
+  function error(message: string): never {
     throw new Error(message);
   }
 
