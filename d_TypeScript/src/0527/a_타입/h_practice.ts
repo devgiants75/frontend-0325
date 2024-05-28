@@ -13,15 +13,15 @@
   type Person = Admin | User;
 
   function identifyPerson(person: Person) {
-    if ("isAdmin" in person) {
-      console.log("This person is an Admin.");
-    } else if ("username" in person) {
-      console.log("This person is a User.");
+    if ('isAdmin' in person) {
+      console.log('This person is an Admin.');
+    } else if ('username' in person) {
+      console.log('This person is a User.');
     }
   }
 
   const adminPerson: Person = { id: 1, isAdmin: true };
-  const userPerson: Person = { id: 2, username: "typescriptUser" };
+  const userPerson: Person = { id: 2, username: 'typescriptUser' };
 
   identifyPerson(adminPerson); // This person is an Admin.
   identifyPerson(userPerson); // This person is a User.
@@ -40,10 +40,7 @@
 
   type TeamMemberWithProject = TeamMember & Project;
 
-  function assignProjectToTeamMember(
-    member: TeamMember,
-    project: Project
-  ): TeamMemberWithProject {
+  function assignProjectToTeamMember(member: TeamMember, project: Project): TeamMemberWithProject {
     return { ...member, ...project };
   }
 }

@@ -39,20 +39,21 @@
   // : 타입 별칭 내에서도 선택적 프로퍼티와 읽기 전용 속성 사용 가능
   // - 타입 별칭 명 지정 시 '데이터 변수명+Type'을 주로 사용
 
-  type UserType = { // 콜론이 아닌 =(할당연산자)를 사용하여 타입의 참조를 할당
+  type UserType = {
+    // 콜론이 아닌 =(할당연산자)를 사용하여 타입의 참조를 할당
     name?: string;
     readonly height: number;
-  }
+  };
 
   const user1: UserType = {
     // name: '이승아',
-    height: 169
-  }
-  
+    height: 169,
+  };
+
   const user2: UserType = {
     name: '이도경',
-    height: 157
-  }
+    height: 157,
+  };
   // user2.height = 167; - Error
 
   // 3. 함수 타입 별칭
@@ -60,24 +61,24 @@
   type User = {
     id: string;
     name: string;
-  }
+  };
 
   type ValidateUserType = (user: User) => boolean;
 
   // 사용가 입력되었을 때
   // , 사용자의 아이디가 null인 경우(입력하지 않은 경우) false
   // , 사용자의 아이디가 입력된 경우 true
-  const isValidUser: ValidateUserType = (user) => user.id !== ''; 
+  const isValidUser: ValidateUserType = (user) => user.id !== '';
 
   let userA: User = {
     id: 'qwe',
-    name: '이승아'
-  }
-  
+    name: '이승아',
+  };
+
   let userB: User = {
     id: '',
-    name: '이승아'
-  }
+    name: '이승아',
+  };
 
   // 함수 사용
   console.log(isValidUser(userA)); // true
@@ -87,7 +88,7 @@
 
   const add: VoidReturnType = (x) => {
     console.log(x + x);
-  }
+  };
   add(2); // 4
 
   //! 함수 타입 별칭 예제
@@ -97,7 +98,7 @@
   // 2. 위의 타입 별칭을 사용하는 함수 구현
   const greet: GreetFunction = (name) => {
     return `Hello, ${name}`;
-  }
+  };
 
   // 3. 일반 선언적 함수에서 타입 명시
   // : 타입 별칭 사용 X

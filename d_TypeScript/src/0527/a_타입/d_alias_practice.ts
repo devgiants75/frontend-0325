@@ -9,7 +9,7 @@
   age = 50;
   isStudent = true;
   console.log(`Age: ${age}, IsStudent: ${isStudent}`); // Age: 50, IsStudent: true
-  
+
   //! 문제 2: 타입 별칭 사용
   // ProductType이라는 타입 별칭을 생성
   // 객체, id (문자열 타입), name (문자열 타입), price (숫자 타입) 속성 포함
@@ -17,14 +17,14 @@
     id: string;
     name: string;
     price: number;
-  }
+  };
 
   // ProductType 타입을 사용하여 product라는 이름의 변수를 선언하고, 적절한 값을 할당
   const product: ProductType = {
     id: 'p1',
     name: 'Notebook',
-    price: 1200
-  }
+    price: 1200,
+  };
 
   // product 객체의 내용을 콘솔에 출력
   console.log(`${product.id}, ${product.name}, ${product.price}`); // p1, Notebook, 1200

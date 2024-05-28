@@ -40,11 +40,11 @@
   type Success = {
     name: string;
     email: string;
-  }
+  };
 
   type Fail = {
     error: string;
-  }
+  };
 
   type UserResponse = Success | Fail;
 
@@ -62,7 +62,7 @@
   handleResponse({ name: '이승아', email: 'qwe123' }); // 이승아: qwe123
   handleResponse({ error: 'User not found' }); // User not found
   console.log('================');
-  
+
   //& ============ 인터섹션 =============//
   //! 문제 1: 기본 Intersection 타입 생성
   // - Person 타입과 ContactDetails 타입을 결합하여 Employee 타입을 생성
@@ -71,20 +71,20 @@
   type Person = {
     name: string;
     age: number;
-  }
+  };
 
   type ContactDetails = {
     email: string;
     phone: string;
-  }
+  };
 
   type Employee = Person & ContactDetails;
   let employee1: Employee = {
     name: '이승아',
     age: 50,
     email: 'qwe123',
-    phone: '010-1234-1234'
-  }
+    phone: '010-1234-1234',
+  };
 
   //! 문제 2: 함수 반환 타입으로 Intersection 사용
   // - Vehicle 타입과 Engine 타입을 결합하여 Car 타입 생성
@@ -107,13 +107,13 @@
 
   let v1: Vehicle = {
     make: 'kia',
-    model: 'k9'
-  }
+    model: 'k9',
+  };
 
   let engine: Engine = {
     engineType: '하이브리드',
-    horsepower: 100
-  }
+    horsepower: 100,
+  };
 
   let newCar = createCar(v1, engine);
   console.log(newCar); // { make: 'kia', model: 'k9', engineType: '하이브리드', horsepower: 100 }

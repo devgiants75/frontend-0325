@@ -26,7 +26,7 @@
     age: 50,
     //? 객체의 경우 타입으로 명시되지 않은 속성은 정의할 수 X
     // height: 169 - Error
-  }
+  };
 
   //? 객체의 경우 타입으로 명시된 값은 반드시 정의되어 있어야 함!
   // const userError: { - Error
@@ -46,7 +46,7 @@
   } = {
     name: '이도경',
     // birthday: 613
-  }
+  };
 
   nameAndBirthday.name = '이승아';
   console.log(nameAndBirthday); // ts-node a_object_type.ts // { name: '이승아' }
@@ -61,11 +61,11 @@
     age: number;
   } = {
     name: '이도경',
-    age: 30
-  }
+    age: 30,
+  };
 
   readonlyName.age = 29;
-  console.log(readonlyName.age); // 29 
+  console.log(readonlyName.age); // 29
 
   // readonlyName.name = '이승아'; - Error: 읽기 전용 속성이므로 'name'에 할당할 수 없습니다.
   console.log(readonlyName.name); // 이도경

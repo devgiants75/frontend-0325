@@ -10,7 +10,7 @@
     name: '이승아',
     age: 50,
     // hobby: '운동'
-  }
+  };
 
   //! 문제2
   // readonly를 사용하여 car 객체 타입을 정의하고, model(읽기 전용, 문자열)과 year(숫자) 속성을 포함하는 객체를 생성
@@ -21,8 +21,8 @@
     year: number;
   } = {
     model: 'Hyundai',
-    year: 2024
-  }
+    year: 2024,
+  };
 
   // car.model = 'kia'; - Error
 }
