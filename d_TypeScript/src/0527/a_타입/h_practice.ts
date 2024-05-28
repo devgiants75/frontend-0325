@@ -1,5 +1,5 @@
 {
-  //&
+  //& g_practice.ts 유니언 3번 문제 정답
   type Admin = {
     id: number;
     isAdmin: boolean;
@@ -26,7 +26,8 @@
   identifyPerson(adminPerson); // This person is an Admin.
   identifyPerson(userPerson); // This person is a User.
 
-  //&
+  //& g_practice.ts 인터섹션 3번 문제 정답
+
   type TeamMember = {
     memberId: string;
     name: string;
