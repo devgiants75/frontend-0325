@@ -74,8 +74,6 @@
     } catch (error) {
       console.error(error);
     }
-
   }
-
   fetchUserData(2);
 }
