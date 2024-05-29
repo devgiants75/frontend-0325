@@ -43,29 +43,58 @@
     return todos.filter(todo => todo.id !== id);
   }
   
-  function editTodo() {
-    
+  function editTodo(todos: ITodoItem[], id: number, newTask: string): ITodoItem[] {
+    return todos.map(todo =>
+      todo.id === id ? { ...todo, task: newTask } : todo
+    );
   }
   
-  function clearCompleted() {
-    
+  function clearCompleted(todos: ITodoItem[]): ITodoItem[] {
+    return todos.filter(todo => !todo.completed);
   }
   
-  function getAllTodos() {
+  function getAllTodos(todos: ITodoItem[]): ITodoItem[] {
+    return todos;
+  }
+  
+  function filterTodos(todos: ITodoItem[], completed: boolean): ITodoItem[] {
+    return todos.filter(todo => todo.completed === completed);
+  }
+  
+  function toggleTodo(todos: ITodoItem[], id: number): ITodoItem[] {
+    return todos.map(todo => 
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+  }
 
-  }
-  
-  function filterTodos() {
+  let todos: ITodoItem[] = [];
 
-  }
-  
-  function toggleTodo() {
-
-  }
-  
-  function setAllTodosCompletion() {
-  }
-  
   // 함수 사용 예시
+  todos = addTodo(todos, '타입스크립트 복습하기');
+  todos = addTodo(todos, '자바스크립트 복습하기');
+  todos = addTodo(todos, 'HTML/CSS 복습하기');
+  // console.log(todos);
 
+  todos = completeTodo(todos, 1);
+  todos = completeTodo(todos, 2);
+  // console.log(todos);
+
+  //# 추가 기능
+  todos = editTodo(todos, 2, 'JavaScript 심화 학습');
+  // console.log('Edited Todos:', getAllTodos(todos));
+
+  todos = deleteTodo(todos, 2);
+  // console.log(todos);
+
+  //# 추가 기능
+  todos = clearCompleted(todos);
+  console.log('After Clearing Completed Todos:', getAllTodos(todos));
+  
+  //# 추가 기능
+  todos = filterTodos(todos, false);
+  console.log('Filtered Incomplete Todos:', todos);
+  
+  //# 추가 기능
+  todos = toggleTodo(todos, 2);
+  console.log('After Toggling Todo with ID 2:', getAllTodos(todos));
 }
