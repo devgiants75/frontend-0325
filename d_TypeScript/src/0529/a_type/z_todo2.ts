@@ -11,38 +11,37 @@
   // 2. completeTodo: Todo 항목의 completed 상태를 true로 변경
   // 3. deleteTodo: Todo 항목을 삭제
 
-  // 4. editTodo: Todo 항목의 task를 편집
-  // 5. clearCompleted: 완료된 모든 Todo 항목을 삭제
-  // 6. getAllTodos: 모든 Todo 항목을 조회
-  // 7. filterTodos: 특정 상태의 Todo 항목을 필터링
-  // 8. toggleTodo: Todo 항목의 completed 상태를 토글
-  // 9. set
+  // 4. editTodo: Todo 항목의 task를 편집 - 전체 배열 / 수정하고자하는 요소의 id / 새롭게 작성될 task 내용
+  // 5. clearCompleted: 완료된 모든 Todo 항목을 삭제 - 전체 배열
+  // 6. getAllTodos: 모든 Todo 항목을 조회 - 전체 배열
+  // 7. filterTodos: 특정 상태의 Todo 항목을 필터링 - 전체 배열 / 완료 상태(true/false)
+  // 8. toggleTodo: Todo 항목의 completed 상태를 토글 - 전체 배열 / 토글할 항목의 id
 
   //# ======================================== //
-  // interface ITodoItem {
-  //   id: number;
-  //   task: string;
-  //   completed: boolean;
-  // }
+  interface ITodoItem {
+    id: number;
+    task: string;
+    completed: boolean;
+  }
   
-  // function addTodo(todos: ITodoItem[], task: string): ITodoItem[] {
-  //   const newTodo: ITodoItem = {
-  //     id: Math.max(0, ...todos.map(t => t.id)) + 1,
-  //     task: task,
-  //     completed: false,
-  //   };
-  //   return [...todos, newTodo];
-  // }
+  function addTodo(todos: ITodoItem[], task: string): ITodoItem[] {
+    const newTodo: ITodoItem = {
+      id: Math.max(0, ...todos.map(t => t.id)) + 1,
+      task: task,
+      completed: false,
+    };
+    return [...todos, newTodo];
+  }
   
-  // function completeTodo(todos: ITodoItem[], id: number): ITodoItem[] {
-  //   return todos.map(todo => 
-  //     todo.id === id ? { ...todo, completed: true } : todo
-  //   );
-  // }
+  function completeTodo(todos: ITodoItem[], id: number): ITodoItem[] {
+    return todos.map(todo => 
+      todo.id === id ? { ...todo, completed: true } : todo
+    );
+  }
   
-  // function deleteTodo(todos: ITodoItem[], id: number): ITodoItem[] {
-  //   return todos.filter(todo => todo.id !== id);
-  // }
+  function deleteTodo(todos: ITodoItem[], id: number): ITodoItem[] {
+    return todos.filter(todo => todo.id !== id);
+  }
   
   function editTodo() {
     
