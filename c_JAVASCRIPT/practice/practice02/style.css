@@ -1,0 +1,62 @@
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header input {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+header button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#movieList {
+  margin-top: 20px;
+}
+
+.movie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.movie h3 {
+  margin: 0;
+}
+
+.movie button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#favoritesList {
+  list-style: none;
+  padding: 0;
+}
+
+#favoritesList li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
