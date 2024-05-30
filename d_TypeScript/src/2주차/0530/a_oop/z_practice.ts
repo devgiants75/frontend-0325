@@ -26,6 +26,7 @@
     // books 배열: 비공개(private) 속성, 도서 정보를 저장
     // 각 도서는 title, author, isbn을 포함한 객체
     private books: BookType[];
+    // private books: { title: string; author: string; isbn: string}[];
 
     //! 생성자 함수
     // : books 배열을 매개변수 받는 함수
@@ -59,9 +60,9 @@
     //! findBooksByAuthor 메서드
     // : 저자명을 매개변수로 받아 해당 저자의 모든 도서를 books 배열에서 찾아 반환
     // : filter() - 사용하여 저자명이 일치하는 도서만 새 배열로 만들어 반환 
-    public findBooksByAuthor(author: string): BookType[] {
-      // filter() 메서드 사용
-    }
+    // public findBooksByAuthor(author: string): BookType[] {
+    //   // filter() 메서드 사용
+    // }
 
     //! listBooks 메서드
     // : books 배열에 저장된 모든 도서의 정보를 콘솔에 출력
