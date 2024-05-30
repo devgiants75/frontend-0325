@@ -43,7 +43,11 @@
     // - 생성자: 계좌 번호와 초기 잔액을 매개변수로 받아 객체를 초기화
     //           초기 잔액은 선택적으로 처리(기본값 0)
 
-    constructor(private accountNumber: string, private balance: number = 0) {}
+    // private balance: number;
+
+    constructor(private accountNumber: string, private balance: number = 0) {
+      // this.balance = balance;
+    }
 
     // - 메서드
     // 1. deposit(amount: number): 입금액을 받아 잔액을 증가
