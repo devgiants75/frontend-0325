@@ -27,7 +27,7 @@
   
   //? 클래스 정의
   // : class 키워드를 사용하여 정의
-  // : 클래스명은 대문자로 시작
+  // : 클래스명은 대문자로 시작 (UpperCamelCase 사용)
   
   // - 클래스의 기본 구조
   class ClassName {
@@ -81,11 +81,26 @@
     //? 속성 
     // : 멤버 변수로 정의
     // : 클래스에 속하는 변수
+    title!: string; // 책의 제목 속성
+    author!: string; // 책의 저자 속성
+  
+    // 클래스를 생성하고 멤버 변수 선언 시 아래의 오류 발생
+    // : 속성 'author'은(는) 이니셜라이저가 없고 생성자에 할당되어 있지 않습니다.
+    // - 변수명 오른쪽에 !를 사용하여 컴파일러에게 해당 변수가 값이 무조건 할당되어있음을 명시적으로 전달
+    // - 생성자를 작성
+    // constructor() { - 빈 생성자
+    // }
   
     //? 메서드
     // : 클래스 내부에서 정의된 함수
     // : 객체의 행동을 나타냄
     // : 클래스의 인스턴스를 통해 호출
+    describe(): string {
+      // this 키워드
+      // : 해당 메서드가 쓰이는 클래스의 멤버 변수에 접근
+      // : 현재 인스턴스를 가리킴
+      return `${this.title} is written by ${this.author}`;
+    }
   }
   
   //! 객체 생성
@@ -97,12 +112,16 @@
   
   // - new 키워드를 사용하여 인스턴스를 생성
   // - 생성된 인스턴스를 변수에 할당하여 사용
+  let myBook1 = new Book();
+  let myBook2 = new Book();
   
   // 생성된 인스턴스로 Book 클래스에 정의된 멤버변수와 메서드에 접근
   // : . 연산자를 사용하여 접근
-
+  console.log(myBook1.title); // undefined
+  console.log(myBook1.describe()); // undefined is written by undefined
+  console.log(myBook2.describe()); // undefined is written by undefined
   
   // 클래스를 통해 인스턴스 생성 시 
   // : 생성자를 통해 클래스의 멤버 변수를 초기화
   // : 해당 멤버 변수를 초기화 하지 않은 경우 undefined로 인식
-  }
+}
