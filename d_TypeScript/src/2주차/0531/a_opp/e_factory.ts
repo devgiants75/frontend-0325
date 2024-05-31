@@ -33,6 +33,45 @@
   // : 동일한 방법으로 다양한 객체를 재사용 가능
 
   //! TypeScript에서의 팩토리 패턴 구현 예제
+  interface Component {
+    render(): void;
+  }
+
+  // Button 구현
+  class Button implements Component {
+    render(): void {
+      console.log('버튼이 렌더링됩니다.');
+    }
+  }
+
+  // Checkbox 구현
+  class Checkbox implements Component {
+    render(): void {
+      console.log('체크박스가 렌더링됩니다.');
+    }
+  }
+
+  // Component Fatory
+  class ComponentFactory {
+    static createComponent(type: string): Component {
+      switch(type) {
+        case 'button':
+          return new Button();
+        case 'checkbox':
+          return new Checkbox();
+        default:
+          throw new Error('유효하지 않은 컴포넌트 타입입니다.');
+      }
+    }
+  }
+
+  // 클라이언트 코드
+  const button = ComponentFactory.createComponent('button');
+  button.render();
+
+  const checkbox = ComponentFactory.createComponent('checkbox');
+  checkbox.render();
+
 
   //# ===========추가 예제============//
 
@@ -64,15 +103,51 @@
 
   //! 구현 코드
   // 결제 방법 인터페이스
+  interface PaymentMethod {
+    pay(amount: number): void;
+  }
 
   // 신용 카드 결제 구현
+  class CreditCard implements PaymentMethod {
+    pay(amount: number): void {
+      console.log(`Paid ${amount} using credit card`);
+    }
+  }
 
   // 페이팔 결제 구현
+  class PayPal implements PaymentMethod {
+    pay(amount: number): void {
+      console.log(`Paid ${amount} using paypal`);
+    }
+  }
 
   // 은행 이체 결제 구현
+  class BankTransfer implements PaymentMethod {
+    pay(amount: number): void {
+      console.log(`Paid ${amount} using back transfer`);
+    }
+  }
 
   // 결제 방법 팩토리
+  class PaymentFactory {
+    static createPaymentMethod(method: string): PaymentMethod {
+      switch(method) {
+        case 'creditCard':
+          return new CreditCard();
+        case 'paypal':
+          return new PayPal();
+        case 'bankTransfer':
+          return new BankTransfer();
+        default:
+          throw new Error('지원하지 않는 결제 방식입니다.');
+      }
+    }
+  }
 
   // 클라이언트 코드
-
+  const paymentMethod = PaymentFactory.createPaymentMethod('paypal');
+  paymentMethod.pay(100); // Paid 100 using paypal 
+  
+  const anotherPaymentMethod = PaymentFactory.createPaymentMethod('creditCard');
+  anotherPaymentMethod.pay(200); // Paid 200 using credit card
 }
