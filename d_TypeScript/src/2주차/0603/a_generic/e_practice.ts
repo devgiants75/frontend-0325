@@ -8,7 +8,7 @@
   // : name(이름), age(나이), active(활성 상태)의 속성을 가짐
   // - active 속성은 기본값으로 true값을 가짐(회원이 기본적으로 활성 상태)
   
-  //? 회원 관리 프로그램
+  //? 회원 관리 프로그램 - Membership
   // : 회원을 추가(addMember)
   // : 회원을 검색(findMember)
   // : 회원을 제거(removeMember)
@@ -38,6 +38,11 @@
       public active: boolean = true 
       // 클래스의 속성에 기본값 지정, 기본 매개변수
     ) {}
+  }
+
+  //! Member 클래스를 상속받는 VIPMember 클래스 정의
+  class VIPMember extends Member {
+
   }
 
   //! 회원 관리 기능을 담당하는 Membership 클래스 정의
@@ -83,6 +88,16 @@
     filterActiveMembers(): T[] {
       // 주어진 함수(기능)의 값이 true 요소만 새로운 배열로 반환
       return this.members.filter(member => member.active);
+    }
+
+    //? 비활성 상태인 회원들만 필터링해서 반환하는 메서드
+    filterInactiveMembers() {
+
+    }
+
+    //? 회원 나이를 평균 계산하여 반환하는 메서드
+    getAverageAge() {
+      
     }
   }
 
