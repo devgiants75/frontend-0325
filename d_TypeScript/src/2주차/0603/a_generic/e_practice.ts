@@ -42,7 +42,13 @@
 
   //! Member 클래스를 상속받는 VIPMember 클래스 정의
   class VIPMember extends Member {
-
+    constructor(name: string, age: number, public rewardPoints: number, active: boolean = true) {
+      // super(): 부모 클래스의 생성자를 호출
+      // : 부모 클래스의 기본 속성을 초기화하는 동시에
+      // : rewardPoints라는 새로운 속성을 추가
+      super(name, age, active);
+      this.rewardPoints = rewardPoints;
+    }
   }
 
   //! 회원 관리 기능을 담당하는 Membership 클래스 정의
@@ -91,13 +97,25 @@
     }
 
     //? 비활성 상태인 회원들만 필터링해서 반환하는 메서드
-    filterInactiveMembers() {
-
+    // : active 속성이 false인 회원'들만' 새로운 배열로 만들어 반환
+    filterInactiveMembers(): T[] {
+      // active 속성이 false인 회원의 값이 !부정 연산을 통해
+      // , true로 변경되어 반환
+      return this.members.filter(member => !member.active);
     }
-
-    //? 회원 나이를 평균 계산하여 반환하는 메서드
-    getAverageAge() {
-      
+  
+    //? 회원 나이 평균 계산을 하여 반환하는 메서드
+    // : 각 회원들의 age 속성값을 누적하여 더한 후 반환
+    getAverageAge(): number {
+      // 회원이 존재하는 경우에만 누적값을 계산
+      if (this.members.length === 0) return 0;
+      // reduce 메서드
+      // : 배열의 각 요소에 대해 주어진 리듀서 함수를 실행하고
+      // : , 하나의 결과값을 반환
+      const totalAge = this.members.reduce((acc, member) => acc + member.age, 0);
+      // 프로그래밍에서 수를 0으로 나눌 수 X
+      // : if 조건식을 통해 길이가 0일 경우 계산식에 도달하지 않도록 설정
+      return totalAge / this.members.length;
     }
   }
 
@@ -111,6 +129,11 @@
   membership.addMember(new Member('이도경', 30, false));
   membership.addMember(new Member('김민석', 26));
   membership.addMember(new Member('윤동희', 22, false));
+
+  //? VIP 멤버를 회원 목록에 추가
+  membership.addMember(new VIPMember('전준우', 40, 500, false));
+  membership.addMember(new VIPMember('손성빈', 30, 100));
+  membership.addMember(new VIPMember('고승민', 20, 50, false));
   
   //? '이도경' / '한동희' 을 검색 및 출력하는 예시
   console.log(membership.findMember('이도경'));
@@ -129,4 +152,34 @@
   //? '이승아' 회원 제거 및 검증 예시
   membership.removeMember('이승아');
   console.log(membership.findMember('이승아')); // undefined
+
+  console.log(membership.getAverageAge()); // 28
+
+  let inactiveMembers = membership.filterInactiveMembers();
+  console.log(inactiveMembers);
+  // [
+  //   Member { name: '이도경', age: 30, active: false },
+  //   Member { name: '윤동희', age: 22, active: false },
+  //   VIPMember { name: '전준우', age: 40, active: false, rewardPoints: 500 },
+  //   VIPMember { name: '고승민', age: 20, active: false, rewardPoints: 50 }
+  // ]
+
+  let vipMembership = new Membership<VIPMember>();
+  vipMembership.addMember(new VIPMember('이승아', 29, 1000));
+  vipMembership.addMember(new VIPMember('이도경', 30, 500, false));
+  vipMembership.addMember(new VIPMember('나승엽', 28, 700));
+  vipMembership.addMember(new VIPMember('손호영', 27, 100, false));
+
+  console.log(vipMembership.getAverageAge());
+  // 28.5
+  console.log(vipMembership.filterActiveMembers());
+  // [
+  //   VIPMember { name: '이승아', age: 29, active: true, rewardPoints: 1000 },
+  //   VIPMember { name: '나승엽', age: 28, active: true, rewardPoints: 700 }
+  // ]
+  console.log(vipMembership.filterInactiveMembers());
+  // [
+  //   VIPMember { name: '이도경', age: 30, active: false, rewardPoints: 500 },
+  //   VIPMember { name: '손호영', age: 27, active: false, rewardPoints: 100 }
+  // ]
 }
