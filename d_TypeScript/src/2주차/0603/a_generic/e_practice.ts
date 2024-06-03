@@ -153,8 +153,10 @@
   membership.removeMember('이승아');
   console.log(membership.findMember('이승아')); // undefined
 
+  //? 모든 회원의 평균 나이 계산 및 출력 예시
   console.log(membership.getAverageAge()); // 28
 
+  //? 비활성 회원 필터링 및 출력 예시
   let inactiveMembers = membership.filterInactiveMembers();
   console.log(inactiveMembers);
   // [
@@ -164,6 +166,7 @@
   //   VIPMember { name: '고승민', age: 20, active: false, rewardPoints: 50 }
   // ]
 
+  // VIP 회원들만 따로 관리하는 회원 목록
   let vipMembership = new Membership<VIPMember>();
   vipMembership.addMember(new VIPMember('이승아', 29, 1000));
   vipMembership.addMember(new VIPMember('이도경', 30, 500, false));
