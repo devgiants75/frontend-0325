@@ -40,6 +40,7 @@
     if (!response.ok) {
       throw new Error('데이터 요청 실패');
     }
+    
     return (await response.json()) as UserData;
   }
 
