@@ -7,24 +7,27 @@
 4. 요청이 실패하거나 문제가 발생하면, 에러 메시지가 화면에 표시
 */ 
 
-//# 'fetchUserDate' id를 가진 HTML 요소에 클릭 이벤트 리스너 추가
+//# 'fetchUserData' id를 가진 HTML 요소에 클릭 이벤트 리스너 추가
+// +) DOM 요소에 대한 null | undefined 방지로 ! 기능 구현
+// +) 클릭 이벤트 리스너의 두 번째 인자인 콜백 함수는 async로 작성
 
 //* -----DOM 요소 지정-----
-//? 로딩 메시지 OR 사용자 데이터 OR 에러메시지를 출력할 DOM 요소 가져오기 - userDataDiv
+//? 1. 로딩 메시지 OR 사용자 데이터 OR 에러메시지를 출력할 DOM 요소 가져오기 - userDataDiv
 // - 비동기 작업 처리 중: 로딩 메시지
 // - 비동기 작업 처리 완료: 사용자 데이터
 // - 비동기 작업 처리 실패: 에러 메시지
 
-//? 사용자 데이터 id를 입력받을 input 요소 가져오기 - userIdElement
+//? 2. 사용자 데이터 id를 입력받을 input 요소 가져오기 - userIdElement
 
-//? 해당 DOM 요소가 존재하면 input태그의 값(value)을 존재하지 않을 경우 빈 문자열을 반환
+//? 3. 해당 DOM 요소가 존재하면 input태그의 값(value)을 존재하지 않을 경우 빈 문자열을 반환
 // - userIdElement가 null이 아님을 확인하고, 그 값을 가져오기
 
 //* -----변수 지정-----
-//? 사용자 데이터를 가져올 JSONPlaceholder API의 URL을 담을 변수 지정 - apiUrl
+//? 4. 사용자 데이터를 가져올 JSONPlaceholder API의 URL을 담을 변수 지정 - apiUrl
 // `https://jsonplaceholder.typicode.com/users/${userId}`;
 
 //* -----로딩 메시지 표시-----
+//? 5.
 
 //* try-catch 블럭을 사용하여 비동기 작업 처리(데이터 불러오기)
 
