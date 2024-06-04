@@ -15,20 +15,69 @@
   async function fetchUserData() {
     // 정상적으로 실행되는 코드 블럭
     // : try-catch 블록을 사용하여 await 표현식에서 발생할 수 있는 예외를 캡쳐
-    
+    try {
+      // 비동기적인 작업의 결과를 기다림
+      const response = await fetch('https://jsonplaceholder.typicode.com/users/3');
+      const data = await response.json();
+      console.log('사용자 데이터', data);
+    } catch(error) {
+      console.error('데이터 요청 중 오류: ', error);
+    }
   }
 
+  fetchUserData();
+
   //! 비동기 코드의 타입 안정성
+  interface UserData {
+    id: number;
+    name: string;
+    [key: string]: any;
+  }
+
+  async function fetchData(): Promise<UserData> {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users/3');
+
+    if (!response.ok) {
+      throw new Error('데이터 요청 실패');
+    }
+    return (await response.json()) as UserData;
+  }
+
+  fetchData()
+    .then((data) => console.log('사용자 데이터', data))
+    .catch((error) => console.error('오류: ', error));
+
 
   //! 실제 비즈니스 요구에 대한 비동기 처리 코드
   // : 게시물을 페이지별로 불러오기
 
   // 페이지 번호와 페이지당 게시물의 수를 인자로 받는 비동기 함수 정의
   // : 기본으로 한 페이지당 게시물의 수는 10으로 설정
+  async function fetchPostsByPage(page: number, limit: number = 10): Promise<any[]> {
+    try {
+      // 요청 전달
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${limit}`
+      );
+
+      if (!response.ok) {
+        throw new Error('데이터 요청 실패');
+      }
+
+      // 응답 데이터를 JSON 형태로 변환하여 반환
+      return await response.json();
+
+    } catch(error) {
+      console.error(`오류: ${error}`);
+      return [];
+    }
+  }
 
   //! 함수 호출
   // : then을 사용하여 비동기 작업이 완료된 후에 게시물을 콘솔에 출력
-
+  fetchPostsByPage(2, 5).then((posts) => // id 6번 부터 10번 까지의 데이터가 출력
+    console.log('페이지 2의 게시물: ', posts)
+  );
 
   //& fetch() 함수
   // : 네트워크 요청을 비동기적으로 처리
