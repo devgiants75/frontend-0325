@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch User Data</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch User Data</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>Fetch User Data</h1>
+    <!-- 
+      사용자로부터 불러올 데이터의 id값을 입력받는 input 요소
+      - JSONPlaceholder의 user 데이터는 10개
+      - id의 값은 최소 1, 최대 10
+    -->
+    <input type="number" id="userId" placeholder="Enter User ID (1 ~ 10)" min="1" max="10" style="width: 200px;">
+    <button id="fetchUserData">Fetch User Data</button>
+    <!--  
+      데이터 요청의 결과에 따라 해당 요소의 내용이 변화 
+      (JS/TS로 구현)
+      - 비동기 작업 처리중 : 대기 메시지 출력
+        : Loading User Data...
+
+      - 비동기 작업 처리 성공 : 사용자 데이터 출력
+        : id, name, email, username, address
+
+      - 비동기 작업 처리 실패 : 에러 메시지 출력
+        : Error: User data could not be retrieved.
+    -->
+    <div id="userData">
+      <!-- 동적으로 UI를 생성하여 데이터를 작성하는 div -->
+    </div>
+  </div>
+
+  <script src="mainAnswer.js"></script>
 </body>
+
 </html>
