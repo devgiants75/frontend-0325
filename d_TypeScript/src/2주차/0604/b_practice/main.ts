@@ -29,24 +29,33 @@ const photoPerPage = 4;
 
 //? 지정된 페이지의 사진들을 비동기적으로 불러오는 함수 선언
 async function fetchPhotos(page: number): Promise<Photo[]> {
-  // fetch 함수를 사용하여 사진 데이터 가져오기 (비동기)
-  // albumId가 1인 데이터만 가져오기 (50개)
-  const response = await fetch(`https://jsonplaceholder.typicode.com/photos/albumId=1`);
+  try {
 
-  // 불러온 데이터를 JSON 형식으로 변환
-  // : Photo 타입으로 타입 명시
-  const photos = await response.json() as Photo[];
-
-  // 현재 페이지에 해당하는 사진들만 잘라내서 반환
-  // slice 메서드
-  // : slice(시작, 끝)
-  //   === '시작'은 포함 '끝'은 미포함 (시작 <= x < 끝)
-
-  // (page - 1) * photoPerPage / page * photoPerPage
-  // EX) 1번 페이지: 0 / 4 ( 0 ~ 3 )
-  //   , 2번 페이지: 4 / 8 ( 4 ~ 7 )
-
-  return photos.slice((page - 1) * photoPerPage, page * photoPerPage);
+    // fetch 함수를 사용하여 사진 데이터 가져오기 (비동기)
+    // albumId가 1인 데이터만 가져오기 (50개)
+    const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=1`);
+  
+    if (!response.ok) {
+      throw new Error('Network Failed');
+    }
+    // 불러온 데이터를 JSON 형식으로 변환
+    // : Photo 타입으로 타입 명시
+    const photos: Photo[] = await response.json();
+  
+    // 현재 페이지에 해당하는 사진들만 잘라내서 반환
+    // slice 메서드
+    // : slice(시작, 끝)
+    //   === '시작'은 포함 '끝'은 미포함 (시작 <= x < 끝)
+  
+    // (page - 1) * photoPerPage / page * photoPerPage
+    // EX) 1번 페이지: 0 / 4 ( 0 ~ 3 )
+    //   , 2번 페이지: 4 / 8 ( 4 ~ 7 )
+  
+    return photos.slice((page - 1) * photoPerPage, page * photoPerPage);
+  } catch(error) {
+    console.error('Failed');
+    return [];
+  }
 }
 
 //! 사진을 페이지에 렌더링하는 함수
