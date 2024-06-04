@@ -131,7 +131,7 @@ class _TaskManager<T> {
 // 웹 페이지가 모두 로드되었을 때 실행될 함수
 window.onload = () => {
   // '문자열 타입'의 할 일 관리자 인스턴스를 생성
-  const taskManager = new TaskManager<string>();
+  // const taskManager = new TaskManager<string>();
   // 'add-task' ID 요소를 선택(할 일 추가 버튼)
   const addButton = document.getElementById('add-task') as HTMLButtonElement;
   // 'new-task' ID 요소를 선택(할 일 입력 필드)
@@ -139,17 +139,17 @@ window.onload = () => {
   const taskList = document.getElementById('task-list') as HTMLUListElement;
 
   // 할 일 추가 버튼 클릭 시 실행될 이벤트 리스너
-  addButton.onclick = () => {
-    //? 입력 값이 비어있지 않은 경우에만 input 입력 필드의 값을 할 일로 추가
-    if (newTaskInput.value.trim() !== '') {
-      // 입력 필드의 값(value)을 할 일로 추가
-      taskManager.addTask(newTaskInput.value);
-      // 변경될 할 일 목록을 화면에 렌더링
-      taskManager.renderTasks('task-list');
-      // 할 일을 추가한 후, 입력 필드 초기화
-      newTaskInput.value = '';
-    }
-  }
+  // addButton.onclick = () => {
+  //   //? 입력 값이 비어있지 않은 경우에만 input 입력 필드의 값을 할 일로 추가
+  //   if (newTaskInput.value.trim() !== '') {
+  //     // 입력 필드의 값(value)을 할 일로 추가
+  //     taskManager.addTask(newTaskInput.value);
+  //     // 변경될 할 일 목록을 화면에 렌더링
+  //     taskManager.renderTasks('task-list');
+  //     // 할 일을 추가한 후, 입력 필드 초기화
+  //     newTaskInput.value = '';
+  //   }
+  // }
 }
 
 // html파일에 ts코드를 연결하기 위해서는
