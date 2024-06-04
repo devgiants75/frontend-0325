@@ -14,6 +14,37 @@
 
   // - 블로킹의 구성요소
   //   : 대기 시간, 리소스 관리, 응용 프로그램의 응답성
+
+  function performCalculation(): number {
+    // 시간 지연을 위한 계산식
+    let sum = 0;
+    for (let i = 0; i < 9999999000; i++) {
+      sum += i;
+    }
+    return sum; // 계산 결과 반환
+  }
+
+  function performAnotherCalculation(): number {
+    // 시간 지연을 위한 계산식
+    let product = 1;
+    for (let i = 1; i < 100; i++) {
+      product *= i;
+    }
+    return product; // 계산 결과 반환
+  }
+
+  // 동기적 처리를 수행하는 함수
+  function syncFunc() {
+    console.log('첫 번째 작업 시작');
+    let result = performCalculation(); // 시간이 오래 걸리는 작업
+    console.log(`첫 번째 작업 완료: ${result}`);
+
+    console.log('두 번째 작업 시작');
+    let anotherResult = performAnotherCalculation();
+    console.log(`두 번째 작업 완료: ${anotherResult}`);
+  }
+
+  syncFunc();
   
   //! 4. 동기 프로그래밍의 장단점
   // 장점
@@ -22,4 +53,4 @@
   
   // 단점
   // - 응답성 저하, 코드의 활용(사용)도가 저하
-  }
+}
