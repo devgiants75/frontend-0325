@@ -11,6 +11,10 @@
 // +) DOM 요소에 대한 null | undefined 방지로 ! 기능 구현
 // +) 클릭 이벤트 리스너의 두 번째 인자인 콜백 함수는 async로 작성
 
+document.getElementById('fetchUserData')!.addEventListener('click', async () => {
+
+});
+
 //* -----DOM 요소 지정-----
 //? 1. 로딩 메시지 OR 사용자 데이터 OR 에러메시지를 출력할 DOM 요소 가져오기 - userDataDiv
 // - 비동기 작업 처리 중: 로딩 메시지
