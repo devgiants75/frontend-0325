@@ -36,9 +36,9 @@
   // : 하나의 프로미스의 결과를 다른 프로미스의 입력으로 사용 가능
   fetchData()
     .then(data => {
-      console.log(`첫 번째 데이터: ${data}`);
+      console.log('첫 번째 데이터: ', data);
       return fetchData(); // 첫 번째 데이터를 바탕으로 다른 데이터 요청
     })
-      .then(anotherData => console.log(`두 번째 데이터: ${anotherData}`))
+      .then(anotherData => console.log('두 번째 데이터: ', anotherData))
       .catch(error => console.error(error));
 }
