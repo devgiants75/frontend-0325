@@ -50,8 +50,65 @@
       }
     }
 
-    private addDeleteEventListeners() {
-
+    private addDeleteEventListeners(): void {
+      const deleteButtons = document.querySelectorAll('.task-item button');
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          const taskId = parseInt((e.target as HTMLButtonElement).dataset.taskId || '0', 10);
+          this.deleteTask(taskId);
+        })
+      })
     }
   }
+
+  const init = (): void => {
+    const taskLogger = new TaskLogger();
+    const logTaskButton = document.getElementById('log-task-button');
+    const taskModal = document.getElementById('task-modal');
+    const closeModal = document.querySelector('.close');
+    const addTaskButton = document.getElementById('add-task-button');
+    const taskInput = document.getElementById('task-input') as HTMLInputElement;
+  
+    if (logTaskButton) {
+      logTaskButton.addEventListener('click', () => {
+        if (taskModal) {
+          taskModal.style.display = 'block';
+        }
+      });
+    }
+  
+    if (closeModal) {
+      closeModal.addEventListener('click', () => {
+        if (taskModal) {
+          taskModal.style.display = 'none';
+        }
+      })
+    }
+
+    window.addEventListener('click', (event) => {
+      if (event.target === taskModal) {
+        if (taskModal) {
+          taskModal.style.display = 'none';
+        }
+      }
+    });
+
+    if (addTaskButton) {
+      addTaskButton.addEventListener('click', () => {
+        const description = taskInput.value;
+        if (description && description.trim() !== '') {
+          taskLogger.addTask(description.trim());
+          taskInput.value = '';
+
+          if (taskModal) {
+            taskModal.style.display = 'none';
+          }
+        } else {
+          alert('Task description cannot be empty');
+        }
+      })
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', init);
 }
