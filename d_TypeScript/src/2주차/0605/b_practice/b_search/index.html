@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div id="app">
+    <h1>Search and Sort Users</h1>
+    <input 
+      type="text"
+      id="search-input"
+      placeholder="Search users..."
+    >
+    <select id="sort-select">
+      <option value="name">Sort by Name</option>
+      <option value="email">Sort by Email</option>
+    </select>
+
+    <div id="user-list"></div>
+  </div>
+
   <script src="./main.js"></script>
 </body>
 </html>
