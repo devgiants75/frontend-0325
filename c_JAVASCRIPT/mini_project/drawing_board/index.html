@@ -10,21 +10,20 @@
   <!-- 도구 모음 -->
   <div class="toolbar">
     <!-- 펜 종류 선택 -->
-    <label for="pen-type">Pen Type: </label>
+    <label for="pen-type">Pen Type:</label>
     <select id="pen-type">
-      <option value="round">Round</option>
-      <option value="square">Square</option>
+        <option value="round">Round</option>
+        <option value="square">Square</option>
     </select>
-
+    
     <!-- 펜 크기 선택 -->
-    <label for="pen-size">Pen Size: </label>
+    <label for="pen-size">Pen Size:</label>
     <input type="range" id="pen-size" min="1" max="50" value="5">
 
     <!-- 펜 색상 선택 -->
-    <label for="pen-color">Pen Color: </label>
+    <label for="pen-color">Pen Color:</label>
     <input type="color" id="pen-color" value="#000000">
 
-    <!-- 기능 버튼 모음 -->
     <!-- 연필 도구 선택 -->
     <button id="pencil" class="tool-button">Pencil</button>
     <!-- 지우개 도구 선택 -->
@@ -37,7 +36,7 @@
     <label for="load-image" class="tool-button">Load Image</label>
     <input type="file" id="load-image" accept="image/*">
   </div>
-
+  
   <!-- 그림을 그릴 캔버스 -->
   <canvas id="drawing-board"></canvas>
   

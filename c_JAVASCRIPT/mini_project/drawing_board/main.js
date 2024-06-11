@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("clear").addEventListener("click", clearCanvas);
   document.getElementById("save").addEventListener("click", saveCanvas);
-  document.getElementById("load-image").addEventListener("click", loadImage);
+  document.getElementById("load-image").addEventListener("change", loadImage);
 
   // 그림 그리기를 시작하는 함수
   function startDrawing(e) {
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    ctx.lineWidht = penSize;
+    ctx.lineWidth = penSize;
     ctx.lineCap = penType;
     ctx.strokeStyle = erasing ? "#fff" : penColor;
 
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     reader.onload = (event) => {
       const img = new Image();
       img.onload = () => {
-        ctx.drawImage(img, 0, 0, canvas.widht, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       };
       img.src = event.target.result;
     };
@@ -114,3 +114,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
   toggleActiveButton('pencil');
 });
+/*
+  1. canvas.getContext('2d')
+    canvas.getContext('2d')는 캔버스 요소에서 2D 렌더링 컨텍스트를 가져옴
+    >> 컨텍스트는 캔버스에 그래픽을 그리기 위한 다양한 메서드와 속성을 포함하고 있음
+
+  2. 주요 메서드
+    ctx.beginPath()
+    : 새로운 경로를 시작
+    >> 이 메서드는 선, 아크, 곡선 등을 그리기 전에 호출
+
+    ctx.moveTo(x, y)
+    : 경로의 시작점을 (x, y)로 이동
+    
+    ctx.lineTo(x, y)
+    : 현재 경로에 (x, y)까지의 직선을 추가
+
+    ctx.stroke()
+    : 현재 경로를 실제로 그림
+    >> strokeStyle, lineWidth 등 스타일 속성에 따라 그려짐
+
+    ctx.clearRect(x, y, width, height)
+    : 주어진 사각형 영역을 지움
+    >> (x, y)부터 너비와 높이 만큼의 영역을 투명하게 만듬
+
+    ctx.drawImage(image, dx, dy, dWidth, dHeight)
+    : 이미지 또는 비디오 요소를 캔버스에 그림
+
+    image: 그릴 이미지 또는 비디오 요소
+
+    dx, dy: 캔버스에서의 이미지 시작 위치
+
+    dWidth, dHeight: 캔버스에 그릴 이미지의 크기
+
+    ctx.lineWidth
+    : 그리기 작업에 사용되는 선의 두께를 설정
+    
+    ctx.lineCap
+    : 선의 끝 모양을 설정
+    >> butt, round, square 값이 있음
+
+    ctx.strokeStyle
+    : 선의 색상을 설정
+
+  3. 주요 속성
+    ctx.lineWidth
+    : 선의 두께를 나타냄
+    >>  기본값은 1
+    
+    ctx.lineCap
+    : 선의 끝 모양을 지정
+    >> 가능한 값은 butt (기본값), round, square
+    
+    ctx.strokeStyle
+    : 선의 색상 또는 스타일을 지정
+    >> 기본값은 #000000 (검정색)
+
+    ===== 정리 =====
+    1. canvas.getContext('2d') 사용 기능
+
+    새로운 경로 시작 (beginPath())
+    경로의 시작점 이동 (moveTo(x, y))
+    직선 추가 (lineTo(x, y))
+    경로 그리기 (stroke())
+    영역 지우기 (clearRect(x, y, width, height))
+    이미지 그리기 (drawImage(image, dx, dy, dWidth, dHeight))
+    
+    2. 속성
+
+    lineWidth: 선의 두께 설정
+    lineCap: 선 끝 모양 설정
+    strokeStyle: 선 색상 설정
+*/
