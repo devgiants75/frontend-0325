@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const categoryIndex = categories.indexOf(chosenCategory);
-    const hintIndex = chosenCategory.indexOF(word);
+    const hintIndex = chosenCategory.indexOf(word);
 
     showClue.textContent = `Clue: - ${hints[categoryIndex][hintIndex]}`;
   });
