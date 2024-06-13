@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>플렉스 연습 03</title>
+  <style>
+    #container {
+      border: 1px solid black;
+      width: 500px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 5px 0;
+    }
+
+    .box {
+      border: 1px solid black;
+      flex: 1;
+      margin: 5px;
+      height: 100px;
+    }
+
+    .box.large {
+      flex: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div class="row">
+      <div class="box"></div>
+      <div class="box large"></div>
+      <div class="box"></div>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box large"></div>
+    </div>
+  </div>
+</body>
+
+</html>
