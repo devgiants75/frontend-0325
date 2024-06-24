@@ -1,6 +1,8 @@
 import React from 'react'
+// src 폴더 내에서 이미지 사용
+// : import문으로 이미지를 모듈처럼 불러와 사용
+// >> Webpack이 이미지를 번들링하고 경로 처리가 가능
 import cat01 from '../../../assets/images/cat01.jpg';
-
 
 /*
 ! 컴포넌트(Component)
@@ -30,7 +32,7 @@ import cat01 from '../../../assets/images/cat01.jpg';
 */
 
 // 대문자로 시작하는 Img 컴포넌트 생성
-function Img() {
+export function Img() {
   // 중괄호 내에서 HTML 코드 작성 시 ()내에 작성
   return(
     <img src={cat01} alt="강아지" width={300} />
@@ -44,6 +46,10 @@ export default function Component01() {
     <div>
       <p>강아지 이미지 - img 태그 사용</p>
       <img src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg" alt="img 태그 강아지" width={200} />
+
+      <img src="images/cat01.jpg" alt="img 태그 강아지" width={200} />
+      
+      <img src={cat01} alt="img 태그 강아지" width={200} />
 
       <p>강아지 이미지 - Img 컴포넌트 사용</p>
       <Img />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 /*
 ! JSX(TSX)
@@ -17,6 +17,20 @@ import React from 'react'
   : 하나의 '컴포넌트'는 단일 루트 노드만 반환
   단일 루트 노트
   - 최상단의 루트 태그가 존재해야 한다.
+  <> : 빈 Fragment
+    <a>
+      <b></b>  
+      <b></b>  
+      <b></b>  
+      <b></b>  
+    </a>
+    <a>
+      <b></b>  
+      <b></b>  
+      <b></b>  
+      <b></b>  
+    </a>
+  </>
 
 2. 태그 닫기
   : 태그는 반드시 닫혀있어야 한다.
@@ -29,10 +43,54 @@ import React from 'react'
   : 대문자 - 사용자 정의 '컴포넌트'로 인식
 
 4. HTML 코드를 JSX로 변환 시 주의점
-- 대부분 lowercamelCase로 작성
-  : backgroundColor, fontSize, borderRadius
-- classname 속성을 classnameName으로 설정
-  : HTML에서 코드를 가져오는 경우
-  : classname 속성명을 변경
-  >> ctrl + f (찾기)
+  - 대부분 lowercamelCase로 작성
+    : backgroundColor, fontSize, borderRadius
+  - class 속성을 classeName으로 설정
+    : HTML에서 코드를 가져오는 경우
+    : class 속성명을 변경
+    >> ctrl + f (찾기)
 */
+
+function Div() {
+  return (
+    // (빈) Fragment
+    // : 아무 의미없는 태그
+    // : 요소를 묶는 용도로만 사용
+    <> 
+      <div className="hello"></div>
+      <div className="hello"></div>
+      <div className="hello"></div>
+    </>
+  )
+}
+
+export default function JSX01() {
+  return (
+    <>
+      {/* html div 태그 */}
+      <div>
+        <div className="container">
+          <div className="inner">
+            <p className="para">안녕</p>
+            <p className="para">안녕</p>
+            <p className="para">안녕</p>
+            <p className="para">안녕</p>
+            <p className="para">안녕</p>
+          </div>
+        </div>
+      </div>
+      {/* react 사용자정의 컴포넌트 */}
+      <Div />
+
+      <p style={{
+        fontSize: '20px',
+        color: 'pink',
+        backgroundColor: 'black'
+      }}>안녕하세요</p>
+
+      <input type="text" />
+      <br />
+      <hr />
+    </>
+  );
+}
