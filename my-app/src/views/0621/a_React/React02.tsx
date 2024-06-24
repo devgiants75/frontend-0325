@@ -7,11 +7,21 @@ import React, { useState } from 'react';
 // : 컴포넌트를 기반으로 UI와 상태관리를 구현
 
 export default function React02() {
+  const [count, setCount] = useState(0);
 
+  const increment = () => {
+    setCount(count + 1);
+  }
+  
+  const decrement = () => {
+    setCount(count - 1);
+  }
 
   return (
     <div>
-
+      <h2>Counter: {count}</h2>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
     </div>
   )
 }

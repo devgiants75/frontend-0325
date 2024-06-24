@@ -1,5 +1,3 @@
-import React from 'react'
-
 /*
 ! 플러그인(확장)
 - ES7+ React Snippet
@@ -23,23 +21,23 @@ import React from 'react'
   : 브라우저는 HTML 문서를 받아 파싱(분석)하고, 이를 DOM 트리로 변환
   : JSX가 Babel을 통해 JS(ES5)로 변환되어 실행
 
-- CSSOM 생성
+2. CSSOM 생성
   : CSS 파일과 스타일 태그(<style />) CSSOM 트리로 변환
 
-- JS 처리
+3. JS 처리
   : 컴포넌트 로직과 상태 관리가 이루어짐
 
-- 렌더 트리 형성
+4. 렌더 트리 형성
   : DOM과 CSSOM이 결합되어 렌더 트리가 형성 
   : 화면에 실제 표시될 요소 포함
 
-- 레이아웃(Reflow)
+5. 레이아웃(Reflow)
   : 렌더 트리를 기반으로 각 요소의 크기와 위치를 계산
 
-- 페인트
+6. 페인트
   : 계산된 레이아웃에 따라 요소들을 화면에 그림
 
-- 합성
+7. 합성
   : 여러 레이어를 합성하여 최종 화면을 사용자에게 보여줌.
 
 ! 리액트와 CRP
@@ -53,6 +51,8 @@ import React from 'react'
 - Diff 알고리즘: 새로운 가상 DOM과 이전 가상 DOM을 비교하여 차이를 계산
 - 최소 업데이트: 계산된 차이 만큼 실제 DOM을 업데이트
 */
+
+import React from 'react'
 
 function React01() {
   return (
