@@ -39,9 +39,25 @@ export default function Rendering02() {
   // map 콜백함수의 매개변수
   // : 첫 번째 인자 - 각 순회 요소
   // : 두 번째 인자 - 해당 순회 요소의 인덱스 번호
+  const listItems = people.map(
+    (person, index) => <li key={index}>{person}</li>
+  )
+
+  const businessItems = peopleDescription.filter(
+    person => person.job === 'developer' || person.job === 'business'
+  )
+
+  const businessItemsList = businessItems.map(
+    person => <li key={person.id}>{person.name}</li>
+  )
 
   return (
     <>
+      <h2>Map을 사용한 전체 리스트 렌더링</h2>
+      <ul>{listItems}</ul>
+
+      <h2>Filter 사용한 필터링 리스트 렌더링</h2>
+      <ul>{businessItemsList}</ul>
     </>
   )
 }
