@@ -6,11 +6,13 @@ import { Route, Routes } from "react-router-dom";
 
 // 폴더명까지만 명시하는 경우 해당 폴더의
 // , index라는 이름의 파일을 가져옴
+import Header from "./components/Header";
 import NavigationBar from "./components/NavigationBar";
 
 import Index0621 from './views/0621';
 import Index0624 from './views/0624';
-import Index0625 from './views/0624';
+import Index0625 from './views/0625';
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -38,7 +40,7 @@ function App() {
           npm run start의 첫 번째 렌더링 페이지의 경우: 경로를 /로 전달
           (a태그의 href="#"와 유사)
       */}
-      <h1>React 수업 자료</h1>
+      <Header />
       <NavigationBar />
 
       {/* Routes 태그 */}
@@ -48,6 +50,7 @@ function App() {
         <Route path="/0625" element={<Index0625 />} />
       </Routes>
 
+      <Footer />
     </>
   )
 }
