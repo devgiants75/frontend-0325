@@ -1,0 +1,55 @@
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import { Route, Routes } from "react-router-dom";
+
+// 폴더명까지만 명시하는 경우 해당 폴더의
+// , index라는 이름의 파일을 가져옴
+import NavigationBar from "./components/NavigationBar";
+
+import Index0621 from './views/0621';
+import Index0624 from './views/0624';
+import Index0625 from './views/0624';
+
+function App() {
+  return (
+    <>
+      {/* 
+
+        Routes 태그 외부에 있는 코드의 경우
+        : URL 경로와 상관없이 렌더링
+
+        Router의 Link 태그
+        : Link 컴포넌트 
+          - 라우터에서 페이지를 불러오는 방식
+          - a태그와 유사하게 경로를 지정
+            (페이지를 새로고침 하지 X 
+              - SPA 특성을 사용)
+
+          - to 속성을 사용하여 이동하고자 하는 경로를 지정
+
+
+        npm run start
+          기본 경로 - localhost:3000
+          
+          Route의 path속성으로 지정된 경로를 element가 렌더링
+
+          npm run start의 첫 번째 렌더링 페이지의 경우: 경로를 /로 전달
+          (a태그의 href="#"와 유사)
+      */}
+      <h1>React 수업 자료</h1>
+      <NavigationBar />
+
+      {/* Routes 태그 */}
+      <Routes>
+        <Route path="/0621" element={<Index0621 />} />
+        <Route path="/0624" element={<Index0624 />} />
+        <Route path="/0625" element={<Index0625 />} />
+      </Routes>
+
+    </>
+  )
+}
+
+export default App;
