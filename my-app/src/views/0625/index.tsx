@@ -4,6 +4,7 @@ import Props02 from './a_Props/Props02'
 import Props03 from './a_Props/Props03'
 import Rendering01 from './b_Rendering/Rendering01'
 import Rendering02 from './b_Rendering/Rendering02'
+import Practice0625 from './Practice0625'
 
 export default function index() {
   return (
@@ -26,6 +27,8 @@ export default function index() {
       <Rendering01 />
       <Rendering02 />
 
+      <p>예제</p>
+      <Practice0625 />
     </div>
   )
 }
