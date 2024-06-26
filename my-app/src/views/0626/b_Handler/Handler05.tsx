@@ -14,14 +14,46 @@ import React from 'react'
 // EX) 내부의 버튼이 클릭되었을 때 form요소의 제출 이벤트
 //     >> 전체 페이지를 다시 로드
 
+interface ButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+}
 
-function Button() {
-  return;
+function Button({ onClick, children }: ButtonProps) {
+  return(
+    <button onClick={(e) => {
+      e.stopPropagation();
+      console.log(e.target); // 이벤트가 발생한 요소의 로그 기록
+      onClick(); // 부모로부터 받은 onClick 핸들러 실행
+    }}>
+      {children}
+    </button>
+  );
 }
 
 export default function Handler05() {
   return (
-    <div className='Main' style={{ padding: '20px', backgroundColor: 'pink'}}>      
+    <div 
+      className='Main' 
+      style={{ padding: '20px', backgroundColor: 'pink'}}
+      onClick={() => console.log('메인 영역을 클릭하였습니다.')}
+    >   
+      <Button onClick={() => console.log('aaaaa')}>
+        A 동작
+      </Button>
+      <Button onClick={() => console.log('bbbbb')}>
+        B 동작
+      </Button>
+
+      <hr />
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        console.log('전송중입니다.');
+      }}>
+        <input type="text" />
+        <button>Submit</button>
+      </form>
+
     </div>
   )
 }

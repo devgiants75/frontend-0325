@@ -24,9 +24,12 @@ export default function Handler01() {
   // 2. handle 키워드로 함수가 시작 + 이벤트 이름을 작성
   //  >> 관례) 이벤트 이름을 따라 작성
   //          onChange={handleChange}
-  //          onClick={hanldeClick}
+  //          onClick={handleClick}
 
   //? 함수 정의
+  function handleClick() {
+    console.log('버튼을 클릭하였습니다.');
+  }
 
   return (
     <div>
@@ -36,7 +39,7 @@ export default function Handler01() {
       - 이벤트 핸들러에 전달된 함수는 호출되지 않아야 한다!!!!!
         : 함수를 호출할 경우 화면이 렌더링 되는 즉시 함수가 실행
       */}
-      <button>
+      <button onClick={handleClick}>
         클릭
       </button>
 
@@ -45,7 +48,9 @@ export default function Handler01() {
         : JSX 내부에서 함수를 직접 정의하여 이벤트 핸들러로 전달하는 방식
         : 함수 이름을 따로 정의하지 않아도 가능
       */}
-      <button>
+      <button onClick={function () {
+        console.log('TSX(JSX) 내에서 이벤트 핸들러를 인라인으로 정의');
+      }}>
         클릭2
       </button>
 
@@ -53,7 +58,9 @@ export default function Handler01() {
         # 3-3. 화살표 함수 사용
         : 화살표 함수를 사용하여 간결하게 이벤트 핸들러를 정의하는 방식
       */}
-      <button>
+      <button onClick={() => {
+        console.log('화살표 함수를 사용하여 간결하게 작성');
+      }}>
         클릭3
       </button>
     </div>
