@@ -3,12 +3,14 @@ import React from 'react'
 /*
 ! 일기 앱 구현
 - DiaryEntry 컴포넌트
-  : Props로 date, content, mood 받음
-    >> 일기의 날짜, 내용, 기분을 보여주는 컴포넌트
+  : Props로 date(string), content, mood(Mood) 받음
+    >> 일기의 날짜, 내용, 기분을 보여주는 컴포넌트 (h3, p, p)
 
 - DiaryList 컴포넌트
   : 여러 개의 DiaryEntry 컴포넌트를 렌더링
-  : 전체 일기 목록과 현재 필터링 된 기분 상태를 props로 받음
+  : 전체 일기 목록(entries - DiaryEntryProps가 하나의 일기)과 
+    현재 필터링 된 기분 상태를 props로 받음
+
   : 선택된 기분 상태에 따라 일기를 필터링하여 표시
     >> filter / map을 사용하여 일기 목록을 처리
 
@@ -21,8 +23,7 @@ import React from 'react'
 //? 타입 정의
 // 1) DiaryEntryProps
 
-
-// 2) Mood >> 좋음 또는 나쁨 또는 보통 중 하나
+// 2) Mood >> '좋음' 또는 '나쁨' 또는 '보통' 중 하나
 
 
 //& DiaryEntry
@@ -63,6 +64,8 @@ export default function Review01() {
 
   return (
     <div>
+      <h2>일기 앱</h2>
+      <DiaryList entries={entries} />
     </div>
   )
 }

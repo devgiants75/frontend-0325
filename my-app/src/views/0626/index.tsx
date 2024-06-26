@@ -4,6 +4,7 @@ import Handler02 from './b_Handler/Handler02'
 import Handler03 from './b_Handler/Handler03'
 import Handler04 from './b_Handler/Handler04'
 import Handler05 from './b_Handler/Handler05'
+import Practice0626 from './b_Handler/Practice'
 
 export default function Index() {
   return (
@@ -22,7 +23,7 @@ export default function Index() {
       <Handler03 />
       <Handler04 />
       <Handler05 />
-
+      <Practice0626 />
     </div>
   )
 }

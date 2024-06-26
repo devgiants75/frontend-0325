@@ -19,7 +19,6 @@ import React from 'react'
 
 - 기본 동작 방지: 이벤트는 원치 않는 기본 브라우저 동작
   >> 이를 방지하기 위해 e.preventDefault()를 호출
-
 */
 
 export default function Practice() {
