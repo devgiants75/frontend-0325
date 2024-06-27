@@ -53,25 +53,51 @@ import React, { useState } from 'react'
 export default function State04() {
 
   //? count 상태 관리 (number)
+  const [count, setCount] = useState<number>(0);
+
+  //? name 상태 관리 (string)
+  const [name, setName] = useState<string>('기본값');
 
 
   //? 이벤트 핸들러 함수 정의
   // : 카운트를 증가시키는 함수
-  const handleIncrementHandler = () => {
+  const handleIncrementHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // 이벤트가 바인딩 된 요소 >> button
+    console.log(e.currentTarget);
+
+    setCount(prevCount => prevCount + 1);
   }
 
-  const handleInput = () => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   }
 
-  const handleKeyboard = () => {
+  const handleKeyboard = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      console.log('Enter 키가 눌러졌습니다.');
+    }
   }
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // e.target을 HTMLButtonElement에서 지정된 값임을 타입 단언
+    // : 개발자 지정
+    const target = e.target as HTMLButtonElement;
+
+    console.log('클릭된 요소의 텍스트: ', target.textContent);
+    console.log('이벤트가 바인딩된 요소: ', e.currentTarget);
   }
 
   return (
     <div>
-      
+      <p>현재 카운트: {count}</p>
+      <button onClick={handleIncrementHandler}>증가</button>
+
+      <input 
+        type="text"
+        value={name} 
+        onChange={handleInput}
+        onKeyDown={handleKeyboard}
+      />
 
       <hr />
       <div style={{ padding: '20px'}}>

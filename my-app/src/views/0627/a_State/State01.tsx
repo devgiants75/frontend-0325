@@ -26,27 +26,33 @@ export default function State01() {
 
   //? 상태에 타입 정의
   // useState 뒤에 제네릭으로 상태값의 타입 지정
-  
+  const [count, setCount] = useState<number>(0); // 초기 상태값 0
 
   const handleUpClick = () => {
     // 상태를 1 증가 (업데이트)
     // setCount 내의 공식이 계산되어 count 변수에 할당
 
-    //? 상태 설정 함수를 그대로 사용
+    //? 1) 상태 설정 함수를 그대로 사용
     // : 이전 상태를 직접 참조
+    // setCount(count + 1); // 상태값에 직접 접근하여 업데이트
+    // setCount(count + 1); // 동일한 렌더링 사이클에서 실행
 
+    // console.log(count); // 업데이트 이전의 값
 
-    //? 함수형 업데이트 사용
+    //? 2) 함수형 업데이트 사용
     // : 이전 상태 값을 기반으로 상태를 업데이트 하는 경우
-    //   함수형 업데이트를 사용하는 것을 권장
+    //   함수형 업데이트를 사용하는 것을 "권장"
     // : 상태 업데이트 함수에 '최신 상태의 값'을 자동으로 전달
 
     // 상태 설정 함수의 경우 인자로 현재 값을 가져올 수 있음
     // : 해당 상태에서 값을 변경하는 경우 직접 값이 전달
-
+    setCount(prevCount => prevCount + 1); // prevCount: 0 (초기값)
+    setCount(prevCount => prevCount + 1); // prevCount: 1
+    setCount(prevCount => prevCount + 1); // prevCount: 2
   };
 
   const handleDownClick = () => {
+    setCount(prevCount => prevCount - 1);
   }
 
   return (
@@ -54,7 +60,10 @@ export default function State01() {
       <h5 style={{ backgroundColor: "black", color: "white" }}>
         useState 최신 상태 관리
       </h5>
-
+      <p>You clicked {count} times</p>
+      {/* 줄복사 단축키: alt + shift + 위/아래 방향키 */}
+      <button onClick={handleUpClick}>카운트를 증가시킵니다.</button>
+      <button onClick={handleDownClick}>카운트를 감소시킵니다.</button>
     </div>
   );
 }

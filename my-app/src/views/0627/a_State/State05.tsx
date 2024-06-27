@@ -23,12 +23,17 @@ import React, { useState } from 'react'
 
 export default function State05() {
   //! 폼 데이터 상태 관리
+  const [formData, setFormData] = useState({
+    id: '',
+    password: '',
+    email: ''
+  });
   
   //! 폼 입력 오류 메시지 상태 관리
   
 
   //! 각 입력 필드 변수 선언(비구조화 할당)
-
+  const { id, password, email } = formData;
 
   //! 이메일 유효성 검사 함수 정의(정규 표현식 패턴)
   const validateEmail = (email: string): boolean => {
@@ -96,6 +101,48 @@ export default function State05() {
   return (
     <div style={{ margin: '20px', padding: '10px'}}>
       <h3>회원가입 구현</h3>
+      <form>
+        <div>
+          <label>아이디: </label>
+          <input 
+            type="text" 
+            name='id'
+            value={id}
+            onChange={handleInputChange}
+          />
+          {/* 
+            상태관리되는 errors에 id 속성이 존재한다면 
+            아이디 대한 에러 메시지 출력
+          */}
+        </div>
+        <div>
+          <label>비밀번호: </label>
+          <input 
+            type="text" 
+            name='password'
+            value={password}
+            onChange={handleInputChange}
+          />
+          {/* 
+            상태관리되는 errors에 password 속성이 존재한다면 
+            패스워드에 대한 에러 메시지 출력
+          */}
+        </div>
+        <div>
+          <label>이메일: </label>
+          <input 
+            type="text" 
+            name='email'
+            value={email}
+            onChange={handleInputChange}
+          />
+          {/* 
+            상태관리되는 errors에 email 속성이 존재한다면 
+            이메일에 대한 에러 메시지 출력
+          */}
+        </div>
+        <button type='submit'>회원가입</button>
+      </form>
     </div>
   )
 }
