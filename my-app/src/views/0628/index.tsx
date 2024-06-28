@@ -1,6 +1,5 @@
 import React from 'react'
 import Practice01 from './b_Practice/Practice01'
-import Practice02 from './b_Practice/Practice02'
 import ShoppingListApp from './b_Practice/ShoppingListApp'
 import StateProps01 from './a_State_Props/StateProps01'
 import StateProps02 from './a_State_Props/StateProps02'
@@ -18,7 +17,6 @@ export default function index() {
       
       <h2>2. State 연습 문제</h2>
       <Practice01 />
-      <Practice02 />
       <ShoppingListApp />
     </div>
   )
