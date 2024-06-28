@@ -7,7 +7,16 @@ import React, { useState } from 'react'
 // : 문자열이 아닌 함수를 '이벤트'에 전달
 
 export default function State02() {
-  
+  const [inputValue, setInputValue] = useState<string>('초기값');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // 사용자의 입력값을 상태로 설정
+    setInputValue(e.target.value);
+  }
+
+  const handleResetClick = () => {
+    setInputValue('');
+  }
 
   return (
     <div>
@@ -21,14 +30,15 @@ export default function State02() {
       <h5 style={{ backgroundColor: "black", color: "white" }}>
         useState를 사용한 이벤트 처리
       </h5>
-      
+      <input type="text" value={inputValue} onChange={handleInputChange} />
       
       {/* 
         버튼 '클릭' 시 input 태그 안의 내용이 초기화
         : 빈 문자열로 현재값을 업데이트
         : handleResetClick
       */}
-      
+      <button onClick={handleResetClick}>초기화 버튼</button>
+      <p>Input Value: {inputValue}</p>
       
     </div>
   )
