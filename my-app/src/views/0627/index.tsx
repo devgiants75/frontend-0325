@@ -21,8 +21,6 @@ export default function index() {
       <State05 />
       <State06 />
 
-      <h2>2. State 연습 문제</h2>
-
     </div>
   )
 }
