@@ -46,13 +46,11 @@ const ShoppingListApp = () => {
 
     // newItems로 배열을 업데이트
 
-    const toggleItem = (index: number) => {
-      const newItems = items.map((item, idx) =>
-        idx === index ? { ...item, purchased: !item.purchased } : item
-      );
+    const newItems = items.map((item, idx) =>
+      idx === index ? { ...item, purchased: !item.purchased } : item
+    );
 
-      setItems(newItems);
-    };
+    setItems(newItems);
 
   }
 
@@ -62,7 +60,7 @@ const ShoppingListApp = () => {
     // : 버튼이 클릭된 요소의 index와 일치하지 않는 요소만 새로운 배열에 추가
 
     const newItems = items.filter((_, idx) => idx !== index);
-    
+
     setItems(newItems);
   }
 
@@ -83,10 +81,24 @@ const ShoppingListApp = () => {
       </div>
       <hr />
       {/* 미완료 항목 */}
-      <UnpurchasedItems />
+      <UnpurchasedItems 
+        // 쇼핑 목록 배열 데이터 전달
+        items={items}
+
+        // 토글과 삭제 기능 이벤트 전달
+        toggleItem={toggleItem}
+        deleteItem={deleteItem}
+      />
 
       {/* 완료된 항목 */}
-      <PurchasedItems />
+      <PurchasedItems 
+        // 쇼핑 목록 배열 데이터 전달
+        items={items}
+
+        // 토글과 삭제 기능 이벤트 전달
+        toggleItem={toggleItem}
+        deleteItem={deleteItem}
+      />
     </div>
   );
 };
