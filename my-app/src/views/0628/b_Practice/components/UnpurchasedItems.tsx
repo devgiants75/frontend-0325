@@ -4,8 +4,8 @@ import { ShoppingItem } from "../ShoppingListApp";
 
 interface UnpurchasedItemsProps {
   items: ShoppingItem[];
-  toggleItem: (index: number) => void;
-  deleteItem: (index: number) => void;
+  toggleItem: (id: number) => void;
+  deleteItem: (id: number) => void;
 }
 
 const UnpurchasedItems = ({ items, toggleItem, deleteItem }: UnpurchasedItemsProps) => {
@@ -16,8 +16,8 @@ const UnpurchasedItems = ({ items, toggleItem, deleteItem }: UnpurchasedItemsPro
         {items
           // purchased('구매된' 여부 확인 >> false값이 담겨 있어야 미완료 항목)
           .filter((item) => !item.purchased)
-          .map((item, index) => (
-            <li key={index} style={styles.item}>
+          .map((item) => (
+            <li key={item.id} style={styles.item}>
               <span>
                 {item.description} (추가 시간: {' '})
                 {item.timestamp.toLocaleTimeString()}
@@ -25,13 +25,13 @@ const UnpurchasedItems = ({ items, toggleItem, deleteItem }: UnpurchasedItemsPro
               <div>
                 <button 
                   style={styles.button} 
-                  onClick={() => toggleItem(index)}
+                  onClick={() => toggleItem(item.id)}
                 >
                   {item.purchased ? '구매 취소' : '구매 완료'}
                 </button>
                 <button 
                   style={styles.button}
-                  onClick={() => deleteItem(index)}
+                  onClick={() => deleteItem(item.id)}
                 >
                   삭제
                 </button>

@@ -3,8 +3,8 @@ import { ShoppingItem } from "../ShoppingListApp";
 
 interface PurchasedItemsProps {
   items: ShoppingItem[];
-  toggleItem: (index: number) => void;
-  deleteItem: (index: number) => void;
+  toggleItem: (id: number) => void;
+  deleteItem: (id: number) => void;
 }
 
 const PurchasedItems = ({ items, toggleItem, deleteItem }: PurchasedItemsProps) => {
@@ -16,8 +16,8 @@ const PurchasedItems = ({ items, toggleItem, deleteItem }: PurchasedItemsProps) 
       <h4>완료된 항목</h4>
       <ul style={{ listStyleType: "none", padding: 0 }}>
         {filteredItems
-          .map((item, index) => (
-            <li key={index} style={styles.item}>
+          .map((item) => (
+            <li key={item.id} style={styles.item}>
               <span>
                 {item.description} (추가 시간: {' '})
                 {item.timestamp.toLocaleTimeString()}
@@ -25,13 +25,13 @@ const PurchasedItems = ({ items, toggleItem, deleteItem }: PurchasedItemsProps) 
               <div>
                 <button 
                   style={styles.button} 
-                  onClick={() => toggleItem(index)}
+                  onClick={() => toggleItem(item.id)}
                 >
                   {item.purchased ? '구매 취소' : '구매 완료'}
                 </button>
                 <button 
                   style={styles.button}
-                  onClick={() => deleteItem(index)}
+                  onClick={() => deleteItem(item.id)}
                 >
                   삭제
                 </button>

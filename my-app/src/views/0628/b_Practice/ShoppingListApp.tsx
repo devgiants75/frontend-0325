@@ -5,6 +5,7 @@ import PurchasedItems from "./components/PurchasedItems";
 
 // 쇼핑 항목 인터페이스 정의
 export interface ShoppingItem {
+  id: number;
   description: string; // 쇼핑 항목 설명
   purchased: boolean; // 구매 여부
   timestamp: Date; // 생성 시각
@@ -27,6 +28,10 @@ const ShoppingListApp = () => {
 
     if (inputItem.trim() !== '') {
       const newItem: ShoppingItem = {
+        // 아이템 배열의 길이가 0일 경우(false): 1
+        // 아이템 배열의 길이가 1이상일 경우(true)
+        // : 아이템 배열의 제일 마지막 요소의 id값 + 1
+        id: items.length ? items[items.length - 1].id + 1 : 1,
         description: inputItem,
         purchased: false,
         timestamp: new Date(),
@@ -38,7 +43,7 @@ const ShoppingListApp = () => {
   }
 
   //# 쇼핑 항목 구매 상태 토글 함수
-  const toggleItem = (index: number) => {
+  const toggleItem = (id: number) => {
     // 새로운 배열을 담을 newItems 상수
     // : 기존의 아이템 배열을 순회하여 버튼이 클릭된 요소와 인덱스 번호가
     //   일치하는 경우 구매여부 속성(purchased)값을 토글(boolean값 토글)
@@ -46,22 +51,17 @@ const ShoppingListApp = () => {
 
     // newItems로 배열을 업데이트
 
-    const newItems = items.map((item, idx) =>
-      idx === index ? { ...item, purchased: !item.purchased } : item
-    );
-
-    setItems(newItems);
-
+    setItems((prevItems) => prevItems.map((item) => 
+      item.id === id ? { ...item, purchased: !item.purchased } : item
+    ));
   }
 
   //# 쇼핑 항목 삭제 함수
-  const deleteItem = (index: number) => {
+  const deleteItem = (id: number) => {
     // 새로운 배열을 담을 newItems 상수
     // : 버튼이 클릭된 요소의 index와 일치하지 않는 요소만 새로운 배열에 추가
 
-    const newItems = items.filter((_, idx) => idx !== index);
-
-    setItems(newItems);
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
   return (
