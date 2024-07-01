@@ -1,6 +1,9 @@
 import React from 'react'
 import UseRef from './a_useRef/UseRef';
 import UseRef02 from './a_useRef/UseRef02';
+import UseRef03 from './a_useRef/UseRef03';
+import UseRef04 from './a_useRef/UseRef04';
+import ProductApp from './b_Practice/ProductApp';
 
 const images = [
   'https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg',
@@ -20,9 +23,11 @@ export default function Index() {
       <h2>1. 변경 가능한 참조 객체 생성</h2>
       <UseRef />
       <UseRef02 images={images} />
+      <UseRef03 />
+      <UseRef04 />
 
       <h2>2. 실습 문제</h2>
-\
+      <ProductApp />
     </div>
   )
 }
