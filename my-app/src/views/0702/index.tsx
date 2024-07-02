@@ -4,6 +4,7 @@ import Array02 from './a_Array/Array02'
 import Array03 from './a_Array/Array03'
 import Array04 from './b_Array/Array04'
 import Array05 from './b_Array/Array05'
+import GoalApp from './c_Practice/GoalApp'
 
 export default function Index() {
   return (
@@ -21,6 +22,8 @@ export default function Index() {
       <Array04 />
       <Array05 />
 
+      <h2>3. 종합 예제</h2>
+      <GoalApp />
     </div>
   )
 }
