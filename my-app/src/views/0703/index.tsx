@@ -7,6 +7,7 @@ import Effects04 from './a_Effects/Effects04'
 import Practice01 from './b_Practice/Practice01'
 import Practice02 from './b_Practice/Practice02'
 import Practice03 from './b_Practice/Practice03'
+import TodoApp from './c_Todo/TodoApp'
 
 export default function Index() {
   return (
@@ -25,6 +26,10 @@ export default function Index() {
       <Practice01 />
       <Practice02 />
       <Practice03 />
+
+      <h2>3. 리액트 기본 Hook 사용 Todo</h2>
+      <p>useState, useRef, useEffect</p>
+      <TodoApp />
     </div>
   )
 }
