@@ -17,7 +17,7 @@ export default function Effects04() {
 
   //? 로딩 & 에러 상태 관리
   // 로딩 중의 여부를 boolean으로 관리
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // 에러 메시지가 존재하는 경우 string으로 관리 (에러가 발생하지 않으면 null)
   const [error, setError] = useState<string | null>(null);
@@ -53,9 +53,9 @@ export default function Effects04() {
   }
 
   // 컴포넌트가 마운트될 때 데이터 호출
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  // useEffect(() => {
+  //   fetchPosts();
+  // }, []);
 
   //# 이벤트 핸들러 정의
   const filteredPosts = posts.filter(post => 
