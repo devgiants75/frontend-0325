@@ -7,8 +7,6 @@ import UseMemo04 from "./a_useMemo/UseMemo04";
 import UseCallback01 from "./b_useCallback/UseCallback01";
 import UseCallback02 from "./b_useCallback/UseCallback02";
 
-import Todo from "./c_practice/Todo";
-
 export default function Index() {
   return (
     <div>
@@ -31,7 +29,7 @@ export default function Index() {
       <UseCallback02 />
 
       <h2>3. practice</h2>
-      <Todo />
+
     </div>
   );
 }

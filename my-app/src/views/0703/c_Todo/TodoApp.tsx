@@ -7,11 +7,20 @@ export interface Todo {
   completed: boolean;
 }
 
+const loadTodos = (): Todo[] => {
+  const storedTodos = localStorage.getItem('todos');
+  return storedTodos ? JSON.parse(storedTodos) : [];
+}
+
 export default function TodoApp() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(loadTodos);
   const [inputValue, setInputValue] = useState<string>('');
 
-  const nextId = useRef(1);
+  let nexIdInitialValue = todos.length > 0 
+    ? Math.max(...todos.map(todo => todo.id)) + 1 
+    : 1;
+
+  const nextId = useRef(nexIdInitialValue);
 
   const addTodo = () => {
     if (inputValue.trim() === '') return;
@@ -40,13 +49,13 @@ export default function TodoApp() {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
-  useEffect(() => {
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-      nextId.current = JSON.parse(storedTodos).lenght + 1;
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedTodos = localStorage.getItem('todos');
+  //   if (storedTodos) {
+  //     setTodos(JSON.parse(storedTodos));
+  //     nextId.current = JSON.parse(storedTodos).lenght + 1;
+  //   }
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
