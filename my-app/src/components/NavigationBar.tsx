@@ -5,13 +5,14 @@ export default function NavigationBar() {
 
   // 링크 주소를 저장하는 배열
   const links = [
-    '/', '0621', '0624', '0625', '0626', '0627', '0628', '0701', '0702'
+    '/', '0621', '0624', '0625', '0626', '0627', '0628', '0701', '0702', '0703'
   ]
 
   return (
     <div
       style={{
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'space-around',
         margin: '10px',
         padding: '10px 20px',
