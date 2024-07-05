@@ -6,6 +6,8 @@ import Reducer03 from "./b_Reducer/Reducer03";
 import Reducer04 from "./b_Reducer/Reducer04";
 
 import UseMemo from "./a_review/UseMemo";
+import UseCallback from "./a_review/UseCallback";
+import UseEffect from "./a_review/UseEffect";
 
 
 export default function Index() {
@@ -21,7 +23,8 @@ export default function Index() {
 
       <h2>1. review</h2>
       <UseMemo />
-
+      <UseCallback />
+      <UseEffect />
 
       <h2>2. useReducer</h2>
       <Reducer01 />

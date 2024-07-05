@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 interface Item {
   id: number;
@@ -18,9 +18,24 @@ export default function UseMemo() {
 
   //? filteredData 변수(const)에 data 배열을 필터링하여
   //  , value값이 threshold 보다 큰 값을 새로운 배열에 저장
-  const filteredData = 1;
+  // const filteredData = data.filter(item => item.value > threshold);
+
+  const filteredData = useMemo(() => {
+    return data.filter(item => item.value > threshold);
+  }, [data, threshold]);
 
   return (
-    <div>UseMemo</div>
-  )
+    <div>
+      <input
+        type="text"
+        value={threshold}
+        onChange={(e) => setThreshold(Number(e.target.value))}
+      />
+      <ul>
+        {filteredData.map(item => (
+          <li key={item.id}>{item.value}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
