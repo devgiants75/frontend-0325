@@ -5,6 +5,8 @@ import Reducer02 from "./b_Reducer/Reducer02";
 import Reducer03 from "./b_Reducer/Reducer03";
 import Reducer04 from "./b_Reducer/Reducer04";
 
+import UseMemo from "./a_review/UseMemo";
+
 
 export default function Index() {
   return (
@@ -18,6 +20,7 @@ export default function Index() {
       </h1>
 
       <h2>1. review</h2>
+      <UseMemo />
 
 
       <h2>2. useReducer</h2>
