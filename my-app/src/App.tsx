@@ -21,6 +21,7 @@ import Index0702 from './views/0702';
 import Index0703 from './views/0703';
 import Index0704 from './views/0704';
 import Index0705 from './views/0705';
+import Index0708 from './views/0708';
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         <Route path="/0703" element={<Index0703 />} />
         <Route path="/0704" element={<Index0704 />} />
         <Route path="/0705" element={<Index0705 />} />
+        <Route path="/0708" element={<Index0708 />} />
       </Routes>
 
       <Footer />

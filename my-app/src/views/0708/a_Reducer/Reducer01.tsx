@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer, useState } from 'react'
 
 //! React 상태 관리
 // : 컴포넌트의 동작과 렌더링을 제어하는 중요한 부분
@@ -59,11 +59,74 @@ import React from 'react'
 
 // state: 현재 상태 값. useReducer를 통해 관리되는 상태
 
+type CountState = {
+  count: number;
+}
+
+type CounterAction = {
+  // 유니언(union), 리터럴(literal)
+  type: 'increment' | 'decrement' | 'reset' | 'five';
+}
+
+const initialState: CountState = {
+  count: 0
+}
+
+// reducer 함수
+// : 현재의 상태 값과 액션을 전달 받음
+function reducer(state: CountState, action: CounterAction): CountState {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 };
+    case 'five':
+      return { count: 5 };
+    default:
+      throw new Error('Unhandled action');
+  }
+}
+
 export default function Reducer01() {
-  
+  //? 카운트 상태 관리
+  const [count, setCount] = useState<number>(0);
+
+  //! Reducer 사용 상태 관리
+
+  // state: 현재의 상태 값
+  // dispatch: 액션을 리듀서 함수(reducer)로 보내는 함수
+
+  // reducer 함수: 현재의 상태 값과 액션을 인자로 전달 받아 새로운 상태 값을 반환
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  //? 카운트 이벤트 핸들러 정의
+  const handleIncrement = () => {
+    setCount(prevCount => prevCount + 1);
+  }
+
+  const handleDecrement = () => {
+    setCount(prevCount => prevCount - 1);
+  }
 
   return (
     <>
+      <div>
+        <h3>useState 상태 관리</h3>
+        <p>Current Count: {count}</p>
+        <button onClick={handleIncrement}>+</button>
+        <button onClick={handleDecrement}>-</button>
+      </div>
+
+      <div>
+        <h3>useReducer 상태 관리</h3>
+        <p>Current Count: {state.count}</p>
+        <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+        <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+        <button onClick={() => dispatch({ type: 'reset' })}>reset</button>
+        <button onClick={() => dispatch({ type: 'five' })}>five</button>
+      </div>
     </>
   );
 }
