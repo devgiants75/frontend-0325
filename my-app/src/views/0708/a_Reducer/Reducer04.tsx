@@ -1,24 +1,107 @@
 import React from 'react'
 
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
 
-// CartItem 타입 정의: 쇼핑 카트에 들어갈 아이템의 속성 정의
+interface CartItem extends Product {
+  quantity: number;
+}
 
+interface State {
+  cart: CartItem[];
+  total: number;
+}
 
-// CartState 타입은 CartItem 배열임을 정의
+type Action = 
+  | { type: 'add'; product: Product }
+  | { type: 'remove'; productId: number }
+  | { type: 'increment'; productId: number }
+  | { type: 'decrement'; productId: number }
+  | { type: 'clear' };
 
-// CartAction 타입 정의: 쇼핑 카트에서 수행 가능한 액션들 정의
+const initialState: State = {
+  cart: [],
+  total: 0
+}
 
-// cartReducer 함수: 상태와 액션을 받아 새로운 상태를 반환
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case 'add':
+      const existingItem = state.cart.find((item) => item.id === action.product.id);
+      if (existingItem) {
+        return {
+          ...state,
+          cart: state.cart.map((item) => 
+            item.id === action.product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+          total: state.total + action.product.price,
+        };
+      } else {
+        return {
+          ...state,
+          cart: [ ...state.cart, { ...action.product, quantity: 1 }],
+          total: state.total + action.product.price
+        };
+      }
 
+    case 'remove':
+      const itemToRemove = state.cart.find((item) => item.id === action.productId);
+      if (itemToRemove) {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== action.productId),
+          total: state.total - itemToRemove.price * itemToRemove.quantity,
+        };
+      }
+      return state;
+
+    case 'increment':
+      const item = state.cart.find((item) => item.id === action.productId)!;
+      return {
+        ...state,
+        cart: state.cart.map((item) => 
+          item.id === action.productId
+            ? { ...item, quantity: item.quantity + 1}
+            : item
+        ),
+        total: state.total + item.price,
+      };
+
+    case 'decrement':
+      const itemToDecrement = state.cart.find((item) => item.id === action.productId)!;
+      if (itemToDecrement.quantity > 1) {
+        return {
+          ...state,
+          cart: state.cart.map((item) => 
+            item.id === action.productId
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          ),
+          total: state.total - itemToDecrement.price,
+        }
+      } else {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== action.productId),
+          total: state.total - itemToDecrement.price,
+        };
+      }
+
+    case 'clear':
+      return initialState;
+
+    default: 
+      throw new Error('Unhandled action type');
+  }
+}
 
 export default function Reducer04() {
   
-
-  // 상품 추가를 위한 input 창 관리
-
-
-  // 아이템 추가 함수
-
   return (
     <div>
       
