@@ -2,104 +2,120 @@ import React, { useReducer, useRef, useState } from 'react';
 import './Reducer04.css';
 
 interface Product {
-  id: number;
-  name: string;
-  price: number;
+  id: number; // 제품의 고유 ID
+  name: string; // 제품의 이름
+  price: number; // 제품의 가격
 }
 
 interface CartItem extends Product {
-  quantity: number;
+  quantity: number; // 카트에 담긴 제품의 수량
 }
 
 interface State {
-  cart: CartItem[];
-  total: number;
+  cart: CartItem[]; // 카트에 담긴 아이템들의 배열
+  total: number; // 카트에 담긴 총 가격
 }
 
-type Action = 
-  | { type: 'add'; product: Product }
-  | { type: 'remove'; productId: number }
-  | { type: 'increment'; productId: number }
-  | { type: 'decrement'; productId: number }
-  | { type: 'clear' };
+type Action =
+  | { type: 'add'; product: Product } // 제품을 카트에 추가하는 액션
+  | { type: 'remove'; productId: number } // 카트에서 제품을 제거하는 액션
+  | { type: 'increment'; productId: number } // 카트에서 제품 수량을 증가시키는 액션
+  | { type: 'decrement'; productId: number } // 카트에서 제품 수량을 감소시키는 액션
+  | { type: 'clear' }; // 카트를 비우는 액션
 
 const initialState: State = {
-  cart: [],
-  total: 0
-}
+  cart: [], // 초기 카트
+  total: 0, // 초기 총 가격
+};
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'add':
+    case 'add': {
+      // 'add' 액션 타입인 경우
       const existingItem = state.cart.find((item) => item.id === action.product.id);
+      // 카트에 이미 같은 ID를 가진 제품이 있는지 확인
       if (existingItem) {
+        // 이미 제품이 있는 경우
         return {
           ...state,
-          cart: state.cart.map((item) => 
+          cart: state.cart.map((item) =>
             item.id === action.product.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
-          ),
-          total: state.total + action.product.price,
+          ), // 해당 제품의 수량을 증가
+          total: state.total + action.product.price, // 총 가격을 증가
         };
       } else {
+        // 카트에 해당 제품이 없는 경우
         return {
           ...state,
-          cart: [ ...state.cart, { ...action.product, quantity: 1 }],
-          total: state.total + action.product.price
+          cart: [...state.cart, { ...action.product, quantity: 1 }],
+          // 새로운 제품을 카트에 추가
+          total: state.total + action.product.price, // 총 가격을 증가
         };
       }
-
-    case 'remove':
+    }
+    case 'remove': {
+      // 'remove' 액션 타입인 경우
       const itemToRemove = state.cart.find((item) => item.id === action.productId);
+      // 카트에서 제거할 제품을 찾기
       if (itemToRemove) {
+        // 제품이 존재하는 경우
         return {
           ...state,
           cart: state.cart.filter((item) => item.id !== action.productId),
+          // 해당 제품을 카트에서 제거
           total: state.total - itemToRemove.price * itemToRemove.quantity,
+          // 총 가격에서 해당 제품의 총 가격을 뺌
         };
       }
-      return state;
-
-    case 'increment':
+      return state; // 제품이 없는 경우 현재 상태를 반환
+    }
+    case 'increment': {
+      // 'increment' 액션 타입인 경우
       const item = state.cart.find((item) => item.id === action.productId)!;
+      // 수량을 증가시킬 제품을 찾기
       return {
         ...state,
-        cart: state.cart.map((item) => 
+        cart: state.cart.map((item) =>
           item.id === action.productId
-            ? { ...item, quantity: item.quantity + 1}
+            ? { ...item, quantity: item.quantity + 1 }
             : item
-        ),
-        total: state.total + item.price,
+        ), // 해당 제품의 수량을 1 증가
+        total: state.total + item.price, // 총 가격을 증가
       };
-
-    case 'decrement':
+    }
+    case 'decrement': {
+      // 'decrement' 액션 타입인 경우
       const itemToDecrement = state.cart.find((item) => item.id === action.productId)!;
+      // 수량을 감소시킬 제품을 찾기
       if (itemToDecrement.quantity > 1) {
+        // 제품의 수량이 1보다 큰 경우
         return {
           ...state,
-          cart: state.cart.map((item) => 
+          cart: state.cart.map((item) =>
             item.id === action.productId
               ? { ...item, quantity: item.quantity - 1 }
               : item
-          ),
-          total: state.total - itemToDecrement.price,
-        }
+          ), // 해당 제품의 수량을 1 감소
+          total: state.total - itemToDecrement.price, // 총 가격을 감소
+        };
       } else {
+        // 제품의 수량이 1인 경우
         return {
           ...state,
           cart: state.cart.filter((item) => item.id !== action.productId),
-          total: state.total - itemToDecrement.price,
+          // 해당 제품을 카트에서 제거
+          total: state.total - itemToDecrement.price, // 총 가격을 감소
         };
       }
-
+    }
     case 'clear':
-      return initialState;
-
-    default: 
-      throw new Error('Unhandled action type');
+      return initialState; // 'clear' 액션 타입인 경우 초기 상태로 돌아감
+    default:
+      throw new Error('Unhandled action type'); // 처리되지 않은 액션 타입인 경우 에러를 발생
   }
-}
+};
 
 export default function Reducer04() {
   const [state, dispatch] = useReducer(reducer, initialState);
