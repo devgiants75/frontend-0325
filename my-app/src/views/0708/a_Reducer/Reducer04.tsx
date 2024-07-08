@@ -175,12 +175,13 @@ export default function Reducer04() {
             }
           />
           <input
-            type="text"
+            type="number"
             placeholder="Product Price"
             value={newProduct.price}
             onChange={(e) =>
               setNewProduct({ ...newProduct, price: Number(e.target.value) })
             }
+            step={100}
           />
           <button onClick={handleAddProduct}>Add Product</button>
         </div>
