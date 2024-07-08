@@ -104,10 +104,12 @@ export default function Reducer01() {
   //? 카운트 이벤트 핸들러 정의
   const handleIncrement = () => {
     setCount(prevCount => prevCount + 1);
+    // setCount(count + 1);
   }
 
   const handleDecrement = () => {
     setCount(prevCount => prevCount - 1);
+    // setCount(count - 1);
   }
 
   return (
