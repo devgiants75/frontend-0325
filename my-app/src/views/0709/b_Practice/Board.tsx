@@ -1,4 +1,9 @@
 import React from 'react'; 
+import styles from './Board.module.css';
+
+// a_Custom >> hooks >> useInput2 커스텀 훅 사용
+
+// useState, useRef, useEffect, useCallback 훅 사용
 
 //& 게시판 프로젝트 구성
 // 1. 구현할 기능 목록
