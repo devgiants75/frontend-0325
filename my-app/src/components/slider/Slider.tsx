@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'; // React와 훅들을 임포트
-import './Slider.css'; // 스타일 파일을 별도로 만듭니다.
+import React, { useState, useEffect, useRef } from 'react';
+import './Slider.css'; 
 
 interface ImageSliderProps { // 이미지 슬라이더 컴포넌트의 props 인터페이스 정의
   images: string[]; // 이미지 URL 배열
