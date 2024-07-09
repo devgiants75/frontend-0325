@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 
 //! 1. Custom Hook이란?
 // React의 기본 Hook (useState, useEffect 등)을 사용하여 작성되는, 재사용 가능한 로직의 모음
@@ -13,6 +13,22 @@ import React from 'react';
 //? useCounter 훅
 // : 초기값을 매개변수로 받고, 카운터를 증가, 감소시키고 초기화하는 함수들을 반환
 
-export function useCounter() {
+// 커스텀 훅은 export 내보내기를 주로 사용
+// : 개발자가 명시한 함수명 그대로를 사용하기를 권장
+export function useCounter(initialValue: number = 0) {
+  const [count, setCount] = useState(initialValue);
 
+  const increment = () => {
+    setCount(prevCount => prevCount + 1);
+  }
+
+  const decrement = () => {
+    setCount(prevCount => prevCount - 1);
+  }
+
+  const reset = () => {
+    setCount(initialValue);
+  }
+
+  return { count, increment, decrement, reset };
 }
