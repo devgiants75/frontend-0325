@@ -23,6 +23,7 @@ import Index0704 from './views/0704';
 import Index0705 from './views/0705';
 import Index0708 from './views/0708';
 import Index0709 from './views/0709';
+import Components from "./components/Components";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
 
       {/* Routes 태그 */}
       <Routes>
+        <Route path="/components" element={<Components />} />
         <Route path="/0621" element={<Index0621 />} />
         <Route path="/0624" element={<Index0624 />} />
         <Route path="/0625" element={<Index0625 />} />
