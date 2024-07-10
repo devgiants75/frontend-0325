@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import TodoList from './TodoList'; // 할 일 목록을 표시하는 컴포넌트
+import Filters from './Filters'; // 필터 버튼을 표시하는 컴포넌트
 
 //! TODO Project
 
@@ -51,9 +53,14 @@ export default function index() {
         onKeyDown={
           e => e.key === 'Enter' 
           && e.currentTarget.value 
-          && addTodo(e.target.value)
+          && addTodo(e.currentTarget.value)
         }
       />
+      {/* 할 일 목록을 표시하는 컴포넌트 - todos, toggleTodo, deleteTodo의 props 전달 */}
+      {/* +) todos 속성에는 필터링된 데이터를 전달 */}
+      <TodoList />
+      {/* 필터 버튼을 표시하는 컴포넌트 - setFilter의 props 전달 */}
+      <Filters />
     </div>
   )
 }
