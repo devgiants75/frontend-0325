@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom";
 
 // 폴더명까지만 명시하는 경우 해당 폴더의
 // , index라는 이름의 파일을 가져옴
+import Components from "./components/Components";
+
 import Header from "./components/Header";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
@@ -23,7 +25,7 @@ import Index0704 from './views/0704';
 import Index0705 from './views/0705';
 import Index0708 from './views/0708';
 import Index0709 from './views/0709';
-import Components from "./components/Components";
+import Index0710 from './views/0710';
 
 function App() {
   return (
@@ -70,6 +72,7 @@ function App() {
         <Route path="/0705" element={<Index0705 />} />
         <Route path="/0708" element={<Index0708 />} />
         <Route path="/0709" element={<Index0709 />} />
+        <Route path="/0710" element={<Index0710 />} />
       </Routes>
 
       <Footer />

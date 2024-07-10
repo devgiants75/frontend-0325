@@ -5,8 +5,6 @@ import Event03 from "./a_Event/Event03";
 import Event04 from "./a_Event/Event04";
 import Event05 from "./a_Event/Event05";
 
-import Practice from "./b_Practice/practice/index";
-
 export default function Index() {
   return (
     <div>
@@ -26,9 +24,6 @@ export default function Index() {
       <Event05 />
 
       <h2>2. Practice</h2>
-
-
-      <Practice />
       
     </div>
   );

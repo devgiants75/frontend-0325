@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //! 이벤트의 정의
 
@@ -22,10 +22,33 @@ import React from "react";
 // : 최적화 방안(메모리제이션) - useCallback을 사용하여 이벤트 핸들러 메모화
 
 export default function Event01() {
+  const [value, setValue] = useState<string>('');
+  
+  //! 버튼 클릭 시 발생하는 이벤트 핸들러
+  const handleFirstClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    alert(`Button Clicked (First)`);
+  }
+  
+  const handleSecondClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    alert(`Button Clicked (Second)`);
+  }
+
+  //! 요소의 값을 변경할 때 일어나는 이벤트 핸들러
+  // : input, textarea, select(option)
+  const handleChange =  (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  }
 
   return (
     <>
-      
+      <button onClick={handleFirstClick}>Click Me</button>
+      <div onClick={handleSecondClick} style={{ border: '1px solid black'}}>Click Me</div>
+
+      <hr />
+      <form>
+        <input type="text" value={value} onChange={handleChange} />
+        <p>{value}</p>
+      </form>
     </>
   );
 }
