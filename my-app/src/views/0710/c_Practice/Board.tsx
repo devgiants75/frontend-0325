@@ -29,9 +29,11 @@ type PostType = {
 
 //! 커스텀 훅 (posts 데이터 가져오기 - 가상의 posts 서버)
 const usePosts = () => {
-  // posts 상태를 정의
-  // 로딩 상태를 정의
-  // 에러 상태를 정의
+  // posts 상태를 정의 (posts)
+
+  // 로딩 상태를 정의 (loading)
+
+  // 에러 상태를 정의 (error)
 
   useEffect(() => {
     // 로딩 상태를 true로 설정
@@ -51,13 +53,16 @@ const usePosts = () => {
   }, []); // 컴포넌트가 마운트될 때 실행
 
   // 게시물 생성 로직
-
+  const addPost = () => {
+  }
 
   // 게시물 수정 로직
-
+  const updatePost = () => {
+  }
 
   // 게시물 삭제 로직
-
+  const deletePost = () => {
+  }
 
   return // 상태와 함수들을 반환
 }
@@ -84,17 +89,19 @@ export default function Board() {
     };
     
     
-    // 새로운 게시물 추가
+    // 새로운 게시물 추가 - "addPost 사용"
     // 제목 입력 필드 리셋
     // 내용 입력 필드 리셋
   }
 
   const handleUpdatePost = (post: PostType) => {
-      // 수정된 제목 설정
-      // 수정된 내용 설정
+      // "updatePost 사용"
+      // 수정된 제목 설정 '작성된 제목'
+      // 수정된 내용 설정 '작성된 내용'
   };
 
   const handleDeletePost = (id: number) => {
+    // "deletePost 사용"
     // 해당 id의 게시물 삭제
   };
 
