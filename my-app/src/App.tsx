@@ -26,6 +26,7 @@ import Index0705 from './views/0705';
 import Index0708 from './views/0708';
 import Index0709 from './views/0709';
 import Index0710 from './views/0710';
+import Projects from './views/projects';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
       {/* Routes 태그 */}
       <Routes>
         <Route path="/components" element={<Components />} />
+
         <Route path="/0621" element={<Index0621 />} />
         <Route path="/0624" element={<Index0624 />} />
         <Route path="/0625" element={<Index0625 />} />
@@ -73,6 +75,8 @@ function App() {
         <Route path="/0708" element={<Index0708 />} />
         <Route path="/0709" element={<Index0709 />} />
         <Route path="/0710" element={<Index0710 />} />
+
+        <Route path="/projects" element={<Projects />} />
       </Routes>
 
       <Footer />
