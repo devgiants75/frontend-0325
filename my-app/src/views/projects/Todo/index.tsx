@@ -10,7 +10,7 @@ import Filters from './Filters'; // 필터 버튼을 표시하는 컴포넌트
 // 완료 여부: boolean;
 
 //# 메인 컴포넌트
-export default function index() {
+export default function Index() {
   //# 컴포넌트 내부 상태 관리
   // 1) 할 일 목록과 해당 목록의 상태 관리: 로컬 스토리지 훅을 사용하여 관리
   // : useLocalStorage 사용 (커스텀 훅)
