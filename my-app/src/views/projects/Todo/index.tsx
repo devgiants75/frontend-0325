@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import TodoList from './TodoList'; // 할 일 목록을 표시하는 컴포넌트
 import Filters from './Filters'; // 필터 버튼을 표시하는 컴포넌트
 
@@ -27,9 +27,9 @@ export default function Index() {
   // 1) 새로운 할 일 추가 함수 (addTodo, 매개변수 text)
   // : 새 할 일 생성
   // : 기존 목록에 새 할 일 추가
-  const addTodo = (text: string) => {
+  const addTodo = useCallback((text: string) => {
 
-  }
+  }, []);
 
   // 2) 할 일 완료/미완료 토글 함수 (toggleTodo, 매개변수 id)
   // : 전체 할 일 목록 순회 > 매개 변수와 일치 할 경우 완료 여부 토글
