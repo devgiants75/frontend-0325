@@ -23,7 +23,12 @@ export default function TodoList() {
       {/* 
         li 태그 내부
         - 할 일 내용 
-        - input 태그 (checkbox 타입, 체크 박스 상태 변경 시 toggleTodo 함수 호출)
+        - input 태그 
+          (
+            checkbox 타입
+            , 체크 박스 상태 변경 시 toggleTodo 함수 호출
+            , checked 속성(bool 속성) - 완료여부 값을 속성값으로 전달
+          )
         - 삭제 버튼 (삭제 버튼 클릭 시 deleteTodo 함수 호출)
       */}
     </div>
