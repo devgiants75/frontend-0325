@@ -1,4 +1,7 @@
-import React from 'react'
+import React from "react";
+import Page01 from "./Page01";
+import { Route, Routes } from "react-router-dom";
+import Page02 from "./Page02";
 
 //! SPA(Single Page Application)
 // : 사용자와의 상호작용을 통해 필요한 데이터만 동적으로 불러와 페이지를 갱신하는 웹 애플리케이션 설계 방식
@@ -44,20 +47,41 @@ import React from 'react'
 
 //? 3. index.tsx 파일에 리액트 라우터 설정 추가
 // : 전체 프로젝트에서 라우팅 기능을 사용함을 명시
-// <BrowserRouter></BrowserRouter> 컴포넌트로 
+// <BrowserRouter></BrowserRouter> 컴포넌트로
 // , 전체 컴포넌트(<App />)를 감싸기
+
+// <BrowserRouter>
+//   <App />
+// </BrowserRouter>
 
 //! 라우터 사용 방법
 // Route 컴포넌트에 path='경로' element={<컴포넌트 />} 속성을 사용
 // : 여러 개의 Route를 하나의 컴포넌트에 적용하는 경우
 //   >> Routes 컴포넌트로 반드시 묶어서 사용
 
+// localhost:3000/0715/router01
 export default function Router01() {
-
   return (
     <div>
-      리액트 라우터 돔 학습
+      리액트 라우터 돔 학습 localhost:3000/0715
+      <Routes>
+        {/* 
+        localhost:3000/0715/router01/page01 
+        
+        경로: "/"
+          >> 현재 컴포넌트의 경로로 지정
+        */}
+        <Route path="/" element={<Page01 />} />
 
+        {/* 
+        localhost:3000/0715/router01/page02 
+        
+        경로: "/page02"
+          >> 경로에 새로운 경로가 추가되는 경우
+            현재 컴포넌트 경로를 기준으로 추가되는 URL
+        */}
+        <Route path="/page02" element={<Page02 />} />
+      </Routes>
     </div>
-  )
+  );
 }

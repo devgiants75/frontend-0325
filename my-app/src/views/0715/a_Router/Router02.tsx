@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 //! 리액트 라우터 - 네비게이션 / 링크
 
@@ -16,9 +17,30 @@ export default function Router02() {
   return (
     <div>
       <h2>Link 컴포넌트 사용법</h2>
+      <Link to='/'>Home</Link>
+      <Link to='/0715/router02'>현재 컴포넌트로 이동</Link>
       
       <hr />
       <h2>NavLink 컴포넌트 사용법</h2>
+      <NavLink
+        to='/0709'
+        style={{
+          fontSize: '30px',
+          border: '1px solid black',
+          padding: '10px'
+        }}
+      >
+        0709
+      </NavLink>
+      <NavLink
+        to='/0710'
+        style={({ isActive }) => ({
+          color: isActive ? 'red' : 'pink',
+          backgroundColor: isActive ? 'yello' : 'black'
+        })}
+      >
+        0710
+      </NavLink>
       
     </div>
   )

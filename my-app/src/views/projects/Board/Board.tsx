@@ -41,7 +41,7 @@ const usePosts = () => {
 
     setTimeout(() => {
       // 가상의 posts 데이터를 설정
-      [
+      const example = [
         { id: 1, author: '이승아', date: '2024-05-11', title: '첫 게시물1', content: '리액트 커스텀 훅1'},
         { id: 2, author: '이도경', date: '2024-05-12', title: '첫 게시물2', content: '리액트 커스텀 훅2'},
         { id: 3, author: '이현아', date: '2024-05-13', title: '첫 게시물3', content: '리액트 커스텀 훅3'},

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 //! useNavigate() 훅
 // : react-router-dom에서 제공하는 함수형 컴포넌트의 네비게이션
@@ -24,15 +25,25 @@ import React from 'react'
 
 export default function Router03() {
   //? useNaviage() 사용법
+  // 일반 사용자 정의 변수에 useNavigate() 훅의 내용을 저장
+
+  const navigate = useNavigate();
 
   //& useParams() 사용법
 
   //? 특정 경로 이동 방법
+  const goHome = () => navigate('/');
+  const go0710 = () => navigate('/0710');
 
   //? 이전 페이지로 돌아가기
+  // : 웹 사이트의 이전으로 돌아가기 버튼의 경우 경로 저장 되지 X
+  const goBack = () => navigate(-1);
   
   return (
     <div>
+      <button onClick={goHome}>홈으로 이동</button>
+      <button onClick={go0710}>0710 페이지로 이동</button>
+      <button onClick={goBack}>이전 페이지로 이동</button>
     </div>
   )
 }
