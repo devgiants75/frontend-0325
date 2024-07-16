@@ -8,6 +8,7 @@ import QueryParams01 from "./b_QueryParams/QueryParams01";
 import QueryParams02 from "./b_QueryParams/QueryParams02";
 import Axios01 from "./c_Axios/Axios01";
 import Axios02 from "./c_Axios/Axios02";
+import Axios03 from "./c_Axios/Axios03";
 
 export default function Index() {
   return (
@@ -48,6 +49,7 @@ export default function Index() {
 
       <Axios01 />
       <Axios02 />
+      <Axios03 />
 
     </div>
   );
