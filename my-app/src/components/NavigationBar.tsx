@@ -11,25 +11,33 @@ export default function NavigationBar() {
   return (
     <div
       style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        margin: '10px',
-        padding: '10px 20px',
-        border: '1px solid black',
-        borderRadius: '5px'
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        margin: "10px",
+        padding: "10px 20px",
+        border: "1px solid black",
+        borderRadius: "5px",
       }}
     >
       {/* links 배열을 순회하면서 Link 컴포넌트 생성 */}
-      {links.map(link => (
-        <NavLink key={link} to={link} style={({ isActive }) => ({
-          textDecoration: 'none',
-          color: isActive ? 'red' : 'black',
-          fontWeight: isActive ? 'bold' :'normal'
-        })}>
-          {link === '/' ? 'HOME' : link}
+      {links.map((link) => (
+        <NavLink
+          key={link}
+          to={link}
+          style={({ isActive }) => ({
+            textDecoration: "none",
+            color: isActive ? "white" : "black",
+            fontWeight: isActive ? "bold" : "normal",
+            padding: '10px 15px',
+            borderRadius: '5px',
+            margin: '5px',
+            backgroundColor: isActive ? 'red' : 'lightgray'
+          })}
+        >
+          {link === "/" ? "HOME" : link}
         </NavLink>
       ))}
     </div>
-  )
+  );
 }

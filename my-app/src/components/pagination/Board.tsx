@@ -35,7 +35,7 @@ const Board: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-primary mb-3">My Blog</h1>
+      <h1 className="text-primary mb-3">2. Pagination</h1>
       <ul className="list-group mb-4">
         {loading ? (
           <p>Loading...</p>
