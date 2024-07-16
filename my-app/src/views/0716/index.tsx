@@ -9,6 +9,7 @@ import QueryParams02 from "./b_QueryParams/QueryParams02";
 import Axios01 from "./c_Axios/Axios01";
 import Axios02 from "./c_Axios/Axios02";
 import Axios03 from "./c_Axios/Axios03";
+import SearchForm from "./z_Example/SearchForm";
 
 export default function Index() {
   return (
@@ -50,6 +51,11 @@ export default function Index() {
       <Axios01 />
       <Axios02 />
       <Axios03 />
+
+      <Routes>
+      <Route path="/results" element={<SearchForm />} />
+      <Route path="/results/:query" element={<SearchForm />} />
+      </Routes>
 
     </div>
   );
