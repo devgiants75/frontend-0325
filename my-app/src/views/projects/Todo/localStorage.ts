@@ -4,7 +4,7 @@
 
 // : props로 key값(string), initialValue값(T 제네릭 타입)을 전달 받음
 // : 반환값은 배열 [T, (value: T) => void]
-function useLocalStorage주석() {
+export function useLocalStorage주석() {
   //# useState를 사용하여 storedValue라는 상태를 초기화
   // 초기값은 함수로 전달되며, 로컬 스토리지에서 값을 읽거나, 실패하면 초기값을 사용
 
