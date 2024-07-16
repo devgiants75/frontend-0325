@@ -1,5 +1,6 @@
 import React from 'react'
 import Slider from './slider/Slider';
+import Pagination from './pagination/Board';
 
 import cat01 from '../assets/images/cat01.jpg';
 import cat02 from '../assets/images/cat02.jpg';
@@ -14,6 +15,7 @@ export default function Components() {
     <div>
       <h2>1. 기본 슬라이드</h2>
       <Slider images={images} />
+      <Pagination />
 
       <hr />
     </div>
