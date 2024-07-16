@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 //! Axios
 // : JS에서 HTTP 요청을 실행하기 위한 라이브러리
@@ -38,9 +39,12 @@ import React from 'react'
 
 // 3) PUT
 // : 기존 데이터를 수정할 때 사용
-// - 지정된 리소스를 새로운 데이터로 완전히 대체
+// - 지정된 리소스를 새로운 데이터로 "완전히" 대체
 // - 리소스의 전체적인 수정에 사용
 // EX) 사용자 프로필 업데이트, 설정 변경 등
+
+// +) PATCH
+// - "일부의 데이터"를 대체
 
 // 4) DELETE
 // : 데이터를 삭제할 때 사용
@@ -48,15 +52,95 @@ import React from 'react'
 // - 리소스를 영구적으로 제거할 때 사용
 // EX) 계정 삭제, 게시글 제거 등
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
 export default function Axios01() {
+  const [users, setUsers] = useState<User[]>([]);
+
+  const [newUser, setNewUser] = useState<User>({
+    id: 0,
+    name: '',
+    email: ''
+  });
 
   //! axios를 사용한 get 요청(가져오다)
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+
+      // axios의 응답 내부의 데이터: data 속성 안에 저장
+      setUsers(response.data);
+
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  }
 
   //! axios를 사용한 post 요청(전송하다)
+  const addUser = async (newUser: User) => {
+    try {
+      const response = await axios.post('https://jsonplaceholder.typicode.com/users', newUser);
+
+      setUsers([...users, response.data]);
+
+    } catch (error) {
+      console.error('Error adding user: ', error);
+    }
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    addUser(newUser);
+    setNewUser({ id: 0, name: '', email: '' });
+  }
 
   // 사용자를 추가하는 로직 - post(전송)
 
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
-    <div>Axios01</div>
-  )
+    <div>
+      HTTP: Axios Get/Post
+      <h3>Axios Get</h3>
+      {users?.map((user) => (
+        <div>
+          <h4>{user.name}</h4>
+          <p>{user.email}</p>
+        </div>
+      ))}
+      <hr />
+      <h3>Axios Post</h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="ID"
+          value={newUser.id}
+          onChange={(e) =>
+            setNewUser({ ...newUser, id: Number(e.target.value) })
+          }
+        />
+        <input
+          type="text"
+          placeholder="Name"
+          value={newUser.name}
+          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          value={newUser.email}
+          onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+        />
+        <button type="submit">Add User</button>
+      </form>
+
+      
+    </div>
+  );
 }

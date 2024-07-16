@@ -2,6 +2,11 @@ import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import BlogPosts from "./a_Router/BlogPosts";
 import BlogPost from "./a_Router/BlogPost";
+import UserList from "./a_Router/UserList";
+import UserDetail from "./a_Router/UserDetail";
+import QueryParams01 from "./b_QueryParams/QueryParams01";
+import QueryParams02 from "./b_QueryParams/QueryParams02";
+import Axios01 from "./c_Axios/Axios01";
 
 export default function Index() {
   return (
@@ -16,7 +21,10 @@ export default function Index() {
       
       <nav>
         <ul>
-          <li><Link to='/0716/posts'>posts</Link></li>
+          <li><Link to='/0716/posts'>Posts</Link></li>
+          <li><Link to='/0716/users'>Users</Link></li>
+          <li><Link to='/0716/search'>Search</Link></li>
+          <li><Link to='/0716/product'>Product</Link></li>
         </ul>
       </nav>
 
@@ -28,7 +36,16 @@ export default function Index() {
         */}
         <Route path="/posts" element={<BlogPosts />} />
         <Route path="/posts/:postId" element={<BlogPost />} />
+        
+        <Route path="/users" element={<UserList />} />
+        <Route path="/users/:id" element={<UserDetail />} />
+
+        <Route path="/search" element={<QueryParams01 />} />
+        <Route path="/product" element={<QueryParams02 />} />
+
       </Routes>
+
+      <Axios01 />
 
     </div>
   );
