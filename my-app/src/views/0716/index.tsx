@@ -10,6 +10,7 @@ import Axios01 from "./c_Axios/Axios01";
 import Axios02 from "./c_Axios/Axios02";
 import Axios03 from "./c_Axios/Axios03";
 import SearchForm from "./z_Example/SearchForm";
+import ThemeProvider from "../0717/a_ContextApi/ThemeProvider";
 
 export default function Index() {
   return (
@@ -48,9 +49,11 @@ export default function Index() {
 
       </Routes>
 
-      <Axios01 />
-      <Axios02 />
-      <Axios03 />
+      <ThemeProvider>
+        <Axios01 />
+        <Axios02 />
+        <Axios03 />
+      </ThemeProvider>
 
       <Routes>
       <Route path="/results" element={<SearchForm />} />

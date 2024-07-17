@@ -28,10 +28,12 @@ import Index0709 from './views/0709';
 import Index0710 from './views/0710';
 import Index0715 from './views/0715';
 import Index0716 from './views/0716';
+import Index0717 from './views/0717';
 
 import Projects from './views/projects';
 
 function App() {
+
   return (
     <>
       {/* 
@@ -80,6 +82,7 @@ function App() {
         <Route path="/0710" element={<Index0710 />} />
         <Route path="/0715/*" element={<Index0715 />} />
         <Route path="/0716/*" element={<Index0716 />} />
+        <Route path="/0717" element={<Index0717 />} />
 
         <Route path="/projects" element={<Projects />} />
       </Routes>

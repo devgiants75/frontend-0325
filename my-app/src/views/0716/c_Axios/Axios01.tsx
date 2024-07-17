@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { ThemeContext } from '../../0717/a_ContextApi/ThemeProvider';
 
 //! Axios
 // : JS에서 HTTP 요청을 실행하기 위한 라이브러리
@@ -60,6 +61,7 @@ interface User {
 
 export default function Axios01() {
   const [users, setUsers] = useState<User[]>([]);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const [newUser, setNewUser] = useState<User>({
     id: 0,
@@ -107,7 +109,9 @@ export default function Axios01() {
   return (
     <div>
       HTTP: Axios Get/Post
-      <h3>Axios Get</h3>
+      <h3 style={{
+        backgroundColor: theme === 'light' ? 'white' : 'black'
+      }}>Axios Get</h3>
       {users?.map((user) => (
         <div>
           <h4>{user.name}</h4>
