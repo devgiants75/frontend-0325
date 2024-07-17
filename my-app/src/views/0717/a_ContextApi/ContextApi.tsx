@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode, createContext, useContext, useState } from 'react'
 
 //! Context API 란?
 // : React의 애플리케이션에서 "전역적"으로 데이터를 관리할 수 있는 기능
@@ -24,26 +24,81 @@ import React from 'react'
 //& Context API를 사용한 '사용자 로그인 상태 관리'
 
 //! 사용자 정보를 위한 인터페이스 정의
-
+interface User {
+  name: string;
+}
 
 //! Context에서 사용할 값의 타입 정의
 // : Context가 다룰 값의 타입을 정의
-
+interface UserContextType {
+  user: User | null;
+  // useState를 useReducer로 인식한 상태 설정 함수의 타입
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+}
 
 //# Context 생성 및 초기값 설정
 // : createContext를 사용하여 Context 생성
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
 //# UserProvider 컴포넌트 정의
 
+interface UserProviderProps {
+  children: ReactNode;
+}
+
+const UserProvider = ({ children }: UserProviderProps) => {
+  const [user, setUser] = useState<User | null>(null);
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  )
+}
+
 //! Navbar 컴포넌트
+const Navbar = () => {
+  const userContext = useContext(UserContext);
+
+  if (!userContext) {
+    throw new Error('UserContext가 UserProvider 내에서 사용되지 않습니다.');
+  }
+
+  const { user } = userContext;
+
+  return <div>Hello, {user ? user.name : 'Guest'}</div>;
+}
 
 //! Profile 컴포넌트
 // : Consumer
+const Profile = () => {
+  const userContext = useContext(UserContext);
+
+  if (!userContext) {
+    throw new Error('UserContext가 UserProvider 내에서 사용되지 않습니다.');
+  }
+
+  const { user, setUser } = userContext;
+
+  if (!user) {
+    return <button onClick={() => setUser({ name: "이승아" })}>로그인</button>;
+  }
+
+  return (
+    <div>
+      <h2>{user.name}</h2>
+      <button onClick={() => setUser(null)}>로그아웃</button>
+    </div>
+  )
+}
 
 export default function ContextApi01() {
   return (
     <div>
-
+      <UserProvider>
+        <Navbar />
+        <Profile />
+      </UserProvider>
     </div>
   )
 }

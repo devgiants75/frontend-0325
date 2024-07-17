@@ -1,5 +1,6 @@
 import React from "react";
 import ThemeProvider, { ThemeConsumer } from "./a_ContextApi/ThemeProvider";
+import ContextApi01 from "./a_ContextApi/ContextApi";
 
 /*
 ! 전역 상태 관리 (Global State Management)
@@ -38,7 +39,7 @@ export default function Index() {
       <h2>1. Context Api</h2>
       <ThemeProvider>
         <ThemeConsumer />
-
+        <ContextApi01 />
       </ThemeProvider>
 
       <hr />
