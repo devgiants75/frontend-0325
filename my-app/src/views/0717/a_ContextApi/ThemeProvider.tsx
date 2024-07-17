@@ -4,7 +4,7 @@ import React, { ReactNode, createContext, useContext, useState } from 'react'
 //? 1. 테마 타입을 정의
 type Theme = 'light' | 'dark';
 
-type ThemeContextType = {
+export type ThemeContextType = {
   theme: Theme;
   toggleTheme: () => void;
 }

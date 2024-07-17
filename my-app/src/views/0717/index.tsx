@@ -1,6 +1,7 @@
 import React from "react";
 import ThemeProvider, { ThemeConsumer } from "./a_ContextApi/ThemeProvider";
 import ContextApi01 from "./a_ContextApi/ContextApi";
+import Zustand01 from "./b_Zustand/Zustand01";
 
 /*
 ! 전역 상태 관리 (Global State Management)
@@ -44,6 +45,7 @@ export default function Index() {
 
       <hr />
       <h2>2. Zustand</h2>
+      <Zustand01 />
 
     </div>
   );

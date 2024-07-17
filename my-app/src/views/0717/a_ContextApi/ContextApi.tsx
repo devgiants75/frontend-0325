@@ -1,10 +1,11 @@
-import React, { ReactNode, createContext, useContext, useState } from 'react'
+import React, { ReactNode, createContext, useContext, useState } from "react";
+import { ThemeContext, ThemeContextType } from "./ThemeProvider";
 
 //! Context API 란?
 // : React의 애플리케이션에서 "전역적"으로 데이터를 관리할 수 있는 기능
 // : React에서 제공하는 기능
 // >> 컴포넌트 트리 전체에 걸쳐서 데이터를 효율적으로 전달 가능
-// EX) 사용자의 로그인 상태, 테마 설정, 언어 설정 등 
+// EX) 사용자의 로그인 상태, 테마 설정, 언어 설정 등
 
 //! Context API의 주요 구성 요소
 //? 1) Context 생성 - React.createContext
@@ -53,21 +54,21 @@ const UserProvider = ({ children }: UserProviderProps) => {
     <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
-  )
-}
+  );
+};
 
 //! Navbar 컴포넌트
 const Navbar = () => {
   const userContext = useContext(UserContext);
 
   if (!userContext) {
-    throw new Error('UserContext가 UserProvider 내에서 사용되지 않습니다.');
+    throw new Error("UserContext가 UserProvider 내에서 사용되지 않습니다.");
   }
 
   const { user } = userContext;
 
-  return <div>Hello, {user ? user.name : 'Guest'}</div>;
-}
+  return <div>Hello, {user ? user.name : "Guest"}</div>;
+};
 
 //! Profile 컴포넌트
 // : Consumer
@@ -75,7 +76,7 @@ const Profile = () => {
   const userContext = useContext(UserContext);
 
   if (!userContext) {
-    throw new Error('UserContext가 UserProvider 내에서 사용되지 않습니다.');
+    throw new Error("UserContext가 UserProvider 내에서 사용되지 않습니다.");
   }
 
   const { user, setUser } = userContext;
@@ -89,16 +90,25 @@ const Profile = () => {
       <h2>{user.name}</h2>
       <button onClick={() => setUser(null)}>로그아웃</button>
     </div>
-  )
-}
+  );
+};
 
 export default function ContextApi01() {
+  const { theme, toggleTheme } = useContext<ThemeContextType>(ThemeContext);
   return (
     <div>
-      <UserProvider>
-        <Navbar />
-        <Profile />
-      </UserProvider>
+      <button onClick={toggleTheme}>테마 전환 토글</button>
+      <div
+        style={{
+          backgroundColor: theme === "light" ? "white" : "black",
+          color: theme === "light" ? "black" : "white",
+        }}
+      >
+        <UserProvider>
+          <Navbar />
+          <Profile />
+        </UserProvider>
+      </div>
     </div>
-  )
+  );
 }
