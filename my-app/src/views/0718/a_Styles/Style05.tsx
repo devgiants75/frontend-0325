@@ -1,10 +1,18 @@
-import React from 'react'
+import React from 'react';
+
+import { AppBar, Box, Button, Card, CardActions, CardContent, CardMedia, IconButton, Toolbar, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import cardImage from '../../../assets/images/cat01.jpg';
 
 //# 5. 외부 라이브러리
 // : UI Framework
 
 // 1. MUI
 // : npm install @mui/material @emotion/react @emotion/styled
+
+// 2. MUI Icon 사용
+// : npm i @mui/icons-material
 
 //! theme.ts
 
@@ -75,6 +83,59 @@ import React from 'react'
 export default function Style05() {
   return (
     <div>
+      <Box 
+        display="flex" 
+        flexDirection="row" 
+        p={1} 
+        m={1} 
+        sx={{ height: 100, bgcolor: 'secondary.main', color: 'text.secondary' }}
+      >
+        <Box p={1}>This Box renders as an HTML section element.</Box>
+        <Box p={1}>This Box renders as an HTML section element.</Box>
+        <Box p={1}>This Box renders as an HTML section element.</Box>
+      </Box>
+
+      <hr />
+
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+          sx={{ height: 240 }}
+          image={cardImage}
+          title="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Share</Button>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
+
+      <hr />
+      <AppBar position="fixed">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            프론트엔드 평일 저녁반
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
     </div>
-  )
+  );
 }
