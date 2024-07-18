@@ -1,0 +1,13 @@
+/* style02.css 파일 */
+
+.box {
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: lightcoral;
+}
+
+.para {
+  background-color: lightblue;
+  color: #333;
+}
