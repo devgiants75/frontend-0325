@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  position: relative;
+  margin-right: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: #444;
+}
+
+.dropdown {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #555;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.dropdown li {
+  margin: 0.5rem 0;
+  color: #fff;
+}

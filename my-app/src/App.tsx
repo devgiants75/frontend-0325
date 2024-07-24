@@ -34,6 +34,7 @@ import Index0718 from './views/0718';
 
 import Projects from './views/projects';
 import Examples from './examples/date-picker';
+import Nav from './examples/nav';
 
 function App() {
 
@@ -92,6 +93,7 @@ function App() {
 
         <Route path="/projects" element={<Projects />} />
         <Route path="/examples" element={<Examples />} />
+        <Route path="/nav" element={<Nav />} />
       </Routes>
 
       <Footer />
