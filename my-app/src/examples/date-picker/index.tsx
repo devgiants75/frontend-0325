@@ -1,42 +1,54 @@
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import './style.css';
-import StarRateIcon from '@mui/icons-material/StarRate';
-
 import React, { useState } from 'react';
-import { DateRangePicker, Range } from 'react-date-range';
-import { addDays } from 'date-fns';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './style.css';
 
-const DateRangePickerComponent: React.FC = () => {
-  const [selectionRange, setSelectionRange] = useState<Range>({
-    startDate: new Date(),
-    endDate: addDays(new Date(), 7),
-    key: 'selection',
-  });
+const CustomDatepicker = () => {
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
 
-  const handleSelect = (ranges: { [key: string]: Range }) => {
-    setSelectionRange(ranges.selection);
-  };
-
-  const formatDate = (date: Date | undefined) => {
-    if (!date) return '';
-    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    return new Intl.DateTimeFormat('ko-KR', options).format(date);
+  const handleClearDates = () => {
+    setStartDate(undefined);
+    setEndDate(undefined);
   };
 
   return (
-    <div className="custom-date-range-picker">
-      <DateRangePicker
-        ranges={[selectionRange]}
-        onChange={handleSelect}
-        moveRangeOnFirstSelection={false}
-        months={1}
-        direction="horizontal"
-        fixedHeight={true}
-        showDateDisplay={false}
-      />
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="p-4 border border-cyan-200 rounded-lg flex items-center space-x-2">
+        <div className="relative flex-1">
+          <DatePicker
+            selected={startDate}
+            onChange={(date: Date | null) => setStartDate(date ?? undefined)}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            className="w-full p-2 border border-cyan-400 rounded-l-lg"
+            placeholderText="Start Date"
+            isClearable={false}
+          />
+        </div>
+        <div className="relative flex-1">
+          <DatePicker
+            selected={endDate}
+            onChange={(date: Date | null) => setEndDate(date ?? undefined)}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            className="w-full p-2 border border-cyan-400 rounded-r-lg"
+            placeholderText="End Date"
+            isClearable={false}
+          />
+        </div>
+        <button
+          onClick={handleClearDates}
+          className="flex items-center justify-center px-3 py-2 border border-cyan-400 text-cyan-400 bg-white rounded-lg font-bold hover:bg-cyan-50"
+        >
+          X
+        </button>
+      </div>
     </div>
   );
 };
 
-export default DateRangePickerComponent;
+export default CustomDatepicker;

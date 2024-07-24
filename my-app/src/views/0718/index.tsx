@@ -4,6 +4,7 @@ import Style02 from './a_Styles/Style02'
 import Style03 from './a_Styles/Style03'
 import Style04 from "./a_Styles/Style04";
 import Style05 from "./a_Styles/Style05";
+import DatePicker from "../../examples/date-picker";
 
 export default function Index() {
   return (
@@ -22,6 +23,8 @@ export default function Index() {
         <Style03 />
         <Style04 />
         <Style05 />
+
+        <DatePicker />
 
     </div>
   );
