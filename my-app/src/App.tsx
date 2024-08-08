@@ -31,10 +31,12 @@ import Index0715 from './views/0715';
 import Index0716 from './views/0716';
 import Index0717 from './views/0717';
 import Index0718 from './views/0718';
+import JsonServer from './mocks/MockServer';
 
 import Projects from './views/projects';
 import Examples from './examples/date-picker';
 import Nav from './examples/nav';
+import Drawer from './examples/drawer';
 
 function App() {
 
@@ -90,10 +92,13 @@ function App() {
         <Route path="/0716/*" element={<Index0716 />} />
         <Route path="/0717" element={<Index0717 />} />
         <Route path="/0718" element={<Index0718 />} />
+        
+        <Route path="/json-server" element={<JsonServer />} />
 
         <Route path="/projects" element={<Projects />} />
         <Route path="/examples" element={<Examples />} />
         <Route path="/nav" element={<Nav />} />
+        <Route path="/drawer" element={<Drawer />} />
       </Routes>
 
       <Footer />

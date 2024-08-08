@@ -57,7 +57,7 @@ import cardImage from '../../../assets/images/cat01.jpg';
     flexWrap: Flex 아이템의 감싸기(wrap) 여부
 
     fontSize: 글꼴 크기
-    fontWeight: 글꼴 무게
+    fontWeight: 글꼴 무게   
     lineHeight: 줄 높이
     textAlign: 텍스트 정렬
 
