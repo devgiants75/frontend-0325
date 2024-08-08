@@ -25,14 +25,14 @@
   ],
   "cart": [
     {
-      "id": "8937",
+      "id": "2670",
       "productId": "1",
-      "quantity": 2
+      "quantity": 1
     },
     {
-      "id": "7ac5",
+      "id": "3bd0",
       "productId": "2",
-      "quantity": 2
+      "quantity": 7
     }
   ]
 }
