@@ -32,6 +32,7 @@ import Index0716 from './views/0716';
 import Index0717 from './views/0717';
 import Index0718 from './views/0718';
 import JsonServer from './mocks/MockServer';
+import MainServer from './mocks/Main';
 
 import Projects from './views/projects';
 import Examples from './examples/date-picker';
@@ -94,6 +95,7 @@ function App() {
         <Route path="/0718" element={<Index0718 />} />
         
         <Route path="/json-server" element={<JsonServer />} />
+        <Route path="/cart-app/*" element={<MainServer />} />
 
         <Route path="/projects" element={<Projects />} />
         <Route path="/examples" element={<Examples />} />
