@@ -23,5 +23,16 @@
       "price": 20
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "db0d",
+      "productId": "2",
+      "quantity": 3
+    },
+    {
+      "id": "cfc9",
+      "productId": "1",
+      "quantity": 1
+    }
+  ]
 }
